@@ -1,11 +1,9 @@
 import styles from "./styles.module.css";
-import type { BasePropComponents } from "@/types/props-components";
+import type { HeroSectionAndromedaProps } from "./types";
 
-type props = BasePropComponents;
-
-export const HeroSectionAndromeda = ({ className = "hero-section" }: props) => {
+export const HeroSectionAndromeda = ({ className = "hero-section", backgroundImageUrl = "" }: HeroSectionAndromedaProps) => {
   return (
-    <section className={`${styles.hero} ${className}`}>
+    <section className={`${styles.hero} ${className}` } style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
       <div className={styles.left}>
         <h1 className={styles.title}>
           <span>Web</span> <span className={styles.highlight}>Developer</span>
