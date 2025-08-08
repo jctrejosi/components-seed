@@ -1,12 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import { resolve } from "path";
 
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+    },
+  },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
+      entry: resolve(__dirname, "src/index.ts"),
       name: "components-seed",
       fileName: (format) => `components-seed.${format}.js`,
     },

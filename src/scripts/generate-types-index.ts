@@ -1,21 +1,33 @@
-import fs from "fs";
+import { writeFileSync } from "fs";
 import { glob } from "glob";
-import path from "path";
+import { dirname, resolve, relative, basename } from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(__filename);
 
-const pattern = path.resolve(__dirname, "../components/**/**/**/types.ts");
-const files = glob.sync(pattern);
+// Patrones
+const componentsPattern = resolve(__dirname, "../components/**/**/**/types.ts");
+const manualTypesPattern = resolve(__dirname, "../types/*.ts");
 
-const exports = files.map((file) => {
-  const relativePath = path.relative(path.resolve(__dirname, "../types"), file);
+// Obtener archivos
+const componentFiles = glob.sync(componentsPattern);
+const manualFiles = glob
+  .sync(manualTypesPattern)
+  .filter((file) => basename(file) !== "index.ts");
+
+// Combinar y mapear
+const allFiles = [...componentFiles, ...manualFiles];
+
+const exports = allFiles.map((file) => {
+  const relativePath = relative(resolve(__dirname, "../types"), file);
   const importPath = relativePath.replace(/\.ts$/, "").replace(/\\/g, "/");
-  return `export * from "${importPath}";`;
+  return `export * from "./${importPath}";`;
 });
 
-fs.writeFileSync(
-  path.resolve(__dirname, "../types/index.ts"),
+// Escribir archivo
+writeFileSync(
+  resolve(__dirname, "../types/index.ts"),
   exports.join("\n") + "\n"
 );
+console.log(`✅ index.ts generado con ${allFiles.length} archivos en /types`);

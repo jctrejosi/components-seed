@@ -22,7 +22,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write .",
-    "generate:types": "ts-node ./src/scripts/generate-types-index.ts"
+    "generate:types": "ts-node ./src/scripts/generate-types-index.ts",
+    "generate:utils": "ts-node ./src/scripts/generate-utils-index.ts"
   },
   "dependencies": {
     "glob": "^11.0.3",
