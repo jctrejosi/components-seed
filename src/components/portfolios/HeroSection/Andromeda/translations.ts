@@ -1,4 +1,4 @@
-export const translations = {
+export const translationsDefault = {
   title_web: {
     es: "Web",
     en: "Web",

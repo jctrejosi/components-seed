@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 import type { HeroSectionAndromedaProps } from "./types";
-import { translations } from "./translations";
+import { translationsDefault } from "./translations";
 import { returnTranslation } from "@/utils";
 
 const defaultStyle = {
@@ -10,7 +10,8 @@ const defaultStyle = {
   "--highlight-text-color": "var(--base-color-2)",
 } as React.CSSProperties;
 
-export const HeroSectionAndromeda = ({ className = "hero-section-andromeda", backgroundImage = "", style = { }, imageProfile }: HeroSectionAndromedaProps) => {
+export const HeroSectionAndromeda = ({ className = "hero-section-andromeda", backgroundImage = "", style = {}, imageProfile, translations = translationsDefault }: HeroSectionAndromedaProps) => {
+
   return (
     <section className={`${styles.hero} ${className}`} style={{...defaultStyle, ...style }}>
       <div className={styles.overlay} style={{ backgroundImage: `url(${backgroundImage})`}}></div>
