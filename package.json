@@ -16,6 +16,10 @@
   "files": [
     "bundle"
   ],
+  "eslintConfig": {
+    "extends": "./eslint.config.js"
+  },
+  "prettier": "./prettier-config.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
