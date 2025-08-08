@@ -17,6 +17,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'bundle',
+    cssCodeSplit: true,
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "components-seed",
@@ -28,6 +29,12 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith(".css")) {
+            return "index.css";
+          }
+          return assetInfo.name || "";
         },
       },
     },

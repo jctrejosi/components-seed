@@ -1,9 +1,9 @@
 import styles from "./styles.module.css";
 import type { HeroSectionAndromedaProps } from "./types";
 
-export const HeroSectionAndromeda = ({ className = "hero-section", backgroundImageUrl = "" }: HeroSectionAndromedaProps) => {
+export const HeroSectionAndromeda = ({ className = "hero-section", backgroundImage = "" }: HeroSectionAndromedaProps) => {
   return (
-    <section className={`${styles.hero} ${className}` } style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
+    <section className={`${styles.hero} ${className}` } style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className={styles.left}>
         <h1 className={styles.title}>
           <span>Web</span> <span className={styles.highlight}>Developer</span>
