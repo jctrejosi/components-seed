@@ -4,7 +4,12 @@ import { resolve } from "path";
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), dts()],
+  plugins: [react(), dts({
+    tsconfigPath: './tsconfig.app.json',
+    include: ['src'],
+    outDir: 'bundle',
+    insertTypesEntry: true,
+  })],
   resolve: {
     alias: {
       "@": resolve(__dirname, "src"),
@@ -15,7 +20,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "components-seed",
-      fileName: (format) => `components-seed.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],

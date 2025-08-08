@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import type { ScrollSnapAndromedaProps } from "./types";
 
-export const ScrollSnap = ({ components }: ScrollSnapAndromedaProps) => {
+export const ScrollSnapAndromeda = ({ components }: ScrollSnapAndromedaProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 

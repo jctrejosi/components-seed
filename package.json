@@ -2,13 +2,13 @@
   "name": "components-seed",
   "version": "0.0.1",
   "type": "module",
-  "main": "./bundle/components-seed.cjs.js",
-  "module": "./bundle/components-seed.es.js",
+  "main": "./bundle/index.cjs.js",
+  "module": "./bundle/index.es.js",
   "types": "./bundle/index.d.ts",
   "exports": {
     ".": {
-      "import": "./bundle/components-seed.es.js",
-      "require": "./bundle/components-seed.cjs.js"
+      "import": "./bundle/index.es.js",
+      "require": "./bundle/index.cjs.js"
     }
   },
   "files": [
@@ -28,7 +28,7 @@
     "generate:utils": "ts-node ./src/scripts/generate-utils-index.ts",
     "generate:components": "ts-node ./src/scripts/generate-components-index.ts",
     "generate-indexes": "ts-node ./src/scripts",
-    "bundle": "yarn generate-indexes && vite build"
+    "bundle": "yarn generate-indexes && tsc -p tsconfig.app.json && vite build"
   },
   "dependencies": {
     "glob": "^11.0.3",
