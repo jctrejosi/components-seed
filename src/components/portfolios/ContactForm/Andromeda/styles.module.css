@@ -1,0 +1,77 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5b21b6; /* morado fuerte */
+}
+
+.subtitle {
+  color: #444;
+  margin: 1rem 0 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: left;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.field input,
+.field textarea {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-bottom-color: #5b21b6;
+}
+
+.button {
+  align-self: flex-start;
+  padding: 0.75rem 2rem;
+  border: 1px solid #5b21b6;
+  background: none;
+  color: #5b21b6;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background: #5b21b6;
+  color: #fff;
+}
