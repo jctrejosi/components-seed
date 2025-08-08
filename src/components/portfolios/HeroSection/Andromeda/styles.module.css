@@ -1,14 +1,26 @@
 .hero {
+  align-items: center;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 4rem 2rem;
-  min-height: 100vh;
-  box-sizing: border-box;
+  padding: 4rem 10rem;
   position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-size: cover;
   background-position: center;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
 .left {
@@ -20,16 +32,21 @@
   font-size: 3rem;
   font-weight: bold;
   line-height: 1.2;
+  color: var(--title-color);
 }
 
-.highlight {
-  color: #A3E635; /* Puedes cambiar a tu color principal */
+.highlight_1 {
+  color: var(--highlight-1-color);
+}
+
+.highlight_2 {
+  color: var(--highlight-2-color);
 }
 
 .subtitle {
   font-size: 1.25rem;
   margin-top: 1rem;
-  color: #666;
+  color: var(--subtitle-color);
 }
 
 .highlights {
@@ -38,7 +55,7 @@
   flex-direction: column;
   gap: 1rem;
   font-size: 0.95rem;
-  color: #888;
+  color: var(--highlight-text-color);
 }
 
 .right {
