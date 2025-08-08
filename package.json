@@ -1,7 +1,6 @@
 {
-  "name": "components-seeds",
-  "private": true,
-  "version": "0.0.0",
+  "name": "components-seed",
+  "version": "0.0.1",
   "type": "module",
   "main": "./bundle/components-seed.cjs.js",
   "module": "./bundle/components-seed.es.js",

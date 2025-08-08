@@ -1479,9 +1479,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"components-seeds@workspace:.":
+"components-seed@workspace:.":
   version: 0.0.0-use.local
-  resolution: "components-seeds@workspace:."
+  resolution: "components-seed@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.32.0"
     "@types/glob": "npm:^9.0.0"
