@@ -68,7 +68,9 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 
 .button:hover {

@@ -1,6 +1,6 @@
-import type { BasePropComponents } from "@/types";
+import type { BasePropComponents } from '@/types'
 
 export type HeroSectionAndromedaProps = BasePropComponents & {
-  backgroundImage?: string;
-  imageProfile?: string;
-};
+  backgroundImage?: string
+  imageProfile?: string
+}

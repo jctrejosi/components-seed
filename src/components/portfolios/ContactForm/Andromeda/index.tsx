@@ -1,23 +1,21 @@
-import { useState } from "react";
-import styles from "./styles.module.css";
+import { useState } from 'react'
+import styles from './styles.module.css'
 
 export const ContactFormAndromeda = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+    name: '',
+    email: '',
+    message: '',
+  })
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+    e.preventDefault()
+    console.log(formData)
+  }
 
   return (
     <section className={styles.container}>
@@ -73,5 +71,5 @@ export const ContactFormAndromeda = () => {
         </button>
       </form>
     </section>
-  );
-};
+  )
+}

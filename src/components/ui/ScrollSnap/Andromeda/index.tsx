@@ -1,42 +1,43 @@
-import { useRef, useState, useEffect } from "react";
-import styles from "./styles.module.css";
-import type { ScrollSnapAndromedaProps } from "./types";
+import { useRef, useState, useEffect } from 'react'
+import styles from './styles.module.css'
+import type { ScrollSnapAndromedaProps } from './types'
 
 const defaultStyle = {
-  "--dot-base-color": "var(--dot-color)",
-  "--dot-base-active-color": "var(--dot-active-color)",
-} as React.CSSProperties;
+  '--dot-base-color': 'var(--dot-color)',
+  '--dot-base-active-color': 'var(--dot-active-color)',
+  '--bg-base': 'var(--bg-main)',
+} as React.CSSProperties
 
 export const ScrollSnapAndromeda = ({ components, style }: ScrollSnapAndromedaProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            setActiveIndex(index);
+            const index = Number(entry.target.getAttribute('data-index'))
+            setActiveIndex(index)
           }
-        });
+        })
       },
       {
         root: containerRef.current,
         threshold: 0.5,
       }
-    );
+    )
 
-    const sections = containerRef.current?.children ?? [];
-    Array.from(sections).forEach((child) => observer.observe(child));
+    const sections = containerRef.current?.children ?? []
+    Array.from(sections).forEach((child) => observer.observe(child))
 
-    return () => observer.disconnect();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
   const scrollToSection = (index: number) => {
-    const section = containerRef.current?.children[index];
-    section?.scrollIntoView({ behavior: "smooth" });
-  };
+    const section = containerRef.current?.children[index]
+    section?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <div className={styles.wrapper} style={{ ...defaultStyle, ...style }}>
@@ -53,14 +54,12 @@ export const ScrollSnapAndromeda = ({ components, style }: ScrollSnapAndromedaPr
           <div
             key={i}
             onClick={() => scrollToSection(i)}
-            className={`${styles.dot} ${
-              i === activeIndex ? styles.dotActive : ""
-            }`}
+            className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ''}`}
           >
-            {child.dotLabel || ""}
+            {child.dotLabel || ''}
           </div>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
