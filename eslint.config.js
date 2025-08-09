@@ -28,6 +28,7 @@ export default tseslint.config([
       js.configs.recommended,
       tseslint.configs.recommended,
       reactHooks.configs['recommended-latest'],
+      'plugin:prettier/recommended',
       reactRefresh.configs.vite,
     ],
     rules: {
