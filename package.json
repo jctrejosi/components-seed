@@ -1,6 +1,6 @@
 {
   "name": "components-seed",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "./bundle/index.cjs.js",
   "module": "./bundle/index.es.js",
