@@ -1,11 +1,19 @@
 :root {
   --dot-color: var(--base-color-1);
   --dot-active-color: var(--base-color-7);
-  --bg-primary: var(--base-color-10);
-  --bg-secondary: var(--base-color-5);
-  --item-bg: var(--base-color-4);
+  --bg-primary: var(--base-color-11);
+  --bg-secondary: var(--dark-80);
+  --bg-alter: var(--base-color-10);
+  --item-bg: var(--dark-70);
   --anchor-color: var(--base-color-7);
   --title-color: var(--base-color-2);
   --subtitle-color: var(--base-color-3);
   --text-color: var(--base-color-1);
+  --label-color: var(--base-color-1);
+  --input-text-color: var(--dark-10);
+  --input-placeholder-color: var(--dark-30);
+  --input-border-color: var(--base-color-4);
+  --input-border-focus-color: var(--base-color-6);
+  --btn-color: var(--base-color-6);
+  --btn-hover-color: var(--base-color-7);
 }

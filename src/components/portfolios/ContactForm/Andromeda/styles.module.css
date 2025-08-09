@@ -8,11 +8,11 @@
 .title {
   font-size: 2rem;
   font-weight: bold;
-  color: #5b21b6; /* morado fuerte */
+  color: var(--title-color);
 }
 
 .subtitle {
-  color: #444;
+  color: var(--subtitle-color);
   margin: 1rem 0 2rem;
 }
 
@@ -35,17 +35,22 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  color: var(--label-color);
+}
+
+.field:focus-within label {
+  color: var(--input-border-focus-color);
 }
 
 .field label {
   font-size: 0.9rem;
-  color: #999;
 }
 
 .field input,
 .field textarea {
+  color: var(--input-text-color);
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--label-color);
   padding: 0.5rem;
   font-size: 1rem;
   background: transparent;
@@ -53,27 +58,33 @@
   resize: vertical;
 }
 
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--input-placeholder-color);
+}
+
 .field input:focus,
 .field textarea:focus {
-  border-bottom-color: #5b21b6;
+  border-bottom-color: var(--input-border-focus-color);
 }
 
 .button {
   align-self: flex-start;
   padding: 0.75rem 2rem;
-  border: 1px solid #5b21b6;
+  border: 1px solid var(--btn-color);
   background: none;
-  color: #5b21b6;
+  color: var(--btn-color);
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
   transition:
     background 0.3s,
+    border-color 0.3s,
     color 0.3s;
 }
 
 .button:hover {
-  background: #5b21b6;
-  color: #fff;
+  border: 1px solid var(--btn-hover-color);
+  color: var(--btn-hover-color);
 }

@@ -41,6 +41,7 @@
   height: 50px;
   margin-bottom: 1rem;
   object-fit: contain;
+  width: 90%;
 }
 
 .info {
@@ -52,4 +53,5 @@
 .info a {
   color: var(--link-color);
   font-size: 0.9rem;
+  margin-top: 1rem;
 }

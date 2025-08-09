@@ -1,8 +1,13 @@
 import { useState } from 'react'
-
+import { translationsSources } from './translations'
 import styles from './styles.module.css'
+import type { ContactFormAndromedaProps } from './types'
+import { returnTranslation } from '@/utils'
 
-export const ContactFormAndromeda = () => {
+export const ContactFormAndromeda = ({
+  sendTo,
+  translations = translationsSources,
+}: ContactFormAndromedaProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,26 +24,28 @@ export const ContactFormAndromeda = () => {
   }
 
   const handleSubmit = (e: React.FormEvent) => {
+    ;() => sendTo
     e.preventDefault()
-    console.log(formData)
   }
 
   return (
     <section className={styles.container}>
-      <h2 className={styles.title}>Send me a message!</h2>
+      <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
       <p className={styles.subtitle}>
-        Got a question or proposal, or just want to say hello? Go ahead.
+        {returnTranslation(translations.subtitle)}
       </p>
 
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.row}>
           <div className={styles.field}>
-            <label htmlFor="name">Your Name</label>
+            <label htmlFor="name">
+              {returnTranslation(translations.label_name)}
+            </label>
             <input
               type="text"
               id="name"
               name="name"
-              placeholder="Enter your name"
+              placeholder={returnTranslation(translations.placeholder_name)}
               value={formData.name}
               onChange={handleChange}
               required
@@ -46,12 +53,14 @@ export const ContactFormAndromeda = () => {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">
+              {returnTranslation(translations.label_email)}
+            </label>
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="Enter your email address"
+              placeholder={returnTranslation(translations.placeholder_email)}
               value={formData.email}
               onChange={handleChange}
               required
@@ -60,11 +69,13 @@ export const ContactFormAndromeda = () => {
         </div>
 
         <div className={styles.field}>
-          <label htmlFor="message">Your Message</label>
+          <label htmlFor="message">
+            {returnTranslation(translations.label_message)}
+          </label>
           <textarea
             id="message"
             name="message"
-            placeholder="Hi, I think we need a design system for our products at Company X..."
+            placeholder={returnTranslation(translations.placeholder_message)}
             value={formData.message}
             onChange={handleChange}
             rows={5}
@@ -73,7 +84,7 @@ export const ContactFormAndromeda = () => {
         </div>
 
         <button type="submit" className={styles.button}>
-          SHOOT →
+          {returnTranslation(translations.button)}
         </button>
       </form>
     </section>

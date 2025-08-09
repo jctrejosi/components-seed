@@ -4,7 +4,6 @@ import { translationsSources } from './translations'
 import type { WorkSectionAndromedaProps } from './types'
 
 const defaultStyles = {
-  '--item-bg': 'var(--bg-secondary)',
   '--link-color': 'var(--anchor-color)',
   '--subtitle-color': 'var(--base-color-4)',
 }
