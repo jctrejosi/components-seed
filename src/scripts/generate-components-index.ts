@@ -15,7 +15,7 @@ const exports = files.map((file) => {
   const relativePath = relative(resolve(__dirname, '../components'), file)
   const importPath =
     './' + relativePath.replace(/\/index\.tsx$/, '').replace(/\\/g, '/')
-  return `export * from '${importPath}';`
+  return `export * from '${importPath}'`
 })
 
 // Escribe el archivo index.ts final en /components

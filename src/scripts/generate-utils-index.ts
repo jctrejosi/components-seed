@@ -15,7 +15,7 @@ const files = readdirSync(utilsDir).filter((file) => {
 
 const exports = files.map((file) => {
   const name = basename(file, extname(file))
-  return `export * from './${name}.ts';`
+  return `export * from './${name}.ts'`
 })
 
 writeFileSync(indexPath, exports.join('\n') + '\n')

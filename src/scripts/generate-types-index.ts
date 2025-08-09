@@ -22,7 +22,7 @@ const allFiles = [...componentFiles, ...manualFiles]
 const exports = allFiles.map((file) => {
   const relativePath = relative(resolve(__dirname, '../types'), file)
   const importPath = relativePath.replace(/\.ts$/, '').replace(/\\/g, '/')
-  return `export * from './${importPath}.ts';`
+  return `export * from './${importPath}.ts'`
 })
 
 // Escribir archivo

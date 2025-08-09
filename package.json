@@ -24,7 +24,7 @@
     "generate:utils": "ts-node ./src/scripts/generate-utils-index.ts",
     "generate:components": "ts-node ./src/scripts/generate-components-index.ts",
     "generate-indexes": "ts-node ./src/scripts",
-    "bundle": "npm run generate-indexes && tsc -p tsconfig.app.json && vite build && cp package.json bundle/"
+    "bundle": "npm run generate-indexes && tsc -b && vite build"
   },
   "dependencies": {
     "glob": "^11.0.3",

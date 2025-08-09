@@ -1,1 +1,1 @@
-export * from './returnTranslations.ts';
+export * from './returnTranslations.ts'
