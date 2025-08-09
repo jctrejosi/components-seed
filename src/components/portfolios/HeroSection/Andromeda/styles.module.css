@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 4rem 10rem;
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .overlay {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -24,8 +24,13 @@
 }
 
 .left {
-  flex: 1;
-  max-width: 600px;
+  height: 100%;
+  width: 70%;
+  background-color: var(--bg-left);
+  display: flex;
+  flex-direction: column;
+  padding: 0 10rem;
+  justify-content: center;
 }
 
 .title {
@@ -59,10 +64,13 @@
 }
 
 .right {
-  flex: 1;
+  width: 30%;
+  height: 100%;
+  padding: 0 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--bg-right);
 }
 
 .image {

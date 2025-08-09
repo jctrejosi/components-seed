@@ -1,11 +1,6 @@
 :root {
-  --base-color-1: #f1f0f8;
-  --base-color-2: #e0eaf5;
-  --base-color-3: #92badd;
-  --base-color-4: #cc9c7b;
-  --base-color-5: #ff871f;
-  --base-color-6: #a30000;
-  --base-color-7: #262946;
-  --base-color-8: #313131;
-  --base-color-9: #0f122c;
+  --dot-color: var(--base-color-1);
+  --dot-active-color: var(--base-color-5);
+  --bg-main: var(--base-color-9);
+  --bg-secondary: var(--base-color-4);
 }
