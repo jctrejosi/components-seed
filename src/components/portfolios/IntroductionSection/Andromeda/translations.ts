@@ -5,10 +5,11 @@ export const translations = {
     pt: 'Olá!',
   },
   i_am_juan_trejos: {
-    es: 'Soy Juan Trejos',
-    en: "I'm Juan Trejos",
-    pt: 'Sou Juan Trejos',
+    es: 'Soy ',
+    en: "I'm ",
+    pt: 'Sou ',
   },
+  name: 'Juan Trejos',
   developer_focus: {
     es: 'un desarrollador enfocado en construir aplicaciones web limpias y escalables',
     en: 'a developer focused on building clean, scalable web apps',

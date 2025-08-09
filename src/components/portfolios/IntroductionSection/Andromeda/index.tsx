@@ -1,3 +1,4 @@
+import { returnTranslation } from '@/utils'
 import {
   FaEnvelope,
   FaGithub,
@@ -7,22 +8,29 @@ import {
 } from 'react-icons/fa'
 
 import styles from './styles.module.css'
+import { translations } from './translations'
+import { type PropsIntroductionSectionAndromeda } from './types'
 
-export const IntroductionSectionAndromeda = () => {
+export const IntroductionSectionAndromeda = ({
+  className,
+}: PropsIntroductionSectionAndromeda) => {
   return (
-    <section className={styles.container}>
-      <h1 className={styles.heading}>Hi there!</h1>
+    <section className={`${styles.container} ${className}`}>
+      <h1 className={styles.heading}>
+        {returnTranslation(translations.hi_there)}
+      </h1>
       <p className={styles.paragraph}>
-        I'm <span className={styles.highlight}>Juan Trejos</span>, a developer
-        focused on building clean, scalable web apps. I enjoy simplifying
-        technical challenges and making technology accessible to everyone.
+        {returnTranslation(translations.i_am_juan_trejos)}
+        <span className={styles.highlight}>
+          {returnTranslation(translations.name)}
+        </span>
+        {returnTranslation(translations.developer_focus)}.
         <br />
-        This website is my digital garden — where I share my journey, knowledge,
-        and ideas.
+        {returnTranslation(translations.digital_garden)}
       </p>
 
       <div className={styles.social}>
-        <span>Find me on</span>
+        <span>{returnTranslation(translations.find_me_on)}</span>
         <div className={styles.icons}>
           <a
             href="https://twitter.com/tuusuario"

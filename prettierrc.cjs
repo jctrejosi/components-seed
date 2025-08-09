@@ -1,13 +1,13 @@
-export default {
+module.exports = {
   semi: false,
   singleQuote: true,
   jsxSingleQuote: false,
-  trailingComma: 'es5',
+  trailingComma: "es5",
   printWidth: 80,
   tabWidth: 2,
   useTabs: false,
   bracketSpacing: true,
-  arrowParens: 'always',
-  endOfLine: 'lf',
-  proseWrap: 'always',
-}
+  arrowParens: "always",
+  endOfLine: "lf",
+  proseWrap: "always",
+};
