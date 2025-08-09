@@ -7,7 +7,7 @@
   "types": "./bundle/index.d.ts",
   "files": [
     "bundle",
-    ".prettierrc.json",
+    ".prettierrc.js",
     "eslint.config.js"
   ],
   "eslintConfig": {
