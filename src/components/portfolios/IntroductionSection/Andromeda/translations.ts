@@ -1,15 +1,15 @@
-export const translations = {
+export const translationsSources = {
   hi_there: {
     es: '¡Hola!',
     en: 'Hi there!',
     pt: 'Olá!',
   },
-  i_am_juan_trejos: {
+  i_am: {
     es: 'Soy ',
     en: "I'm ",
     pt: 'Sou ',
   },
-  name: 'Juan Trejos',
+  name: 'Juan Trejos ',
   developer_focus: {
     es: 'un desarrollador enfocado en construir aplicaciones web limpias y escalables',
     en: 'a developer focused on building clean, scalable web apps',

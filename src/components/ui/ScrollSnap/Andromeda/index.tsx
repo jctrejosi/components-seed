@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import styles from './styles.module.css'
 import type { ScrollSnapAndromedaProps } from './types'
@@ -6,11 +6,11 @@ import type { ScrollSnapAndromedaProps } from './types'
 const defaultStyle = {
   '--dot-base-color': 'var(--dot-color)',
   '--dot-base-active-color': 'var(--dot-active-color)',
-  '--bg-base': 'var(--bg-main)',
+  '--bg-base': 'var(--bg-primary)',
 } as React.CSSProperties
 
 export const ScrollSnapAndromeda = ({
-  components,
+  sections,
   style,
 }: ScrollSnapAndromedaProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -54,15 +54,22 @@ export const ScrollSnapAndromeda = ({
       }}
     >
       <div ref={containerRef} className={styles.container}>
-        {components.map((child, i) => (
-          <div key={i} data-index={i} className={styles.section}>
+        {sections.map((child, i) => (
+          <div
+            key={i}
+            data-index={i}
+            className={styles.section}
+            style={{
+              backgroundColor: child.backgroundColor || 'var(--bg-base)',
+            }}
+          >
             {child.component}
           </div>
         ))}
       </div>
 
       <div className={styles.dots}>
-        {components.map((child, i) => (
+        {sections.map((child, i) => (
           <div
             key={i}
             onClick={() => scrollToSection(i)}

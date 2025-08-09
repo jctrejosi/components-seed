@@ -1,6 +1,6 @@
 .container {
-  background-color: #1a1a1a;
-  color: #e0e0e0;
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
   padding: 4rem 2rem;
   max-width: 700px;
   margin: 0 auto;
@@ -20,14 +20,14 @@
 }
 
 .highlight {
-  color: #90ee90; /* verde tipo `Gift Egwuenu` */
+  color: var(--highlight-color);
   font-weight: bold;
 }
 
 .social {
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: #b0b0b0;
+  color: var(--subtitle-color);
 }
 
 .icons {
@@ -38,10 +38,10 @@
 }
 
 .icons a {
-  color: #e0e0e0;
+  color: var(--icons-color);
   transition: color 0.3s;
 }
 
 .icons a:hover {
-  color: #7b5dfc;
+  color: var(--icons-hover-color);
 }

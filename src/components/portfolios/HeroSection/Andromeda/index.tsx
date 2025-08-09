@@ -9,7 +9,7 @@ const defaultStyle = {
   '--highlight-2-color': 'var(--base-color-3)',
   '--subtitle-color': 'var(--base-color-4)',
   '--highlight-text-color': 'var(--base-color-2)',
-  '--bg-left': 'var(--bg-main)',
+  '--bg-left': 'var(--bg-primary)',
   '--bg-right': 'var(--bg-secondary)',
 } as React.CSSProperties
 

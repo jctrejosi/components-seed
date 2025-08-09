@@ -1,21 +1,31 @@
+import { returnTranslation } from '@/utils'
 import styles from './styles.module.css'
+import { translationsSources } from './translations'
+import type { WorkSectionAndromedaProps } from './types'
 
-type Project = {
-  name: string
-  logo: string
-  url?: string
+const defaultStyles = {
+  '--item-bg': 'var(--bg-secondary)',
+  '--link-color': 'var(--anchor-color)',
+  '--subtitle-color': 'var(--base-color-4)',
+  '--title-color': 'var(--title-color)',
 }
 
-type WorkSectionProps = {
-  projects: Project[]
-}
-
-export const WorkSectionAndromeda = ({ projects }: WorkSectionProps) => {
+export const WorkSectionAndromeda = ({
+  projects,
+  translations = translationsSources,
+  style,
+}: WorkSectionAndromedaProps) => {
   return (
-    <section className={styles.workSection}>
-      <h2 className={styles.title}>/work.</h2>
+    <section
+      className={styles.workSection}
+      style={{
+        ...defaultStyles,
+        ...style,
+      }}
+    >
+      <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
       <p className={styles.subtitle}>
-        Selected work I've taken on in the past.
+        {returnTranslation(translations.subtitle)}
       </p>
 
       <div className={styles.grid}>

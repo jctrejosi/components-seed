@@ -1,6 +1,11 @@
 :root {
   --dot-color: var(--base-color-1);
-  --dot-active-color: var(--base-color-5);
-  --bg-main: var(--base-color-9);
-  --bg-secondary: var(--base-color-4);
+  --dot-active-color: var(--base-color-7);
+  --bg-primary: var(--base-color-10);
+  --bg-secondary: var(--base-color-5);
+  --item-bg: var(--base-color-4);
+  --anchor-color: var(--base-color-3);
+  --title-color: var(--base-color-2);
+  --subtitle-color: var(--base-color-3);
+  --text-color: var(--base-color-1);
 }

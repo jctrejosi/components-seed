@@ -1,8 +1,9 @@
 import type { BasePropComponents } from '@/types'
 
 export type ScrollSnapAndromedaProps = BasePropComponents & {
-  components: {
+  sections: {
     component: React.ReactNode
     dotLabel?: string
+    backgroundColor?: string
   }[]
 }
