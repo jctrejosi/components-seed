@@ -1,6 +1,10 @@
 export const translations = {
   hi_there: { es: '¡Hola!', en: 'Hi there!', pt: 'Olá!' },
-  i_am_juan_trejos: { es: 'Soy Juan Trejos', en: "I'm Juan Trejos", pt: 'Sou Juan Trejos' },
+  i_am_juan_trejos: {
+    es: 'Soy Juan Trejos',
+    en: "I'm Juan Trejos",
+    pt: 'Sou Juan Trejos',
+  },
   developer_focus: {
     es: 'un desarrollador enfocado en construir aplicaciones web limpias y escalables',
     en: 'a developer focused on building clean, scalable web apps',
@@ -16,5 +20,9 @@ export const translations = {
     en: 'This website is my digital garden — where I share my journey, knowledge, and ideas',
     pt: 'Este site é o meu jardim digital — onde compartilho minha jornada, conhecimento e ideias',
   },
-  find_me_on: { es: 'Encuéntrame en', en: 'Find me on', pt: 'Encontre-me em' },
+  find_me_on: {
+    es: 'Encuéntrame en',
+    en: 'Find me on',
+    pt: 'Encontre-me em',
+  },
 }

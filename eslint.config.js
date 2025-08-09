@@ -29,6 +29,15 @@ export default tseslint.config([
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
+      'object-curly-newline': [
+        'error',
+        {
+          multiline: true,
+          minProperties: 1,
+        },
+      ],
+      'object-property-newline': ['on'],
+      'prettier/prettier': 'error',
     },
     languageOptions: {
       ecmaVersion: 2020,

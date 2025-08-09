@@ -20,16 +20,26 @@ export const HeroSectionAndromeda = ({
   translations = translationsDefault,
 }: HeroSectionAndromedaProps) => {
   return (
-    <section className={`${styles.hero} ${className}`} style={{ ...defaultStyle, ...style }}>
-      <div className={styles.overlay} style={{ backgroundImage: `url(${backgroundImage})` }}></div>
+    <section
+      className={`${styles.hero} ${className}`}
+      style={{ ...defaultStyle, ...style }}
+    >
+      <div
+        className={styles.overlay}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      ></div>
       <div className={styles.left}>
         <h1 className={styles.title}>
-          <span className={styles.highlight_1}>{returnTranslation(translations.title_web)}</span>{' '}
+          <span className={styles.highlight_1}>
+            {returnTranslation(translations.title_web)}
+          </span>{' '}
           <span className={styles.highlight_2}>
             {returnTranslation(translations.title_developer)}
           </span>
         </h1>
-        <p className={styles.subtitle}>{returnTranslation(translations.subtitle)}</p>
+        <p className={styles.subtitle}>
+          {returnTranslation(translations.subtitle)}
+        </p>
 
         <div className={styles.highlights}>
           <p>{returnTranslation(translations.highlight_1)}</p>

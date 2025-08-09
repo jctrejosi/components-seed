@@ -12,7 +12,9 @@ const manualTypesPattern = resolve(__dirname, '../types/*.ts')
 
 // Obtener archivos
 const componentFiles = glob.sync(componentsPattern)
-const manualFiles = glob.sync(manualTypesPattern).filter((file) => basename(file) !== 'index.ts')
+const manualFiles = glob
+  .sync(manualTypesPattern)
+  .filter((file) => basename(file) !== 'index.ts')
 
 // Combinar y mapear
 const allFiles = [...componentFiles, ...manualFiles]
@@ -24,5 +26,8 @@ const exports = allFiles.map((file) => {
 })
 
 // Escribir archivo
-writeFileSync(resolve(__dirname, '../types/index.ts'), exports.join('\n') + '\n')
+writeFileSync(
+  resolve(__dirname, '../types/index.ts'),
+  exports.join('\n') + '\n'
+)
 console.log(`✅ index.ts generado con ${allFiles.length} archivos en /types`)

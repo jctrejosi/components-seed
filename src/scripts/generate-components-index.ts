@@ -13,10 +13,16 @@ const files = glob.sync(pattern)
 // Genera los exports relativos desde /components
 const exports = files.map((file) => {
   const relativePath = relative(resolve(__dirname, '../components'), file)
-  const importPath = './' + relativePath.replace(/\/index\.tsx$/, '').replace(/\\/g, '/')
+  const importPath =
+    './' + relativePath.replace(/\/index\.tsx$/, '').replace(/\\/g, '/')
   return `export * from "${importPath}";`
 })
 
 // Escribe el archivo index.ts final en /components
-writeFileSync(resolve(__dirname, '../components/index.ts'), exports.join('\n') + '\n')
-console.log(`✅ index.ts generado con ${files.length} componentes en /components`)
+writeFileSync(
+  resolve(__dirname, '../components/index.ts'),
+  exports.join('\n') + '\n'
+)
+console.log(
+  `✅ index.ts generado con ${files.length} componentes en /components`
+)

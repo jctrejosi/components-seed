@@ -8,7 +8,10 @@ const defaultStyle = {
   '--bg-base': 'var(--bg-main)',
 } as React.CSSProperties
 
-export const ScrollSnapAndromeda = ({ components, style }: ScrollSnapAndromedaProps) => {
+export const ScrollSnapAndromeda = ({
+  components,
+  style,
+}: ScrollSnapAndromedaProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 

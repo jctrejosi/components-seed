@@ -14,12 +14,18 @@ export const WorkSectionAndromeda = ({ projects }: WorkSectionProps) => {
   return (
     <section className={styles.workSection}>
       <h2 className={styles.title}>/work.</h2>
-      <p className={styles.subtitle}>Selected work I've taken on in the past.</p>
+      <p className={styles.subtitle}>
+        Selected work I've taken on in the past.
+      </p>
 
       <div className={styles.grid}>
         {projects.map((project) => (
           <div key={project.name} className={styles.card}>
-            <img src={project.logo} alt={project.name} className={styles.logo} />
+            <img
+              src={project.logo}
+              alt={project.name}
+              className={styles.logo}
+            />
             <div className={styles.info}>
               <strong>{project.name}</strong>
               {project.url && (
