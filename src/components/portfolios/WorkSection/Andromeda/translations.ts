@@ -1,12 +1,12 @@
 export const translationsSources = {
   title: {
-    es: '/trabajos.',
-    en: '/work.',
-    pt: '/trabalhos.',
+    es: '/Experiencia.',
+    en: '/Experiencia.',
+    pt: '/Experiencia.',
   },
   subtitle: {
-    es: 'Trabajos seleccionados que he realizado en el pasado.',
-    en: "Selected work I've taken on in the past.",
-    pt: 'Trabalhos selecionados que realizei no passado.',
+    es: 'Experiencias seleccionadas que he realizado en el pasado.',
+    en: "Selected experiences I've taken on in the past.",
+    pt: 'Experiências selecionadas que realizei no passado.',
   },
 }

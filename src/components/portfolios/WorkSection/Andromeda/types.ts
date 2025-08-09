@@ -1,11 +1,14 @@
 import type { BasePropComponents } from '@/types'
 
-export type Project = {
-  name: string
-  logo: string
-  url?: string
+export type ItemWorkSection = {
+  name?: string
+  logo?: string
+  link?: {
+    url: string
+    text: string
+  }
 }
 
 export type WorkSectionAndromedaProps = BasePropComponents & {
-  projects: Project[]
+  items: ItemWorkSection[]
 }
