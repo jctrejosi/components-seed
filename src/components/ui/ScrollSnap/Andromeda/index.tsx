@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
+
 import styles from './styles.module.css'
 import type { ScrollSnapAndromedaProps } from './types'
 
@@ -39,11 +40,19 @@ export const ScrollSnapAndromeda = ({
 
   const scrollToSection = (index: number) => {
     const section = containerRef.current?.children[index]
-    section?.scrollIntoView({ behavior: 'smooth' })
+    section?.scrollIntoView({
+      behavior: 'smooth',
+    })
   }
 
   return (
-    <div className={styles.wrapper} style={{ ...defaultStyle, ...style }}>
+    <div
+      className={styles.wrapper}
+      style={{
+        ...defaultStyle,
+        ...style,
+      }}
+    >
       <div ref={containerRef} className={styles.container}>
         {components.map((child, i) => (
           <div key={i} data-index={i} className={styles.section}>

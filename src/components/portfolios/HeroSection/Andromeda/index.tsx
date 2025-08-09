@@ -1,7 +1,8 @@
-import styles from './styles.module.css'
-import type { HeroSectionAndromedaProps } from './types'
-import { translationsDefault } from './translations'
 import { returnTranslation } from '@/utils'
+
+import styles from './styles.module.css'
+import { translationsDefault } from './translations'
+import type { HeroSectionAndromedaProps } from './types'
 
 const defaultStyle = {
   '--highlight-1-color': 'var(--base-color-5)',
@@ -22,11 +23,16 @@ export const HeroSectionAndromeda = ({
   return (
     <section
       className={`${styles.hero} ${className}`}
-      style={{ ...defaultStyle, ...style }}
+      style={{
+        ...defaultStyle,
+        ...style,
+      }}
     >
       <div
         className={styles.overlay}
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+        }}
       ></div>
       <div className={styles.left}>
         <h1 className={styles.title}>

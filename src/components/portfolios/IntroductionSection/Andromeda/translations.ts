@@ -1,5 +1,9 @@
 export const translations = {
-  hi_there: { es: '¡Hola!', en: 'Hi there!', pt: 'Olá!' },
+  hi_there: {
+    es: '¡Hola!',
+    en: 'Hi there!',
+    pt: 'Olá!',
+  },
   i_am_juan_trejos: {
     es: 'Soy Juan Trejos',
     en: "I'm Juan Trejos",

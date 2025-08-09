@@ -1,11 +1,12 @@
-import styles from './styles.module.css'
 import {
-  FaTwitter,
+  FaEnvelope,
   FaGithub,
   FaInstagram,
   FaLinkedin,
-  FaEnvelope,
+  FaTwitter,
 } from 'react-icons/fa'
+
+import styles from './styles.module.css'
 
 export const IntroductionSectionAndromeda = () => {
   return (

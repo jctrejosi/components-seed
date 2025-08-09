@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import styles from './styles.module.css'
 
 export const ContactFormAndromeda = () => {
@@ -11,7 +12,10 @@ export const ContactFormAndromeda = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
   }
 
   const handleSubmit = (e: React.FormEvent) => {

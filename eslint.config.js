@@ -1,10 +1,11 @@
 import js from '@eslint/js'
-import { browser } from 'globals'
+import eslintPluginImport from 'eslint-plugin-import'
+import prettier from 'eslint-plugin-prettier'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
 import { globalIgnores } from 'eslint/config'
-import eslintPluginImport from 'eslint-plugin-import'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 export default tseslint.config([
   globalIgnores(['dist']),
@@ -12,6 +13,16 @@ export default tseslint.config([
     files: ['**/*.{ts,tsx}'],
     plugins: {
       import: eslintPluginImport,
+      prettier: prettier,
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {},
+        alias: {
+          map: [['@', './src']],
+          extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+        },
+      },
     },
     extends: [
       js.configs.recommended,
@@ -29,19 +40,12 @@ export default tseslint.config([
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
-      'object-curly-newline': [
-        'error',
-        {
-          multiline: true,
-          minProperties: 1,
-        },
-      ],
-      'object-property-newline': ['on'],
+      'object-property-newline': [2],
       'prettier/prettier': 'error',
     },
     languageOptions: {
       ecmaVersion: 2020,
-      globals: browser,
+      globals: globals.browser,
     },
   },
 ])
