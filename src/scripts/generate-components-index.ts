@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs'
 import { glob } from 'glob'
-import { dirname, resolve, relative } from 'path'
+import { dirname, relative, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -15,7 +15,7 @@ const exports = files.map((file) => {
   const relativePath = relative(resolve(__dirname, '../components'), file)
   const importPath =
     './' + relativePath.replace(/\/index\.tsx$/, '').replace(/\\/g, '/')
-  return `export * from "${importPath}";`
+  return `export * from '${importPath}';`
 })
 
 // Escribe el archivo index.ts final en /components

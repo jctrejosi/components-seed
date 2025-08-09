@@ -6,7 +6,9 @@
   "module": "./bundle/index.es.js",
   "types": "./bundle/index.d.ts",
   "files": [
-    "bundle"
+    "bundle",
+    ".prettierrc.json",
+    "eslint.config.js"
   ],
   "eslintConfig": {
     "extends": "./eslint.config.js"

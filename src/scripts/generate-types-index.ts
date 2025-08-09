@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs'
 import { glob } from 'glob'
-import { dirname, resolve, relative, basename } from 'path'
+import { basename, dirname, relative, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -22,7 +22,7 @@ const allFiles = [...componentFiles, ...manualFiles]
 const exports = allFiles.map((file) => {
   const relativePath = relative(resolve(__dirname, '../types'), file)
   const importPath = relativePath.replace(/\.ts$/, '').replace(/\\/g, '/')
-  return `export * from "./${importPath}";`
+  return `export * from './${importPath}.ts';`
 })
 
 // Escribir archivo
