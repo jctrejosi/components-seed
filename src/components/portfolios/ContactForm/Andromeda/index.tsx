@@ -7,6 +7,7 @@ import { returnTranslation } from '@/utils'
 export const ContactFormAndromeda = ({
   sendTo,
   translations = translationsSources,
+  style,
 }: ContactFormAndromedaProps) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -29,7 +30,7 @@ export const ContactFormAndromeda = ({
   }
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} style={style}>
       <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
       <p className={styles.subtitle}>
         {returnTranslation(translations.subtitle)}

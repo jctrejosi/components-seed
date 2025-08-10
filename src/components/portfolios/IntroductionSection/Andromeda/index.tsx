@@ -11,29 +11,13 @@ import styles from './styles.module.css'
 import { translationsSources } from './translations'
 import { type PropsIntroductionSectionAndromeda } from './types'
 
-const defaultStyles = {
-  '--highlight-color': 'var(--base-color-6)',
-  '--icons-color': 'var(--base-color-3)',
-  '--icons-hover-color': 'var(--base-color-2)',
-  '--text-color': 'var(--base-color-1)',
-  '--bg-secondary': 'var(--base-color-8)',
-  '--title-color': 'var(--base-color-8)',
-  '--subtitle-color': 'var(--base-color-3)',
-} as React.CSSProperties
-
 export const IntroductionSectionAndromeda = ({
   className,
   translations = translationsSources,
   style,
 }: PropsIntroductionSectionAndromeda) => {
   return (
-    <section
-      className={`${styles.container} ${className}`}
-      style={{
-        ...defaultStyles,
-        ...style,
-      }}
-    >
+    <section className={`${styles.container} ${className}`} style={style}>
       <h1 className={styles.heading}>
         {returnTranslation(translations.hi_there)}
       </h1>

@@ -12,7 +12,7 @@
 }
 
 .subtitle {
-  color: var(--subtitle-color);
+  color: var(--introduction-color, var(--subtitle-color));
   margin: 1rem 0 2rem;
 }
 
@@ -35,11 +35,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: var(--label-color);
+  color: var(--field-color, var(--label-color));
 }
 
 .field:focus-within label {
-  color: var(--input-border-focus-color);
+  color: var(--input-focus-color, var(--focus-color));
 }
 
 .field label {
@@ -48,9 +48,9 @@
 
 .field input,
 .field textarea {
-  color: var(--input-text-color);
+  color: var(--input-text-color, var(--text-color));
   border: none;
-  border-bottom: 1px solid var(--label-color);
+  border-bottom: 1px solid var(--field-color, var(--border-color));
   padding: 0.5rem;
   font-size: 1rem;
   background: transparent;
@@ -60,12 +60,12 @@
 
 .field input::placeholder,
 .field textarea::placeholder {
-  color: var(--input-placeholder-color);
+  color: var(--placeholder-color, var(--dark-50));
 }
 
 .field input:focus,
 .field textarea:focus {
-  border-bottom-color: var(--input-border-focus-color);
+  border-bottom-color: var(--field-focus-color, var(--border-focus-color));
 }
 
 .button {

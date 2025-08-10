@@ -3,24 +3,14 @@ import styles from './styles.module.css'
 import { translationsSources } from './translations'
 import type { WorkSectionAndromedaProps } from './types'
 
-const defaultStyles = {
-  '--link-color': 'var(--anchor-color)',
-  '--subtitle-color': 'var(--base-color-4)',
-}
-
 export const WorkSectionAndromeda = ({
   items,
   translations = translationsSources,
   style,
+  className,
 }: WorkSectionAndromedaProps) => {
   return (
-    <section
-      className={styles.workSection}
-      style={{
-        ...defaultStyles,
-        ...style,
-      }}
-    >
+    <section className={`${styles.workSection} ${className}`} style={style}>
       <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
       <p className={styles.subtitle}>
         {returnTranslation(translations.subtitle)}

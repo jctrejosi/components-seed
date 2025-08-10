@@ -4,19 +4,10 @@ import styles from './styles.module.css'
 import { translationsDefault } from './translations'
 import type { HeroSectionAndromedaProps } from './types'
 
-const defaultStyle = {
-  '--highlight-1-color': 'var(--base-color-5)',
-  '--highlight-2-color': 'var(--base-color-3)',
-  '--subtitle-color': 'var(--base-color-4)',
-  '--highlight-text-color': 'var(--base-color-2)',
-  '--bg-left': 'var(--bg-primary)',
-  '--bg-right': 'var(--bg-secondary)',
-} as React.CSSProperties
-
 export const HeroSectionAndromeda = ({
   className = 'hero-section-andromeda',
   backgroundImage = '',
-  style = {},
+  style,
   imageProfile,
   translations = translationsDefault,
 }: HeroSectionAndromedaProps) => {
@@ -24,7 +15,6 @@ export const HeroSectionAndromeda = ({
     <section
       className={`${styles.hero} ${className}`}
       style={{
-        ...defaultStyle,
         ...style,
       }}
     >
