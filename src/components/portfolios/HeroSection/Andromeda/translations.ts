@@ -1,8 +1,8 @@
 export const translationsDefault = {
   title_web: {
-    es: 'Web',
-    en: 'Web',
-    pt: 'Web',
+    es: 'Web ',
+    en: 'Web ',
+    pt: 'Web ',
   },
   title_developer: {
     es: 'Desarrollador',

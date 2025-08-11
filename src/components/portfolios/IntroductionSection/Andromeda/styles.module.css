@@ -1,10 +1,10 @@
 .container {
   background-color: var(--bg-container, var(--bg-secondary));
-  color: var(--text-color);
-  padding: 4rem 2rem;
-  max-width: 700px;
-  margin: 0 auto;
   border-radius: 12px;
+  color: var(--text-color);
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 4rem 2rem;
   text-align: left;
 }
 
@@ -25,16 +25,16 @@
 }
 
 .social {
-  margin-top: 2rem;
-  font-size: 0.9rem;
   color: var(--social-color, var(--text-color));
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
 
 .icons {
   display: flex;
+  font-size: 1.4rem;
   gap: 1rem;
   margin-top: 0.5rem;
-  font-size: 1.4rem;
 }
 
 .icons a {

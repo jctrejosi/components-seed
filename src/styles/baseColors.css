@@ -10,8 +10,7 @@
   --base-color-9: #4a557a;
   --base-color-10: #505452;
   --base-color-11: #1a1a1a;
-
-  --dark-0: #ffffff;
+  --dark-0: #fff;
   --dark-10: #f0f0f0;
   --dark-20: #d9d9d9;
   --dark-30: #bfbfbf;
@@ -21,5 +20,5 @@
   --dark-70: #595959;
   --dark-80: #404040;
   --dark-90: #262626;
-  --dark-100: #000000;
+  --dark-100: #000;
 }

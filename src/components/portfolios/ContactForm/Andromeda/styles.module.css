@@ -1,14 +1,14 @@
 .container {
-  max-width: 800px;
   margin: 0 auto;
+  max-width: 800px;
   padding: 4rem 2rem;
   text-align: center;
 }
 
 .title {
+  color: var(--title-color);
   font-size: 2rem;
   font-weight: bold;
-  color: var(--title-color);
 }
 
 .subtitle {
@@ -25,17 +25,16 @@
 
 .row {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   gap: 2rem;
-  flex-wrap: wrap;
 }
 
 .field {
-  flex: 1;
+  color: var(--field-color, var(--label-color));
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.5rem;
-  color: var(--field-color, var(--label-color));
 }
 
 .field:focus-within label {
@@ -48,13 +47,13 @@
 
 .field input,
 .field textarea {
-  color: var(--input-text-color, var(--text-color));
+  background: transparent;
   border: none;
   border-bottom: 1px solid var(--field-color, var(--border-color));
-  padding: 0.5rem;
+  color: var(--input-text-color, var(--text-color));
   font-size: 1rem;
-  background: transparent;
   outline: none;
+  padding: 0.5rem;
   resize: vertical;
 }
 
@@ -70,14 +69,14 @@
 
 .button {
   align-self: flex-start;
-  padding: 0.75rem 2rem;
-  border: 1px solid var(--btn-color);
   background: none;
+  border: 1px solid var(--btn-color);
   color: var(--btn-color);
+  cursor: pointer;
   font-weight: bold;
   letter-spacing: 1px;
+  padding: 0.75rem 2rem;
   text-transform: uppercase;
-  cursor: pointer;
   transition:
     background 0.3s,
     border-color 0.3s,

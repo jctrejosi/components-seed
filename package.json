@@ -19,12 +19,14 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:fix": "eslint . --fix",
+    "lint:css": "stylelint \"**/*.css\" --fix",
     "format": "prettier --write .",
     "generate:types": "ts-node ./src/scripts/generate-types-index.ts",
     "generate:utils": "ts-node ./src/scripts/generate-utils-index.ts",
     "generate:components": "ts-node ./src/scripts/generate-components-index.ts",
     "generate-indexes": "ts-node ./src/scripts",
-    "bundle": "npm run generate-indexes && tsc -b && vite build"
+    "bundle": "npm run generate-indexes && tsc -b && vite build",
+    "bundle:watch": "vite build --watch"
   },
   "dependencies": {
     "glob": "^11.0.3",
@@ -49,6 +51,10 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "prettier": "^3.6.2",
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-order": "^7.0.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.0",

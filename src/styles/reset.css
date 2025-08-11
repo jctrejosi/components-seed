@@ -1,0 +1,50 @@
+html {
+  font-size: 10px;
+}
+
+/* Eliminar márgenes por defecto */
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.6rem;
+  font-weight: normal;
+}

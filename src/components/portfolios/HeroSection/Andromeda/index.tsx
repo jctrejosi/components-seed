@@ -4,9 +4,11 @@ import styles from './styles.module.css'
 import { translationsDefault } from './translations'
 import type { HeroSectionAndromedaProps } from './types'
 
+import rastaDecoration from './examples/rasta-decoration.png'
+
 export const HeroSectionAndromeda = ({
   className = 'hero-section-andromeda',
-  backgroundImage = '',
+  backgroundImage = rastaDecoration,
   style,
   imageProfile,
   translations = translationsDefault,
@@ -18,18 +20,13 @@ export const HeroSectionAndromeda = ({
         ...style,
       }}
     >
-      <div
-        className={styles.overlay}
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
-      ></div>
       <div className={styles.left}>
+        <img className={styles.overlay} src={backgroundImage} />
         <h1 className={styles.title}>
-          <span className={styles.highlight_1}>
+          <span className={styles.word_1}>
             {returnTranslation(translations.title_web)}
-          </span>{' '}
-          <span className={styles.highlight_2}>
+          </span>
+          <span className={styles.word_2}>
             {returnTranslation(translations.title_developer)}
           </span>
         </h1>

@@ -5,35 +5,35 @@
 .container {
   height: 100vh;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 .section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
   scroll-snap-align: start;
 }
 
 .dots {
-  position: fixed;
-  right: 2rem;
+  align-items: flex-end;
   bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  position: fixed;
+  right: 2rem;
   z-index: 10;
-  align-items: flex-end;
 }
 
 .dot {
-  display: flex;
-  cursor: pointer;
-  position: relative;
-  color: var(--dot-base-color);
   align-items: center;
+  color: var(--dot-base-color);
+  cursor: pointer;
+  display: flex;
+  position: relative;
 }
 
 .dotActive {
@@ -42,20 +42,20 @@
 }
 
 .dot::after {
-  margin-top: 0.1rem;
+  background-color: var(--dot-base-color);
   content: '';
+  cursor: pointer;
   display: inline-block;
-  width: 12px;
   height: 12px;
   margin-left: 0.5rem;
-  background-color: var(--dot-base-color);
-  cursor: pointer;
+  margin-top: 0.1rem;
+  transform: rotate(45deg);
   transition:
     background 0.3s,
     transform 0.3s,
     border 0.3s;
   vertical-align: middle;
-  transform: rotate(45deg);
+  width: 12px;
 }
 
 .dotActive::after {
