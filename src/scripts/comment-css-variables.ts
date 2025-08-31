@@ -1,5 +1,10 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import { fileURLToPath } from 'url'
+
+// Compatibilidad con ESM: recrear __dirname y __filename
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 function processCssFile(filePath: string): void {
   const content = fs.readFileSync(filePath, 'utf-8')
@@ -11,10 +16,13 @@ function processCssFile(filePath: string): void {
     matches.add(m[1])
   }
 
-  // Si no hay variables, no agregamos cabecera
+  // Si no hay variables CSS, no agregamos cabecera
   if (matches.size === 0) return
 
-  const header = `/*\nVariables usadas:\n${[...matches].map((v) => `  ${v}`).join('\n')}\n*/\n`
+  const header =
+    `/*\nVariables usadas:\n` +
+    [...matches].map((v) => `  ${v}`).join('\n') +
+    `\n*/\n`
 
   // Elimina cualquier bloque de comentario inicial previo
   const newContent = content.replace(/^\/\*[\s\S]*?\*\/\n/, '')
@@ -30,11 +38,11 @@ function walkDir(dir: string): void {
       walkDir(fullPath)
     } else if (file.endsWith('.css')) {
       processCssFile(fullPath)
-      console.log(`Actualizado: ${fullPath}`)
+      console.log(`Archivo actualizado: ${fullPath}`)
     }
   })
 }
 
-// Ajusta esta ruta a la carpeta donde están tus componentes
-const baseDir = path.join(__dirname, '../src/components')
+// Ajusta esta ruta si tu estructura es distinta
+const baseDir = path.resolve(__dirname, '../components')
 walkDir(baseDir)

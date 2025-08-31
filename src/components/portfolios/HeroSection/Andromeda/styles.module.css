@@ -1,3 +1,14 @@
+/*
+Variables usadas:
+  --bg-primary
+  --title-color
+  --title-size
+  --text-color
+  --subtitle-color
+  --subtitle-size
+  --text-size
+  --bg-secondary
+*/
 .hero {
   align-items: center;
   box-sizing: border-box;

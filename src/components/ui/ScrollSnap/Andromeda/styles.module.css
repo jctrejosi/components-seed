@@ -1,3 +1,9 @@
+/*
+Variables usadas:
+  --dot-color
+  --link-size
+  --dot-active-color
+*/
 .wrapper {
   position: relative;
 }

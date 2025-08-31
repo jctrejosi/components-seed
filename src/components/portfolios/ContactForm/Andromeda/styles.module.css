@@ -1,3 +1,16 @@
+/*
+Variables usadas:
+  --title-color
+  --subtitle-color
+  --label-color
+  --focus-color
+  --border-color
+  --text-color
+  --dark-50
+  --border-focus-color
+  --btn-color
+  --btn-hover-color
+*/
 .container {
   margin: 0 auto;
   max-width: 800px;
