@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 import js from '@eslint/js'
 import eslintPluginImport from 'eslint-plugin-import'
 import prettier from 'eslint-plugin-prettier'
@@ -49,4 +52,4 @@ export default tseslint.config([
       globals: globals.browser,
     },
   },
-])
+], storybook.configs["flat/recommended"]);

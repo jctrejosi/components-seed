@@ -20,7 +20,7 @@ const exports = files.map((file) => {
 
 // Escribe el archivo index.ts final en /components
 writeFileSync(
-  resolve(__dirname, '../components/index.ts'),
+  resolve(__dirname, '../src/components/index.ts'),
   exports.join('\n') + '\n'
 )
 console.log(

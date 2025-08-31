@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const utilsDir = resolve(__dirname, '../utils')
+const utilsDir = resolve(__dirname, '../src/utils')
 const indexPath = join(utilsDir, 'index.ts')
 
 const files = readdirSync(utilsDir).filter((file) => {
