@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ContactFormAndromeda } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { ContactFormAndromeda } from './index'
 
 const meta: Meta<any> = {
   title: 'Components/ContactForm/Andromeda',
@@ -14,12 +14,25 @@ const meta: Meta<any> = {
     '--dark-50': { control: 'text', name: '--dark-50' },
     '--border-focus-color': { control: 'text', name: '--border-focus-color' },
     '--btn-color': { control: 'text', name: '--btn-color' },
-    '--btn-hover-color': { control: 'text', name: '--btn-hover-color' }
+    '--btn-hover-color': { control: 'text', name: '--btn-hover-color' },
   },
-};
-export default meta;
+  render: (args) => {
+    const cssVars: Record<string, string> = {}
+    Object.keys(args).forEach((k) => {
+      if (k.startsWith('--') && args[k]) {
+        cssVars[k] = args[k] as string
+      }
+    })
+    return (
+      <div style={cssVars}>
+        <ContactFormAndromeda />
+      </div>
+    )
+  },
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -32,6 +45,6 @@ export const Default: Story = {
     '--dark-50': '',
     '--border-focus-color': '',
     '--btn-color': '',
-    '--btn-hover-color': ''
-  }
-};
+    '--btn-hover-color': '',
+  },
+}

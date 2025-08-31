@@ -14,6 +14,19 @@ const meta: Meta<any> = {
     '--text-size': { control: 'text', name: '--text-size' },
     '--bg-secondary': { control: 'text', name: '--bg-secondary' }
   },
+  render: (args) => {
+    const cssVars: Record<string,string> = {}
+    Object.keys(args).forEach((k) => {
+      if (k.startsWith('--') && args[k]) {
+        cssVars[k] = args[k] as string
+      }
+    })
+    return (
+      <div style={cssVars}>
+        <HeroSectionAndromeda />
+      </div>
+    )
+  },
 };
 export default meta;
 

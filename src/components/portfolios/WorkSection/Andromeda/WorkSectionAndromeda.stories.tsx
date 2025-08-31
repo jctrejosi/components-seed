@@ -10,6 +10,19 @@ const meta: Meta<any> = {
     '--item-bg': { control: 'text', name: '--item-bg' },
     '--link-color': { control: 'text', name: '--link-color' }
   },
+  render: (args) => {
+    const cssVars: Record<string,string> = {}
+    Object.keys(args).forEach((k) => {
+      if (k.startsWith('--') && args[k]) {
+        cssVars[k] = args[k] as string
+      }
+    })
+    return (
+      <div style={cssVars}>
+        <WorkSectionAndromeda />
+      </div>
+    )
+  },
 };
 export default meta;
 

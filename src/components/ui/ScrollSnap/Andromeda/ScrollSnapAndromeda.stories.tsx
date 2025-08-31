@@ -9,6 +9,19 @@ const meta: Meta<any> = {
     '--link-size': { control: 'text', name: '--link-size' },
     '--dot-active-color': { control: 'text', name: '--dot-active-color' }
   },
+  render: (args) => {
+    const cssVars: Record<string,string> = {}
+    Object.keys(args).forEach((k) => {
+      if (k.startsWith('--') && args[k]) {
+        cssVars[k] = args[k] as string
+      }
+    })
+    return (
+      <div style={cssVars}>
+        <ScrollSnapAndromeda />
+      </div>
+    )
+  },
 };
 export default meta;
 

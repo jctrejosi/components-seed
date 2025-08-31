@@ -58,12 +58,30 @@ function generateStory(filePath: string) {
     cssVars.length > 0 ? `,\n  argTypes: {\n${argTypesEntries}\n  }` : ''
   const argsBlock = cssVars.length > 0 ? `\n  args: {\n${argsEntries}\n  }` : ''
 
+  const renderBlock =
+    cssVars.length > 0
+      ? `,
+  render: (args) => {
+    const cssVars: Record<string,string> = {}
+    Object.keys(args).forEach((k) => {
+      if (k.startsWith('--') && args[k]) {
+        cssVars[k] = args[k] as string
+      }
+    })
+    return (
+      <div style={cssVars}>
+        <${componentName} />
+      </div>
+    )
+  }`
+      : ''
+
   const storyContent = `import type { Meta, StoryObj } from '@storybook/react';
 import { ${componentName} } from '${importPath}';
 
 const meta: Meta<any> = {
   title: '${storyTitle}',
-  component: ${componentName}${argTypesBlock},
+  component: ${componentName}${argTypesBlock}${renderBlock},
 };
 export default meta;
 

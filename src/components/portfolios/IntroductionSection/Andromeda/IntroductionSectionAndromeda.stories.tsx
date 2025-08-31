@@ -10,6 +10,19 @@ const meta: Meta<any> = {
     '--icon-color': { control: 'text', name: '--icon-color' },
     '--icon-hover-color': { control: 'text', name: '--icon-hover-color' }
   },
+  render: (args) => {
+    const cssVars: Record<string,string> = {}
+    Object.keys(args).forEach((k) => {
+      if (k.startsWith('--') && args[k]) {
+        cssVars[k] = args[k] as string
+      }
+    })
+    return (
+      <div style={cssVars}>
+        <IntroductionSectionAndromeda />
+      </div>
+    )
+  },
 };
 export default meta;
 
