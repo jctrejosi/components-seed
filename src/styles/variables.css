@@ -1,5 +1,6 @@
 :root {
   --anchor-color: var(--base-color-6);
+  --link-size: 1.4rem;
   --bg-alter: var(--base-color-10);
   --bg-primary: var(--base-color-11);
   --bg-secondary: var(--base-color-10);

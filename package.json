@@ -24,6 +24,7 @@
     "generate:types": "ts-node ./src/scripts/generate-types-index.ts",
     "generate:utils": "ts-node ./src/scripts/generate-utils-index.ts",
     "generate:components": "ts-node ./src/scripts/generate-components-index.ts",
+    "comment-css-variables": "ts-node ./src/scripts/comment-css-variables.ts",
     "generate-indexes": "ts-node ./src/scripts",
     "bundle": "npm run generate-indexes && tsc -b && vite build",
     "bundle:watch": "vite build --watch"

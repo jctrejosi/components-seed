@@ -3,12 +3,6 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import type { ScrollSnapAndromedaProps } from './types'
 
-const defaultStyle = {
-  '--dot-base-color': 'var(--dot-color)',
-  '--dot-base-active-color': 'var(--dot-active-color)',
-  '--bg-base': 'var(--bg-primary)',
-} as React.CSSProperties
-
 export const ScrollSnapAndromeda = ({
   sections,
   style,
@@ -49,7 +43,6 @@ export const ScrollSnapAndromeda = ({
     <div
       className={styles.wrapper}
       style={{
-        ...defaultStyle,
         ...style,
       }}
     >
@@ -74,6 +67,11 @@ export const ScrollSnapAndromeda = ({
             key={i}
             onClick={() => scrollToSection(i)}
             className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ''}`}
+            style={
+              {
+                '--dot-active-color': child.dotColor,
+              } as React.CSSProperties
+            }
           >
             {child.dotLabel || ''}
           </div>

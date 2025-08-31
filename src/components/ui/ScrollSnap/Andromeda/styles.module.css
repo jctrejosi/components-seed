@@ -19,30 +19,31 @@
 
 .dots {
   align-items: flex-end;
-  bottom: 2rem;
+  bottom: 6rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 2rem;
   position: fixed;
-  right: 2rem;
+  right: 6rem;
   z-index: 10;
 }
 
 .dot {
   align-items: center;
-  color: var(--dot-base-color);
+  color: var(--dot-color);
+  font-size: var(--link-size);
   cursor: pointer;
   display: flex;
   position: relative;
 }
 
 .dotActive {
-  color: var(--dot-base-active-color);
+  color: var(--dot-active-color);
   text-decoration: underline;
 }
 
 .dot::after {
-  background-color: var(--dot-base-color);
+  background-color: var(--dot-color);
   content: '';
   cursor: pointer;
   display: inline-block;
@@ -60,6 +61,6 @@
 
 .dotActive::after {
   background-color: transparent;
-  border: 2px solid var(--dot-base-active-color);
+  border: 2px solid var(--dot-active-color);
   transform: rotate(0deg);
 }
