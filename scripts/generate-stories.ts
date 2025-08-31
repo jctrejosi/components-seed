@@ -3,12 +3,11 @@ import * as path from 'path'
 
 const componentsDir = path.resolve(process.cwd(), 'src/components')
 
-// Elimina todos los archivos .stories.tsx en una carpeta
+/** Elimina todos los archivos .stories.tsx */
 function cleanStories(dir: string) {
   fs.readdirSync(dir).forEach((file) => {
     const fullPath = path.join(dir, file)
     const stat = fs.statSync(fullPath)
-
     if (stat.isDirectory()) {
       cleanStories(fullPath)
     } else if (file.endsWith('.stories.tsx')) {
@@ -18,31 +17,59 @@ function cleanStories(dir: string) {
   })
 }
 
+/** Busca variables CSS en el archivo .css del componente */
+function extractCssVars(componentDir: string): string[] {
+  const cssFiles = fs
+    .readdirSync(componentDir)
+    .filter((f) => f.endsWith('.css'))
+  if (cssFiles.length === 0) return []
+
+  const vars = new Set<string>()
+  const regex = /var\((--[a-zA-Z0-9-_]+)\)/g
+
+  cssFiles.forEach((cssFile) => {
+    const content = fs.readFileSync(path.join(componentDir, cssFile), 'utf-8')
+    let m: RegExpExecArray | null
+    while ((m = regex.exec(content)) !== null) {
+      vars.add(m[1])
+    }
+  })
+
+  return [...vars]
+}
+
+/** Genera la story con argTypes y args */
 function generateStory(filePath: string) {
   const dir = path.dirname(filePath)
-  const folderName = path.basename(dir) // carpeta del componente
-  const parentFolder = path.basename(path.dirname(dir)) // carpeta padre
+  const folderName = path.basename(dir)
+  const parentFolder = path.basename(path.dirname(dir))
+  const componentName = `${parentFolder}${folderName}` // p.ej. ScrollSnapAndromeda
 
-  const componentName = `${parentFolder}${folderName}` // ScrollSnapAndromeda
-
-  // Título único con carpeta padre y carpeta del componente
   const storyTitle = `Components/${parentFolder}/${folderName}`
+  const importPath = './index'
+  const cssVars = extractCssVars(dir)
 
-  const importPath = './index' // importa desde index.tsx
+  const argTypesEntries = cssVars
+    .map((v) => `    '${v}': { control: 'text', name: '${v}' }`)
+    .join(',\n')
+  const argsEntries = cssVars.map((v) => `    '${v}': ''`).join(',\n')
+
+  const argTypesBlock =
+    cssVars.length > 0 ? `,\n  argTypes: {\n${argTypesEntries}\n  }` : ''
+  const argsBlock = cssVars.length > 0 ? `\n  args: {\n${argsEntries}\n  }` : ''
 
   const storyContent = `import type { Meta, StoryObj } from '@storybook/react';
 import { ${componentName} } from '${importPath}';
 
-const meta: Meta<typeof ${componentName}> = {
+const meta: Meta<any> = {
   title: '${storyTitle}',
-  component: ${componentName},
+  component: ${componentName}${argTypesBlock},
 };
 export default meta;
 
-type Story = StoryObj<typeof ${componentName}>;
+type Story = StoryObj<any>;
 
-export const Default: Story = {
-  args: {},
+export const Default: Story = {${argsBlock}
 };
 `
 
@@ -51,25 +78,24 @@ export const Default: Story = {
   console.log(`Story creada: ${storyFile}`)
 }
 
+/** Recorre componentes y genera stories */
 function walkDir(dir: string) {
   fs.readdirSync(dir).forEach((file) => {
     const fullPath = path.join(dir, file)
     const stat = fs.statSync(fullPath)
-
     if (stat.isDirectory()) {
       walkDir(fullPath)
     } else if (
       file.endsWith('.tsx') &&
       !file.endsWith('.stories.tsx') &&
-      !file.endsWith('.test.tsx')
+      !file.endsWith('.test.tsx') &&
+      file === 'index.tsx' // Solo generamos stories si es un index.tsx
     ) {
       generateStory(fullPath)
     }
   })
 }
 
-// Primero limpia cualquier story existente
+// Ejecuta
 cleanStories(componentsDir)
-
-// Luego genera las nuevas stories
 walkDir(componentsDir)

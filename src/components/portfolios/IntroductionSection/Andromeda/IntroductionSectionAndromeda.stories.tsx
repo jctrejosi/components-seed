@@ -1,14 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { IntroductionSectionAndromeda } from './index';
 
-const meta: Meta<typeof IntroductionSectionAndromeda> = {
+const meta: Meta<any> = {
   title: 'Components/IntroductionSection/Andromeda',
   component: IntroductionSectionAndromeda,
+  argTypes: {
+    '--bg-secondary': { control: 'text', name: '--bg-secondary' },
+    '--text-color': { control: 'text', name: '--text-color' },
+    '--icon-color': { control: 'text', name: '--icon-color' },
+    '--icon-hover-color': { control: 'text', name: '--icon-hover-color' }
+  },
 };
 export default meta;
 
-type Story = StoryObj<typeof IntroductionSectionAndromeda>;
+type Story = StoryObj<any>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    '--bg-secondary': '',
+    '--text-color': '',
+    '--icon-color': '',
+    '--icon-hover-color': ''
+  }
 };

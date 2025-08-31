@@ -1,14 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { WorkSectionAndromeda } from './index';
 
-const meta: Meta<typeof WorkSectionAndromeda> = {
+const meta: Meta<any> = {
   title: 'Components/WorkSection/Andromeda',
   component: WorkSectionAndromeda,
+  argTypes: {
+    '--title-color': { control: 'text', name: '--title-color' },
+    '--subtitle-color': { control: 'text', name: '--subtitle-color' },
+    '--item-bg': { control: 'text', name: '--item-bg' },
+    '--link-color': { control: 'text', name: '--link-color' }
+  },
 };
 export default meta;
 
-type Story = StoryObj<typeof WorkSectionAndromeda>;
+type Story = StoryObj<any>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    '--title-color': '',
+    '--subtitle-color': '',
+    '--item-bg': '',
+    '--link-color': ''
+  }
 };
