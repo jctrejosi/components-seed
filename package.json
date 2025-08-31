@@ -30,7 +30,7 @@
     "bundle": "npm run generate:indexes && tsc -b && vite build",
     "bundle:watch": "vite build --watch",
     "storybook": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "glob": "^11.0.3",
