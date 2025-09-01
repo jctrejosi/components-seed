@@ -4,10 +4,10 @@ import { translationsSources } from './translations'
 import type { WorkSectionAndromedaProps } from './types'
 
 export const WorkSectionAndromeda = ({
-  items,
+  items = [],
   translations = translationsSources,
   style,
-  className,
+  className = 'work-section-andromeda',
 }: WorkSectionAndromedaProps) => {
   return (
     <section className={`${styles.workSection} ${className}`} style={style}>

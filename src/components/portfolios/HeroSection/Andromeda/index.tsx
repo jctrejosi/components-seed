@@ -4,11 +4,9 @@ import styles from './styles.module.css'
 import { translationsDefault } from './translations'
 import type { HeroSectionAndromedaProps } from './types'
 
-import rastaDecoration from './examples/rasta-decoration.png'
-
 export const HeroSectionAndromeda = ({
   className = 'hero-section-andromeda',
-  backgroundImage = rastaDecoration,
+  backgroundImage,
   style,
   imageProfile,
   translations = translationsDefault,
@@ -21,7 +19,9 @@ export const HeroSectionAndromeda = ({
       }}
     >
       <div className={styles.left}>
-        <img className={styles.overlay} src={backgroundImage} />
+        {backgroundImage && (
+          <img className={styles.overlay} src={backgroundImage} />
+        )}
         <h1 className={styles.title}>
           <span className={styles.word_1}>
             {returnTranslation(translations.title_web)}

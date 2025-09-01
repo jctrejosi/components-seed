@@ -38,7 +38,7 @@ function extractCssVars(componentDir: string): string[] {
   return [...vars]
 }
 
-/** Genera la story con argTypes y args */
+/** Genera la story con argTypes, args y defaults.ts (si existe) */
 function generateStory(filePath: string) {
   const dir = path.dirname(filePath)
   const folderName = path.basename(dir)
@@ -49,17 +49,26 @@ function generateStory(filePath: string) {
   const importPath = './index'
   const cssVars = extractCssVars(dir)
 
+  const defaultsFile = path.join(dir, 'defaults.ts')
+  const hasDefaults = fs.existsSync(defaultsFile)
+  const defaultsImport = hasDefaults
+    ? `import defaults from './defaults';\n`
+    : ''
+
   const argTypesEntries = cssVars
     .map((v) => `    '${v}': { control: 'text', name: '${v}' }`)
     .join(',\n')
-  const argsEntries = cssVars.map((v) => `    '${v}': ''`).join(',\n')
-
   const argTypesBlock =
     cssVars.length > 0 ? `,\n  argTypes: {\n${argTypesEntries}\n  }` : ''
-  const argsBlock = cssVars.length > 0 ? `\n  args: {\n${argsEntries}\n  }` : ''
+
+  const argsBlock = hasDefaults
+    ? `\n  args: {\n    ...defaults,\n${cssVars.map((v) => `    '${v}': ''`).join(',\n')}\n  }`
+    : cssVars.length > 0
+      ? `\n  args: {\n${cssVars.map((v) => `    '${v}': ''`).join(',\n')}\n  }`
+      : ''
 
   const renderBlock =
-    cssVars.length > 0
+    cssVars.length > 0 || hasDefaults
       ? `,
   render: (args) => {
     const cssVars: Record<string,string> = {}
@@ -70,7 +79,7 @@ function generateStory(filePath: string) {
     })
     return (
       <div style={cssVars}>
-        <${componentName} />
+        <${componentName} {...args} />
       </div>
     )
   }`
@@ -78,7 +87,7 @@ function generateStory(filePath: string) {
 
   const storyContent = `import type { Meta, StoryObj } from '@storybook/react';
 import { ${componentName} } from '${importPath}';
-
+${defaultsImport}
 const meta: Meta<any> = {
   title: '${storyTitle}',
   component: ${componentName}${argTypesBlock}${renderBlock},

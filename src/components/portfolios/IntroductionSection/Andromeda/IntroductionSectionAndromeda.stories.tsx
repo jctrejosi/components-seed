@@ -19,7 +19,7 @@ const meta: Meta<any> = {
     })
     return (
       <div style={cssVars}>
-        <IntroductionSectionAndromeda />
+        <IntroductionSectionAndromeda {...args} />
       </div>
     )
   },

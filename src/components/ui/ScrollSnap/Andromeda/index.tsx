@@ -4,7 +4,7 @@ import styles from './styles.module.css'
 import type { ScrollSnapAndromedaProps } from './types'
 
 export const ScrollSnapAndromeda = ({
-  sections,
+  sections = [],
   style,
 }: ScrollSnapAndromedaProps) => {
   const containerRef = useRef<HTMLDivElement>(null)

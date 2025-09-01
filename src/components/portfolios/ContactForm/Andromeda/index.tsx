@@ -5,7 +5,7 @@ import type { ContactFormAndromedaProps } from './types'
 import { returnTranslation } from '@/utils'
 
 export const ContactFormAndromeda = ({
-  sendTo,
+  sendTo = '',
   translations = translationsSources,
   style,
 }: ContactFormAndromedaProps) => {

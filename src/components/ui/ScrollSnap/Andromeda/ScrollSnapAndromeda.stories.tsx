@@ -18,7 +18,7 @@ const meta: Meta<any> = {
     })
     return (
       <div style={cssVars}>
-        <ScrollSnapAndromeda />
+        <ScrollSnapAndromeda {...args} />
       </div>
     )
   },
