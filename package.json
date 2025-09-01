@@ -27,7 +27,7 @@
     "generate:components": "ts-node ./scripts/generate-components.ts",
     "generate:indexes": "npm run generate:types && npm run generate:utils && npm run generate:components && npm run generate:stories",
     "generate:doc-css-vars": "ts-node ./scripts/doc-css-vars.ts",
-    "generate:stories": "ts-node ./scripts/generate-stories.ts",
+    "generate:stories": "npm run generate:defaults && ts-node ./scripts/generate-stories.ts",
     "bundle": "npm run generate:indexes && tsc -b && vite build",
     "bundle:watch": "vite build --watch",
     "storybook": "storybook dev -p 6006",
@@ -75,6 +75,7 @@
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.0",
+    "url": "^0.11.4",
     "vite": "^7.1.0",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.2.4"
