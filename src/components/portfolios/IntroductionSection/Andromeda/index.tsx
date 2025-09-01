@@ -9,13 +9,13 @@ import {
 
 import styles from './styles.module.css'
 import { translationsSources } from './translations'
-import { type PropsIntroductionSectionAndromeda } from './types'
+import { type IntroductionSectionAndromedaProps } from './types'
 
 export const IntroductionSectionAndromeda = ({
   className,
   translations = translationsSources,
   style,
-}: PropsIntroductionSectionAndromeda) => {
+}: IntroductionSectionAndromedaProps) => {
   return (
     <section className={`${styles.container} ${className}`} style={style}>
       <h1 className={styles.heading}>

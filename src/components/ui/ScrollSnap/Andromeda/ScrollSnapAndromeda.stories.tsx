@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ScrollSnapAndromeda } from './index';
+import defaults from './defaults';
 
 const meta: Meta<any> = {
   title: 'Components/ScrollSnap/Andromeda',
@@ -29,6 +30,7 @@ type Story = StoryObj<any>;
 
 export const Default: Story = {
   args: {
+    ...defaults,
     '--dot-color': '',
     '--link-size': '',
     '--dot-active-color': ''

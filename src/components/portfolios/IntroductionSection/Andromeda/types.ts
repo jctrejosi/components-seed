@@ -1,3 +1,3 @@
 import { type BasePropComponents } from '@/types'
 
-export type PropsIntroductionSectionAndromeda = BasePropComponents
+export type IntroductionSectionAndromedaProps = BasePropComponents

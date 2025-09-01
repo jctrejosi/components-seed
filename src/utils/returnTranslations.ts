@@ -2,7 +2,6 @@ export type TranslationResourceT =
   | {
       es: string
       en: string
-      pt: string
     }
   | string
 

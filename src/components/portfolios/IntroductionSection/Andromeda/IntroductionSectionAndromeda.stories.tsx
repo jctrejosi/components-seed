@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { IntroductionSectionAndromeda } from './index';
+import defaults from './defaults';
 
 const meta: Meta<any> = {
   title: 'Components/IntroductionSection/Andromeda',
@@ -30,6 +31,7 @@ type Story = StoryObj<any>;
 
 export const Default: Story = {
   args: {
+    ...defaults,
     '--bg-secondary': '',
     '--text-color': '',
     '--icon-color': '',
