@@ -6,8 +6,11 @@ const meta: Meta<any> = {
   title: 'Components/IntroductionSection/Andromeda',
   component: IntroductionSectionAndromeda,
   argTypes: {
-    '--bg-secondary': { control: 'text', name: '--bg-secondary' },
+    '--bg-image': { control: 'text', name: '--bg-image' },
+    '--bg-container': { control: 'text', name: '--bg-container' },
     '--text-color': { control: 'text', name: '--text-color' },
+    '--highlight-color': { control: 'text', name: '--highlight-color' },
+    '--social-color': { control: 'text', name: '--social-color' },
     '--icon-color': { control: 'text', name: '--icon-color' },
     '--icon-hover-color': { control: 'text', name: '--icon-hover-color' }
   },
@@ -32,8 +35,11 @@ type Story = StoryObj<any>;
 export const Default: Story = {
   args: {
     ...defaults,
-    '--bg-secondary': '',
+    '--bg-image': '',
+    '--bg-container': '',
     '--text-color': '',
+    '--highlight-color': '',
+    '--social-color': '',
     '--icon-color': '',
     '--icon-hover-color': ''
   }

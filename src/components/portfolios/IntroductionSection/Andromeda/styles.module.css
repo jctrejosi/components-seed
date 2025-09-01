@@ -1,21 +1,34 @@
+.main_container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: var(--bg-image, var(--bg-colored-shapes));
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
-  background-color: var(--bg-container, var(--bg-secondary));
+  background-color: var(--bg-container, var(--bg-primary));
   border-radius: 12px;
   color: var(--text-color);
   margin: 0 auto;
   max-width: 700px;
-  padding: 4rem 2rem;
+  padding: 6rem 4rem;
   text-align: left;
 }
 
-.heading {
-  font-size: 2rem;
+.title {
+  font-size: var(--title-size);
   font-weight: bold;
   margin-bottom: 1rem;
 }
 
 .paragraph {
-  font-size: 1.1rem;
+  color: var(--p-color, var(--text-color));
+  font-size: var(--p-size, var(--text-size));
   line-height: 1.7;
 }
 
@@ -26,7 +39,7 @@
 
 .social {
   color: var(--social-color, var(--text-color));
-  font-size: 0.9rem;
+  font-size: var(--social-size, 1rem);
   margin-top: 2rem;
 }
 

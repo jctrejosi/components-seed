@@ -25,7 +25,7 @@ function extractCssVars(componentDir: string): string[] {
   if (cssFiles.length === 0) return []
 
   const vars = new Set<string>()
-  const regex = /var\((--[a-zA-Z0-9-_]+)\)/g
+  const regex = /var\(\s*(--[a-zA-Z0-9-_]+)\s*(?:,.*)?\)/g
 
   cssFiles.forEach((cssFile) => {
     const content = fs.readFileSync(path.join(componentDir, cssFile), 'utf-8')

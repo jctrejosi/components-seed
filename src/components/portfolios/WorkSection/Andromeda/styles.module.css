@@ -1,6 +1,19 @@
-.workSection {
-  padding: 4rem 2rem;
+.container {
   text-align: center;
+  background-color: var(--bg-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: var(--bg-image, var(--bg-colored-patterns));
+}
+
+.workSection {
+  max-width: 90rem;
 }
 
 .title {
