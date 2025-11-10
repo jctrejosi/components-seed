@@ -1,28 +1,29 @@
 import { writeFileSync } from 'fs'
 import { glob } from 'glob'
-import { dirname, relative, resolve } from 'path'
+import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-// Busca todos los index.tsx de componentes
-const pattern = resolve(__dirname, '../src/components/**/index.tsx')
-const files = glob.sync(pattern)
+// carpeta base (ajustada a tu estructura real)
+const baseDir = resolve(__dirname, '../src/components')
 
-// Genera los exports relativos desde /components
+// buscar todos los index.tsx dentro de /components
+const files = glob.sync('**/index.tsx', { cwd: baseDir })
+
+// generar exports incluyendo toda la ruta relativa (sin /index.tsx)
 const exports = files.map((file) => {
-  const relativePath = relative(resolve(__dirname, '../src/components'), file)
-  const importPath =
-    './' + relativePath.replace(/\/index\.tsx$/, '').replace(/\\/g, '/')
-  return `export * from '${importPath}'`
+  // elimina tanto \index.tsx como /index.tsx del final
+  const pathWithoutIndex = file.replace(/[\\/]index\.tsx$/, '')
+  // convierte todos los separadores a /
+  const normalized = pathWithoutIndex.replace(/\\/g, '/')
+  return `export * from './${normalized}'`
 })
 
-// Escribe el archivo index.ts final en /components
-writeFileSync(
-  resolve(__dirname, '../src/components/index.ts'),
-  exports.join('\n') + '\n'
-)
+// escribir el archivo index.ts dentro de /components
+writeFileSync(resolve(baseDir, 'index.ts'), exports.join('\n') + '\n')
+
 console.log(
-  `✅ index.ts generado con ${files.length} componentes en /components`
+  `✅ index.ts generado con ${files.length} componentes en /src/components`
 )
