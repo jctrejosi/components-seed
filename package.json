@@ -1,7 +1,8 @@
 {
   "name": "@jctrejosi/components-seed",
-  "version": "0.0.9",
+  "version": "1.0.1",
   "type": "module",
+  "author": "Juan Carlos Trejos Iglesias",
   "main": "./bundle/index.cjs.js",
   "module": "./bundle/index.es.js",
   "types": "./bundle/index.d.ts",
