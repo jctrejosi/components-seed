@@ -12,7 +12,6 @@ function cleanStories(dir: string) {
       cleanStories(fullPath)
     } else if (file.endsWith('.stories.tsx')) {
       fs.unlinkSync(fullPath)
-      console.log(`Story eliminada: ${fullPath}`)
     }
   })
 }
@@ -102,7 +101,6 @@ export const Default: Story = {${argsBlock}
 
   const storyFile = path.join(dir, `${componentName}.stories.tsx`)
   fs.writeFileSync(storyFile, storyContent, 'utf-8')
-  console.log(`Story creada: ${storyFile}`)
 }
 
 /** Recorre componentes y genera stories */
