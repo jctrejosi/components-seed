@@ -1,36 +1,45 @@
 import { writeFileSync } from 'fs'
 import { glob } from 'glob'
-import { basename, dirname, relative, resolve } from 'path'
+import { basename, dirname, resolve, relative } from 'path'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-// Patrones
-const componentsPattern = resolve(
-  __dirname,
-  '../src/components/**/**/**/types.ts'
-)
-const manualTypesPattern = resolve(__dirname, '../src/types/*.ts')
+// rutas base
+const componentsDir = resolve(__dirname, '../src/components')
+const typesDir = resolve(__dirname, '../src/types')
 
-// Obtener archivos
-const componentFiles = glob.sync(componentsPattern)
+// buscar archivos types.ts
+const componentFiles = glob.sync('**/types.ts', {
+  cwd: componentsDir,
+  absolute: true,
+})
 const manualFiles = glob
-  .sync(manualTypesPattern)
+  .sync('*.ts', { cwd: typesDir, absolute: true })
   .filter((file) => basename(file) !== 'index.ts')
 
-// Combinar y mapear
+// unir todos
 const allFiles = [...componentFiles, ...manualFiles]
 
+// generar rutas relativas al directorio /src/types
 const exports = allFiles.map((file) => {
-  const relativePath = relative(resolve(__dirname, '../src//types'), file)
-  const importPath = relativePath.replace(/\.ts$/, '').replace(/\\/g, '/')
-  return `export * from './${importPath}.ts'`
+  // ruta relativa desde src/types
+  let rel = relative(typesDir, file)
+  rel = rel.replace(/\\/g, '/')
+
+  // si el archivo está fuera de types, agregar ./ delante
+  if (!rel.startsWith('.')) rel = './' + rel
+
+  // asegurar extensión .ts
+  rel = rel.replace(/\.ts$/, '.ts')
+
+  return `export * from '${rel}'`
 })
 
-// Escribir archivo
-writeFileSync(
-  resolve(__dirname, '../src/types/index.ts'),
-  exports.join('\n') + '\n'
+// escribir archivo en src/types
+writeFileSync(resolve(typesDir, 'index.ts'), exports.join('\n') + '\n')
+
+console.log(
+  `✅ index.ts generado con ${allFiles.length} archivos en /src/types`
 )
-console.log(`✅ index.ts generado con ${allFiles.length} archivos en /types`)
