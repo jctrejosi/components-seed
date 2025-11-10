@@ -7,6 +7,7 @@ const meta: Meta<any> = {
   component: WorkSectionAndromeda,
   argTypes: {
     '--bg-primary': { control: 'text', name: '--bg-primary' },
+    '--bg-image': { control: 'text', name: '--bg-image' },
     '--title-color': { control: 'text', name: '--title-color' },
     '--subtitle-color': { control: 'text', name: '--subtitle-color' },
     '--item-bg': { control: 'text', name: '--item-bg' },
@@ -34,6 +35,7 @@ export const Default: Story = {
   args: {
     ...defaults,
     '--bg-primary': '',
+    '--bg-image': '',
     '--title-color': '',
     '--subtitle-color': '',
     '--item-bg': '',

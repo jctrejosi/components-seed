@@ -9,8 +9,12 @@ const meta: Meta<any> = {
     '--bg-image': { control: 'text', name: '--bg-image' },
     '--bg-container': { control: 'text', name: '--bg-container' },
     '--text-color': { control: 'text', name: '--text-color' },
+    '--title-size': { control: 'text', name: '--title-size' },
+    '--p-color': { control: 'text', name: '--p-color' },
+    '--p-size': { control: 'text', name: '--p-size' },
     '--highlight-color': { control: 'text', name: '--highlight-color' },
     '--social-color': { control: 'text', name: '--social-color' },
+    '--social-size': { control: 'text', name: '--social-size' },
     '--icon-color': { control: 'text', name: '--icon-color' },
     '--icon-hover-color': { control: 'text', name: '--icon-hover-color' }
   },
@@ -38,8 +42,12 @@ export const Default: Story = {
     '--bg-image': '',
     '--bg-container': '',
     '--text-color': '',
+    '--title-size': '',
+    '--p-color': '',
+    '--p-size': '',
     '--highlight-color': '',
     '--social-color': '',
+    '--social-size': '',
     '--icon-color': '',
     '--icon-hover-color': ''
   }
