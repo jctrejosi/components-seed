@@ -1,8 +1,8 @@
+// Archivo generado automáticamente — no editar manualmente
+// defaults para ContactFormAndromedaProps
 
-import type { ContactFormAndromedaProps } from './types';
+import type * as Types from './types'
 
-const defaults: ContactFormAndromedaProps = {
-  
-};
-
-export default defaults;
+export const defaultContactFormAndromedaProps: Types.ContactFormAndromedaProps = {
+  sendTo: '',
+}

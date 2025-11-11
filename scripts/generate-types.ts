@@ -1,45 +1,55 @@
-import { writeFileSync } from 'fs'
+// scripts/generate-types.ts
+import { writeFileSync, mkdirSync } from 'fs'
 import { glob } from 'glob'
-import { basename, dirname, resolve, relative } from 'path'
-import { fileURLToPath } from 'url'
+import { relative, resolve, basename } from 'path'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+async function main() {
+  const base = resolve('src')
+  const componentsDir = resolve(base, 'components')
+  const typesDir = resolve(base, 'types')
+  const outputFile = resolve(typesDir, 'index.ts')
 
-// rutas base
-const componentsDir = resolve(__dirname, '../src/components')
-const typesDir = resolve(__dirname, '../src/types')
+  // archivos en components (types/props/interfaces)
+  const compFiles = await glob('**/*{types,props,interfaces}.ts', {
+    cwd: componentsDir,
+    absolute: true,
+  })
 
-// buscar archivos types.ts
-const componentFiles = glob.sync('**/types.ts', {
-  cwd: componentsDir,
-  absolute: true,
+  // archivos dentro de src/types (recursivo), excepto index.ts
+  const manualFiles = await glob('**/*.ts', { cwd: typesDir, absolute: true })
+  const manualFiltered = (manualFiles || []).filter(
+    (f) => basename(f) !== 'index.ts'
+  )
+
+  // combinar y deduplicar
+  const set = new Set<string>([...(compFiles || []), ...manualFiltered])
+  const allFiles = Array.from(set)
+
+  if (allFiles.length === 0) {
+    console.log('// No se detectaron archivos con tipos.')
+    return
+  }
+
+  // asegurar carpeta de salida
+  mkdirSync(typesDir, { recursive: true })
+
+  // generar líneas de export ordenadas
+  const lines = allFiles
+    .map((file) => {
+      let rel = relative(typesDir, file).replace(/\\/g, '/')
+      rel = rel.replace(/\.ts$/, '')
+      return rel.startsWith('.') ? rel : './' + rel
+    })
+    .sort((a, b) => a.localeCompare(b))
+    .map((rel) => `export * from '${rel}'`)
+
+  writeFileSync(outputFile, lines.join('\n') + '\n', 'utf8')
+  console.log(
+    `✅ index.ts generado con ${allFiles.length} archivos en ${typesDir}`
+  )
+}
+
+main().catch((err) => {
+  console.error(err)
+  process.exit(1)
 })
-const manualFiles = glob
-  .sync('*.ts', { cwd: typesDir, absolute: true })
-  .filter((file) => basename(file) !== 'index.ts')
-
-// unir todos
-const allFiles = [...componentFiles, ...manualFiles]
-
-// generar rutas relativas al directorio /src/types
-const exports = allFiles.map((file) => {
-  // ruta relativa desde src/types
-  let rel = relative(typesDir, file)
-  rel = rel.replace(/\\/g, '/')
-
-  // si el archivo está fuera de types, agregar ./ delante
-  if (!rel.startsWith('.')) rel = './' + rel
-
-  // asegurar extensión .ts
-  rel = rel.replace(/\.ts$/, '.ts')
-
-  return `export * from '${rel}'`
-})
-
-// escribir archivo en src/types
-writeFileSync(resolve(typesDir, 'index.ts'), exports.join('\n') + '\n')
-
-console.log(
-  `✅ index.ts generado con ${allFiles.length} archivos en /src/types`
-)

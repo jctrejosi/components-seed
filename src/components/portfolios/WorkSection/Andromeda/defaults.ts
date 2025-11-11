@@ -1,8 +1,8 @@
+// Archivo generado automáticamente — no editar manualmente
+// defaults para WorkSectionAndromedaProps
 
-import type { WorkSectionAndromedaProps } from './types';
+import type * as Types from './types'
 
-const defaults: WorkSectionAndromedaProps = {
-  
-};
-
-export default defaults;
+export const defaultWorkSectionAndromedaProps: Types.WorkSectionAndromedaProps = {
+  items: [],
+}

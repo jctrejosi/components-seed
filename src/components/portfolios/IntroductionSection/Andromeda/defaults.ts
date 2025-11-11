@@ -1,8 +1,9 @@
+// Archivo generado automáticamente — no editar manualmente
+// defaults para IntroductionSectionAndromedaProps
 
-import type { IntroductionSectionAndromedaProps } from './types';
+import type * as Types from './types'
 
-const defaults: IntroductionSectionAndromedaProps = {
-  
-};
+export const defaultIntroductionSectionAndromedaProps: Types.IntroductionSectionAndromedaProps = {
+  // No se detectaron campos en los tipos.
 
-export default defaults;
+}

@@ -1,8 +1,8 @@
+// Archivo generado automáticamente — no editar manualmente
+// defaults para ScrollSnapAndromedaProps
 
-import type { ScrollSnapAndromedaProps } from './types';
+import type * as Types from './types'
 
-const defaults: ScrollSnapAndromedaProps = {
-  
-};
-
-export default defaults;
+export const defaultScrollSnapAndromedaProps: Types.ScrollSnapAndromedaProps = {
+  sections: [],
+}

@@ -1,8 +1,9 @@
+// Archivo generado automáticamente — no editar manualmente
+// defaults para HeroSectionAndromedaProps
 
-import type { HeroSectionAndromedaProps } from './types';
+import type * as Types from './types'
 
-const defaults: HeroSectionAndromedaProps = {
-  
-};
-
-export default defaults;
+export const defaultHeroSectionAndromedaProps: Types.HeroSectionAndromedaProps = {
+  backgroundImage: '',
+  imageProfile: '',
+}
