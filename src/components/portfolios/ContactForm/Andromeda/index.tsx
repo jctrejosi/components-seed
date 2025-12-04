@@ -8,6 +8,7 @@ export const ContactFormAndromeda = ({
   sendTo = '',
   translations = translationsSources,
   style,
+  backgroundImage,
 }: ContactFormAndromedaProps) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -30,64 +31,71 @@ export const ContactFormAndromeda = ({
   }
 
   return (
-    <section className={styles.container} style={style}>
-      <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
-      <p className={styles.subtitle}>
-        {returnTranslation(translations.subtitle)}
-      </p>
+    <div className={styles.container}>
+      {backgroundImage && (
+        <img className={styles.backgroundImage} src={backgroundImage} />
+      )}
+      <section className={styles.innerContainer} style={style}>
+        <h2 className={styles.title}>
+          {returnTranslation(translations.title)}
+        </h2>
+        <p className={styles.subtitle}>
+          {returnTranslation(translations.subtitle)}
+        </p>
 
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.row}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.row}>
+            <div className={styles.field}>
+              <label htmlFor="name">
+                {returnTranslation(translations.label_name)}
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder={returnTranslation(translations.placeholder_name)}
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className={styles.field}>
+              <label htmlFor="email">
+                {returnTranslation(translations.label_email)}
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder={returnTranslation(translations.placeholder_email)}
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
           <div className={styles.field}>
-            <label htmlFor="name">
-              {returnTranslation(translations.label_name)}
+            <label htmlFor="message">
+              {returnTranslation(translations.label_message)}
             </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder={returnTranslation(translations.placeholder_name)}
-              value={formData.name}
+            <textarea
+              id="message"
+              name="message"
+              placeholder={returnTranslation(translations.placeholder_message)}
+              value={formData.message}
               onChange={handleChange}
+              rows={5}
               required
             />
           </div>
 
-          <div className={styles.field}>
-            <label htmlFor="email">
-              {returnTranslation(translations.label_email)}
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder={returnTranslation(translations.placeholder_email)}
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-
-        <div className={styles.field}>
-          <label htmlFor="message">
-            {returnTranslation(translations.label_message)}
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder={returnTranslation(translations.placeholder_message)}
-            value={formData.message}
-            onChange={handleChange}
-            rows={5}
-            required
-          />
-        </div>
-
-        <button type="submit" className={styles.button}>
-          {returnTranslation(translations.button)}
-        </button>
-      </form>
-    </section>
+          <button type="submit" className={styles.button}>
+            {returnTranslation(translations.button)}
+          </button>
+        </form>
+      </section>
+    </div>
   )
 }

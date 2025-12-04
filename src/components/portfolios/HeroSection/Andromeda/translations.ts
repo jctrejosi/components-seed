@@ -24,4 +24,24 @@ export const translationsDefault = {
     en: 'Proven experience building successful products for clients across several countries.',
     pt: 'Experiência comprovada na criação de produtos bem-sucedidos para clientes em vários países.',
   },
+  name: {
+    es: 'Juan Carlos Trejos Iglesias',
+    en: 'Juan Carlos Trejos Iglesias',
+    pt: 'Juan Carlos Trejos Iglesias',
+  },
+  address: {
+    es: 'Manizales, Colombia',
+    en: 'Manizales, Colombia',
+    pt: 'Manizales, Colombia',
+  },
+  email: {
+    es: 'jctrejosi@unal.edu.co',
+    en: 'jctrejosi@unal.edu.co',
+    pt: 'jctrejosi@unal.edu.co',
+  },
+  phone: {
+    es: '(+57) 314 885 4358',
+    en: '(+57) 314 885 4358',
+    pt: '(+57) 314 885 4358',
+  },
 }
