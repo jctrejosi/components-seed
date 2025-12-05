@@ -14,10 +14,14 @@ import { type IntroductionSectionAndromedaProps } from './types'
 export const IntroductionSectionAndromeda = ({
   className,
   translations = translationsSources,
+  backgroundImage,
   style,
 }: IntroductionSectionAndromedaProps) => {
   return (
     <div className={styles.main_container}>
+      {backgroundImage && (
+        <img className={styles.backgroundImage} src={backgroundImage} />
+      )}
       <section className={`${styles.container} ${className}`} style={style}>
         <h1 className={styles.title}>
           {returnTranslation(translations.hi_there)}

@@ -7,10 +7,14 @@ export const WorkSectionAndromeda = ({
   items = [],
   translations = translationsSources,
   style,
+  backgroundImage,
   className = 'work-section-andromeda',
 }: WorkSectionAndromedaProps) => {
   return (
     <div className={styles.container}>
+      {backgroundImage && (
+        <img className={styles.backgroundImage} src={backgroundImage} />
+      )}
       <section className={`${styles.workSection} ${className}`} style={style}>
         <h2 className={styles.title}>
           {returnTranslation(translations.title)}

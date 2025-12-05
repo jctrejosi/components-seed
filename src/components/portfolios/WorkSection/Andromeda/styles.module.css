@@ -6,14 +6,24 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: var(--bg-image, var(--bg-colored-patterns));
+  position: relative;
+}
+
+.backgroundImage {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: var(--object-fit-bg, contain);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
 }
 
 .workSection {
   max-width: 90rem;
+  z-index: 1;
 }
 
 .title {
@@ -64,7 +74,13 @@
 }
 
 .info a {
-  color: var(--link-color);
+  color: var(--link-color, var(--anchor-color));
   font-size: 0.9rem;
   margin-top: 1rem;
+}
+
+.info a:hover {
+  transition: color .2s;
+  text-decoration: underline;
+  color: var(--link-color-hover ,var(--anchor-color-hover));
 }

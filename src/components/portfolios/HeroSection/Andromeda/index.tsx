@@ -6,21 +6,19 @@ import type { HeroSectionAndromedaProps } from './types'
 
 export const HeroSectionAndromeda = ({
   className = 'hero-section-andromeda',
+  backgroundLogo,
   backgroundImage,
+  backgroundImageRight,
   style,
   imageProfile,
   translations = translationsDefault,
 }: HeroSectionAndromedaProps) => {
   return (
-    <section
-      className={`${styles.hero} ${className}`}
-      style={{
-        ...style,
-      }}
-    >
+    <section className={`${styles.hero} ${className}`} style={{ ...style }}>
       <div className={styles.left}>
+        {backgroundLogo && <img className={styles.logo} src={backgroundLogo} />}
         {backgroundImage && (
-          <img className={styles.overlay} src={backgroundImage} />
+          <img className={styles.backgroundImage} src={backgroundImage} />
         )}
         <h1 className={styles.title}>
           <span className={styles.word_1}>
@@ -39,9 +37,26 @@ export const HeroSectionAndromeda = ({
           <p>{returnTranslation(translations.highlight_2)}</p>
         </div>
       </div>
-
       <div className={styles.right}>
+        {backgroundImage && (
+          <img
+            className={styles.backgroundImageright}
+            src={backgroundImageRight}
+          />
+        )}
         <img src={imageProfile} alt="Profile" className={styles.image} />
+        <div className={styles.info}>
+          <p className={styles.name}>{returnTranslation(translations.name)}</p>
+          <p className={styles.address}>
+            {returnTranslation(translations.address)}
+          </p>
+          <p className={styles.email}>
+            {returnTranslation(translations.email)}
+          </p>
+          <p className={styles.phone}>
+            {returnTranslation(translations.phone)}
+          </p>
+        </div>
       </div>
     </section>
   )

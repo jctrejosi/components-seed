@@ -29,7 +29,7 @@
     "generate:stories": "ts-node ./scripts/generate-stories.ts",
     "generate:defaults": "ts-node ./scripts/generate-defaults.ts",
     "bundle": "npm run generate:indexes && tsc -b && vite build",
-    "bundle:watch": "vite build --watch",
+    "watch": "vite build --watch",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
   },

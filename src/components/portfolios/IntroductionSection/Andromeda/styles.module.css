@@ -1,13 +1,22 @@
 .main_container {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: var(--bg-image, var(--bg-colored-shapes));
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.backgroundImage {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: var(--object-fit-bg, cover);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
 }
 
 .container {
@@ -18,6 +27,7 @@
   max-width: 700px;
   padding: 6rem 4rem;
   text-align: left;
+  z-index: 1;
 }
 
 .title {
@@ -56,5 +66,5 @@
 }
 
 .icons a:hover {
-  color: var(--icon-hover-color);
+  color: var(--icon-color-hover);
 }

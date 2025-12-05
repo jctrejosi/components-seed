@@ -10,5 +10,6 @@ export type ItemWorkSection = {
 }
 
 export type WorkSectionAndromedaProps = BasePropComponents & {
+  backgroundImage?: string
   items?: ItemWorkSection[]
 }
