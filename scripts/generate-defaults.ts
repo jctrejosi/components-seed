@@ -86,7 +86,7 @@ async function main() {
 
 import type * as Types from './types'
 
-export const default${propsTypeName}: Types.${propsTypeName} = {
+export const defaults: Types.${propsTypeName} = {
 ${defaultsBody}
 }
 `

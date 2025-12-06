@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ContactFormAndromeda } from './index';
-import defaults from './defaults';
+import { defaults } from './defaults';
 
 const meta: Meta<any> = {
   title: 'Components/ContactForm/Andromeda',
   component: ContactFormAndromeda,
   argTypes: {
+    '--object-fit-bg': { control: 'text', name: '--object-fit-bg' },
     '--title-color': { control: 'text', name: '--title-color' },
     '--introduction-color': { control: 'text', name: '--introduction-color' },
     '--field-color': { control: 'text', name: '--field-color' },
@@ -37,6 +38,7 @@ type Story = StoryObj<any>;
 export const Default: Story = {
   args: {
     ...defaults,
+    '--object-fit-bg': '',
     '--title-color': '',
     '--introduction-color': '',
     '--field-color': '',

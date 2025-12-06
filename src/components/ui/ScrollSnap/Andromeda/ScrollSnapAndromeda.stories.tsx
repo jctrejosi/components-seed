@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ScrollSnapAndromeda } from './index';
-import defaults from './defaults';
+import { defaults } from './defaults';
 
 const meta: Meta<any> = {
   title: 'Components/ScrollSnap/Andromeda',

@@ -3,7 +3,8 @@
 
 import type * as Types from './types'
 
-export const defaultHeroSectionAndromedaProps: Types.HeroSectionAndromedaProps = {
+export const defaults: Types.HeroSectionAndromedaProps = {
   backgroundImage: '',
+  backgroundLogo: '',
   imageProfile: '',
 }

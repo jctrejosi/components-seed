@@ -3,6 +3,7 @@
 
 import type * as Types from './types'
 
-export const defaultWorkSectionAndromedaProps: Types.WorkSectionAndromedaProps = {
+export const defaults: Types.WorkSectionAndromedaProps = {
+  backgroundImage: '',
   items: [],
 }

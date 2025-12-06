@@ -51,7 +51,7 @@ function generateStory(filePath: string) {
   const defaultsFile = path.join(dir, 'defaults.ts')
   const hasDefaults = fs.existsSync(defaultsFile)
   const defaultsImport = hasDefaults
-    ? `import defaults from './defaults';\n`
+    ? `import { defaults } from './defaults';\n`
     : ''
 
   const argTypesEntries = cssVars

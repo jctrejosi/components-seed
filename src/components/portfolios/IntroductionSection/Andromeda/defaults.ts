@@ -3,7 +3,6 @@
 
 import type * as Types from './types'
 
-export const defaultIntroductionSectionAndromedaProps: Types.IntroductionSectionAndromedaProps = {
-  // No se detectaron campos en los tipos.
-
+export const defaults: Types.IntroductionSectionAndromedaProps = {
+  backgroundImage: '',
 }

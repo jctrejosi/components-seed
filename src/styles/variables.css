@@ -23,4 +23,6 @@
   --btn-size: 1.4rem;
   --icon-color: var(--base-color-1);
   --icon-hover-color: var(--base-color-7);
+
+  --bp-m: 1024;
 }

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { IntroductionSectionAndromeda } from './index';
-import defaults from './defaults';
+import { defaults } from './defaults';
 
 const meta: Meta<any> = {
   title: 'Components/IntroductionSection/Andromeda',
   component: IntroductionSectionAndromeda,
   argTypes: {
-    '--bg-image': { control: 'text', name: '--bg-image' },
+    '--object-fit-bg': { control: 'text', name: '--object-fit-bg' },
     '--bg-container': { control: 'text', name: '--bg-container' },
     '--text-color': { control: 'text', name: '--text-color' },
     '--title-size': { control: 'text', name: '--title-size' },
@@ -16,7 +16,7 @@ const meta: Meta<any> = {
     '--social-color': { control: 'text', name: '--social-color' },
     '--social-size': { control: 'text', name: '--social-size' },
     '--icon-color': { control: 'text', name: '--icon-color' },
-    '--icon-hover-color': { control: 'text', name: '--icon-hover-color' }
+    '--icon-color-hover': { control: 'text', name: '--icon-color-hover' }
   },
   render: (args) => {
     const cssVars: Record<string,string> = {}
@@ -39,7 +39,7 @@ type Story = StoryObj<any>;
 export const Default: Story = {
   args: {
     ...defaults,
-    '--bg-image': '',
+    '--object-fit-bg': '',
     '--bg-container': '',
     '--text-color': '',
     '--title-size': '',
@@ -49,6 +49,6 @@ export const Default: Story = {
     '--social-color': '',
     '--social-size': '',
     '--icon-color': '',
-    '--icon-hover-color': ''
+    '--icon-color-hover': ''
   }
 };

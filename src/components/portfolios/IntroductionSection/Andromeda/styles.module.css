@@ -40,7 +40,13 @@
   color: var(--p-color, var(--text-color));
   font-size: var(--p-size, var(--text-size));
   line-height: 1.7;
+  white-space: pre-line;
 }
+
+.paragraph span:last-of-type {
+  font-style: italic;
+}
+
 
 .highlight {
   color: var(--highlight-color, var(--text-color));

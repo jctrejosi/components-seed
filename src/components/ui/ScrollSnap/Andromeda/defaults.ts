@@ -3,6 +3,6 @@
 
 import type * as Types from './types'
 
-export const defaultScrollSnapAndromedaProps: Types.ScrollSnapAndromedaProps = {
+export const defaults: Types.ScrollSnapAndromedaProps = {
   sections: [],
 }

@@ -130,7 +130,7 @@
   mask-image: linear-gradient(black 70%, transparent);
   object-fit: cover;
   position: relative;
-  width: 200px;
+  width: 150px;
 }
 
 .info {
@@ -169,21 +169,18 @@
   }
 
   .image {
-    right: 14rem;
-    width: 220px;
+    width: 150px;
   }
 }
 
 /* lg ↓ 1024px */
 @media (max-width: 1024px) {
   .hero {
-    flex-direction: column;
-    height: auto;
+    flex-direction: column-reverse;
   }
 
   .left {
     padding: 8rem 6rem;
-    height: auto;
   }
 
   .right {
@@ -194,7 +191,7 @@
 
   .image {
     right: 0;
-    width: 200px;
+    width: 150px;
     margin: 0 auto;
   }
 
@@ -222,7 +219,7 @@
   }
 
   .image {
-    width: 160px;
+    width: 120px;
   }
 }
 

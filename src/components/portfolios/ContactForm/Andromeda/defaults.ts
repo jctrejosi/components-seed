@@ -3,6 +3,7 @@
 
 import type * as Types from './types'
 
-export const defaultContactFormAndromedaProps: Types.ContactFormAndromedaProps = {
+export const defaults: Types.ContactFormAndromedaProps = {
   sendTo: '',
+  backgroundImage: '',
 }

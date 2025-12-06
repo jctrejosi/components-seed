@@ -31,9 +31,9 @@ export const IntroductionSectionAndromeda = ({
           <span className={styles.highlight}>
             {returnTranslation(translations.name)}
           </span>
-          {returnTranslation(translations.developer_focus)}.
+          <span>{returnTranslation(translations.developer_focus)}.</span>
           <br />
-          {returnTranslation(translations.digital_garden)}
+          <span>{returnTranslation(translations.slogan)}</span>
         </p>
 
         <div className={styles.social}>

@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { HeroSectionAndromeda } from './index';
-import defaults from './defaults';
+import { defaults } from './defaults';
 
 const meta: Meta<any> = {
   title: 'Components/HeroSection/Andromeda',
   component: HeroSectionAndromeda,
   argTypes: {
     '--bg-left': { control: 'text', name: '--bg-left' },
-    '--bg-image-left': { control: 'text', name: '--bg-image-left' },
     '--bg-secondary': { control: 'text', name: '--bg-secondary' },
+    '--object-fit-bg': { control: 'text', name: '--object-fit-bg' },
     '--title-color': { control: 'text', name: '--title-color' },
     '--title-size': { control: 'text', name: '--title-size' },
     '--word-1-color': { control: 'text', name: '--word-1-color' },
@@ -19,8 +19,8 @@ const meta: Meta<any> = {
     '--highlight-color': { control: 'text', name: '--highlight-color' },
     '--highlight-size': { control: 'text', name: '--highlight-size' },
     '--bg-right': { control: 'text', name: '--bg-right' },
-    '--bg-image-right': { control: 'text', name: '--bg-image-right' },
-    '--shadow-color': { control: 'text', name: '--shadow-color' }
+    '--shadow-color': { control: 'text', name: '--shadow-color' },
+    '--info-color': { control: 'text', name: '--info-color' }
   },
   render: (args) => {
     const cssVars: Record<string,string> = {}
@@ -44,8 +44,8 @@ export const Default: Story = {
   args: {
     ...defaults,
     '--bg-left': '',
-    '--bg-image-left': '',
     '--bg-secondary': '',
+    '--object-fit-bg': '',
     '--title-color': '',
     '--title-size': '',
     '--word-1-color': '',
@@ -56,7 +56,7 @@ export const Default: Story = {
     '--highlight-color': '',
     '--highlight-size': '',
     '--bg-right': '',
-    '--bg-image-right': '',
-    '--shadow-color': ''
+    '--shadow-color': '',
+    '--info-color': ''
   }
 };
