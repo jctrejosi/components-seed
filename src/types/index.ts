@@ -1,4 +1,5 @@
 export * from '../components/portfolios/ContactForm/Andromeda/types'
+export * from '../components/portfolios/ContactForm/Antlia/types'
 export * from '../components/portfolios/HeroSection/Andromeda/types'
 export * from '../components/portfolios/IntroductionSection/Andromeda/types'
 export * from '../components/portfolios/Projects/Andromeda/types'
