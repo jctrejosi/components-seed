@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ContactFormAndromeda } from './index';
-import { defaults } from './defaults';
+import type { Meta, StoryObj } from '@storybook/react'
+import { ContactFormAndromeda } from './index'
+import { defaults } from './defaults'
 
 const meta: Meta<any> = {
   title: 'Components/ContactForm/Andromeda',
@@ -15,10 +15,10 @@ const meta: Meta<any> = {
     '--placeholder-color': { control: 'text', name: '--placeholder-color' },
     '--field-focus-color': { control: 'text', name: '--field-focus-color' },
     '--btn-color': { control: 'text', name: '--btn-color' },
-    '--btn-hover-color': { control: 'text', name: '--btn-hover-color' }
+    '--btn-hover-color': { control: 'text', name: '--btn-hover-color' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -30,10 +30,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -47,6 +47,6 @@ export const Default: Story = {
     '--placeholder-color': '',
     '--field-focus-color': '',
     '--btn-color': '',
-    '--btn-hover-color': ''
-  }
-};
+    '--btn-hover-color': '',
+  },
+}

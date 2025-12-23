@@ -9,24 +9,25 @@
   position: relative;
 }
 
+/* background */
 .backgroundImage {
-  bottom: 0;
-  left: 0;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: var(--object-fit-bg, cover);
-  position: absolute;
-  right: 0;
-  top: 0;
   z-index: 0;
   opacity: var(--opacity-bg, 0.1);
 }
 
+/* section */
 .workSection {
-  max-width: 90rem;
   z-index: 1;
+  padding: 6rem 2rem;
+  width: 80%;
 }
 
+/* titles */
 .title {
   color: var(--title-color);
   font-size: 2.5rem;
@@ -40,43 +41,98 @@
   margin-bottom: 3rem;
 }
 
+/* grid */
 .grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-wrap: nowrap;
   justify-content: center;
+  gap: 2rem;
 }
 
+/* card */
 .card {
   background-color: var(--item-bg);
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
-  padding: 2rem;
-  text-align: center;
-  width: 10rem;
-}
-
-.logo {
-  height: 50px;
-  margin-bottom: 1rem;
-  object-fit: contain;
-  width: 90%;
-}
-
-.info {
-  align-items: center;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.info a {
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 8%);
+}
+
+/* header */
+.logo {
+  height: 46px;
+  width: 90%;
+  object-fit: contain;
+  margin: 0 auto 0.5rem;
+}
+
+.company {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--title-color);
+}
+
+/* role */
+.role {
+  font-size: 0.75rem;
+  color: var(--subtitle-color);
+  margin-top: -0.25rem;
+}
+
+/* description */
+.description {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--text-color, #555);
+  margin-top: 0.25rem;
+}
+
+/* technologies */
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.techList li {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.4rem;
+  background-color: var(--chip-bg, rgba(0, 0, 0, 0.05));
+  color: var(--chip-color, #444);
+}
+
+/* link */
+.link {
+  margin-top: auto;
+  font-size: 0.75rem;
   color: var(--link-color, var(--anchor-color));
-  font-size: 0.9rem;
-  margin-top: 1rem;
 }
 
-.info a:hover {
-  transition: color 0.2s;
+.link:hover {
   text-decoration: underline;
   color: var(--link-color-hover, var(--anchor-color-hover));
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 18rem;
+  }
 }

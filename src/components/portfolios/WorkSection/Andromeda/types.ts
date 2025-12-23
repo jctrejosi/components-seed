@@ -1,8 +1,11 @@
 import type { BasePropComponents } from '@/types'
 
-export type ItemWorkSection = {
-  name?: string
-  logo?: string
+export type WorkItem = {
+  name: string
+  logo: string
+  role?: string
+  description?: string
+  technologies?: string[]
   link?: {
     url: string
     text: string
@@ -10,6 +13,9 @@ export type ItemWorkSection = {
 }
 
 export type WorkSectionAndromedaProps = BasePropComponents & {
+  items?: WorkItem[]
+  translations?: any
+  style?: React.CSSProperties
   backgroundImage?: string
-  items?: ItemWorkSection[]
+  className?: string
 }

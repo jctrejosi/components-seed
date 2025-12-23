@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { WorkSectionAntlia } from './index';
-import { defaults } from './defaults';
+import type { Meta, StoryObj } from '@storybook/react'
+import { WorkSectionAntlia } from './index'
+import { defaults } from './defaults'
 
 const meta: Meta<any> = {
   title: 'Components/WorkSection/Antlia',
@@ -15,10 +15,10 @@ const meta: Meta<any> = {
     '--icon-color': { control: 'text', name: '--icon-color' },
     '--subtitle-color': { control: 'text', name: '--subtitle-color' },
     '--text-color': { control: 'text', name: '--text-color' },
-    '--text-size': { control: 'text', name: '--text-size' }
+    '--text-size': { control: 'text', name: '--text-size' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -30,10 +30,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -47,6 +47,6 @@ export const Default: Story = {
     '--icon-color': '',
     '--subtitle-color': '',
     '--text-color': '',
-    '--text-size': ''
-  }
-};
+    '--text-size': '',
+  },
+}

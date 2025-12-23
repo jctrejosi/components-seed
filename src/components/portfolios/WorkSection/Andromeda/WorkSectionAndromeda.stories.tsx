@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { WorkSectionAndromeda } from './index';
-import { defaults } from './defaults';
+import type { Meta, StoryObj } from '@storybook/react'
+import { WorkSectionAndromeda } from './index'
+import { defaults } from './defaults'
 
 const meta: Meta<any> = {
   title: 'Components/WorkSection/Andromeda',
@@ -12,11 +12,14 @@ const meta: Meta<any> = {
     '--title-color': { control: 'text', name: '--title-color' },
     '--subtitle-color': { control: 'text', name: '--subtitle-color' },
     '--item-bg': { control: 'text', name: '--item-bg' },
+    '--text-color': { control: 'text', name: '--text-color' },
+    '--chip-bg': { control: 'text', name: '--chip-bg' },
+    '--chip-color': { control: 'text', name: '--chip-color' },
     '--link-color': { control: 'text', name: '--link-color' },
-    '--link-color-hover': { control: 'text', name: '--link-color-hover' }
+    '--link-color-hover': { control: 'text', name: '--link-color-hover' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -28,10 +31,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -42,7 +45,10 @@ export const Default: Story = {
     '--title-color': '',
     '--subtitle-color': '',
     '--item-bg': '',
+    '--text-color': '',
+    '--chip-bg': '',
+    '--chip-color': '',
     '--link-color': '',
-    '--link-color-hover': ''
-  }
-};
+    '--link-color-hover': '',
+  },
+}
