@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ProjectsAndromeda } from './index'
+import { HeroSectionAntlia } from './index'
 
 const meta: Meta<any> = {
-  title: 'Components/Projects/Andromeda',
-  component: ProjectsAndromeda,
+  title: 'Components/HeroSection/Antlia',
+  component: HeroSectionAntlia,
   argTypes: {
-    '--bg-section': { control: 'text', name: '--bg-section' },
-    '--title-color': { control: 'text', name: '--title-color' },
+    '--bg-dark': { control: 'text', name: '--bg-dark' },
+    '--items-count': { control: 'text', name: '--items-count' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -17,7 +17,7 @@ const meta: Meta<any> = {
     })
     return (
       <div style={cssVars}>
-        <ProjectsAndromeda {...args} />
+        <HeroSectionAntlia {...args} />
       </div>
     )
   },
@@ -28,7 +28,7 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    '--bg-section': '',
-    '--title-color': '',
+    '--bg-dark': '',
+    '--items-count': '',
   },
 }

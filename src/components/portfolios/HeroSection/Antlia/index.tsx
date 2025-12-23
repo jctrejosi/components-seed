@@ -1,0 +1,67 @@
+import React from 'react'
+import styles from './styles.module.css'
+import type { HeroFeaturedAntliaProps } from './types'
+import { returnTranslation } from '@/utils'
+import { translationsSoruces } from './translations'
+
+export const HeroSectionAntlia = ({
+  mainTitle,
+  subtitle,
+  items = [],
+  backgroundImage,
+  translations = translationsSoruces,
+  className = '',
+}: HeroFeaturedAntliaProps) => {
+  // duplicamos items para crear el loop continuo en el track CSS
+  const loopItems = [...items, ...items]
+
+  return (
+    <section
+      className={`${styles.container} ${className}`}
+      aria-label={returnTranslation(translations.featuredTitle)}
+    >
+      {backgroundImage && (
+        <img
+          src={backgroundImage}
+          alt=""
+          aria-hidden
+          className={styles.backgroundImage}
+        />
+      )}
+
+      <div className={styles.content}>
+        <h1 className={styles.heroTitle}>{mainTitle}</h1>
+        {subtitle && <div className={styles.heroSubtitle}>{subtitle}</div>}
+
+        <div className={styles.featuredBlock}>
+          <div className={styles.featuredTitle}>
+            {returnTranslation(translations.featuredTitle)}
+          </div>
+
+          <div className={styles.carousel} role="list" aria-hidden={false}>
+            <div
+              className={styles.track}
+              style={{ '--items-count': items.length } as React.CSSProperties}
+            >
+              {loopItems.map((it, idx) => (
+                <a
+                  key={`${it.alt ?? it.image}-${idx}`}
+                  className={styles.logoLink}
+                  href={it.url ?? '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={it.image}
+                    alt={it.alt ?? it.image}
+                    className={styles.logo}
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

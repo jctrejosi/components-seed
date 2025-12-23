@@ -1,0 +1,200 @@
+:root {
+  /* variables guía; ajústalas a tu theme */
+  --bg-dark: #0b1220;
+  --overlay: rgba(3, 8, 15, 0.55);
+  --muted: #b6c0cc;
+  --accent: #ffd16a;
+}
+
+/* contenedor general */
+.container {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+  color: #fff;
+  padding: 4rem 1rem 6rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+/* imagen de fondo absoluta */
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.45) saturate(0.8);
+}
+
+/* contenido centrado y con z-index */
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* título grande (clamp para mantener similar a la imagen) */
+.heroTitle {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 2rem 0 0.8rem;
+  text-align: center;
+  line-height: 0.95;
+  font-size: clamp(3.8rem, 9.5vw, 8.2rem); /* empata gran tamaño */
+  color: #ffffff;
+  z-index: 2;
+}
+
+/* subtítulo monospace, small caps look */
+.heroSubtitle {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
+  font-size: clamp(0.85rem, 1.4vw, 1.25rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 2.6rem;
+}
+
+/* bloque que contiene el featured title y carousel */
+.featuredBlock {
+  width: 100%;
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* texto opaco tipo "as featured in" */
+.featuredTitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.02)
+  );
+  padding: 0.45rem 1.6rem;
+  border-radius: 999px;
+}
+
+/* carousel wrapper: overflow hidden */
+.carousel {
+  width: 100%;
+  max-width: 980px;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+/* track: flex row con duplicación para loop. la animación mueve -50% */
+.track {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  width: max-content;
+  animation: scrollLeft linear infinite;
+  animation-duration: calc(
+    var(--items-count, 6) * 2.1s
+  ); /* velocidad dependiente del count */
+}
+
+/* la animación mueve el ancho equivalente a la mitad del track (por duplicación) */
+/* keyframes: movemos -50% para que la segunda mitad repita la primera */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* pausa al hover */
+.carousel:hover .track {
+  animation-play-state: paused;
+}
+
+/* cada logo dentro del track */
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 92px;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(255, 255, 255, 0)
+  );
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+  filter: grayscale(100%) opacity(0.75);
+}
+
+/* interacción */
+.logoLink:hover {
+  transform: translateY(-6px) scale(1.02);
+  filter: grayscale(0) opacity(1);
+  box-shadow: 0 14px 36px rgba(2, 6, 23, 0.5);
+}
+
+/* imagen del logo */
+.logo {
+  max-height: 64px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* responsive */
+@media (max-width: 1000px) {
+  .heroTitle {
+    font-size: clamp(3.2rem, 10vw, 5.6rem);
+  }
+  .carousel {
+    max-width: 720px;
+  }
+  .logoLink {
+    min-width: 130px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 680px) {
+  .heroTitle {
+    font-size: clamp(2.4rem, 10vw, 4.2rem);
+  }
+  .heroSubtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+  }
+  .carousel {
+    padding: 0.6rem 0;
+  }
+  .logoLink {
+    min-width: 110px;
+    height: 60px;
+    gap: 1rem;
+  }
+}

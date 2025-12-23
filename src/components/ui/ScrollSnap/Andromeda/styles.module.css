@@ -1,9 +1,10 @@
 .wrapper {
   position: relative;
+  height: 100dvh;
 }
 
 .container {
-  height: 100vh;
+  height: 100%;
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
@@ -12,9 +13,13 @@
 .section {
   align-items: center;
   display: flex;
-  height: 100vh;
+  height: 100%;
   justify-content: center;
   scroll-snap-align: start;
+}
+
+.section * {
+  box-sizing: border-box;
 }
 
 .dots {
