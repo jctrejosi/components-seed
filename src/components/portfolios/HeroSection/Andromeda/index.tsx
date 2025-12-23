@@ -44,7 +44,7 @@ export const HeroSectionAndromeda = ({
             src={backgroundImageRight}
           />
         )}
-        <img src={imageProfile} alt="Profile" className={styles.image} />
+        <img src={imageProfile} alt="Profile" className={styles.imageProfile} />
         <div className={styles.info}>
           <p className={styles.name}>{returnTranslation(translations.name)}</p>
           <p className={styles.address}>
