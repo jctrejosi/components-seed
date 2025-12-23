@@ -5,6 +5,7 @@ import type * as Types from './types'
 
 export const defaults: Types.HeroSectionAndromedaProps = {
   backgroundImage: '',
+  backgroundImageRight: '',
   backgroundLogo: '',
   imageProfile: '',
 }

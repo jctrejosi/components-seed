@@ -5,4 +5,5 @@ import type * as Types from './types'
 
 export const defaults: Types.IntroductionSectionAndromedaProps = {
   backgroundImage: '',
+  socialIcons: {},
 }

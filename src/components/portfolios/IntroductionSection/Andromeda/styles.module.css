@@ -47,7 +47,6 @@
   font-style: italic;
 }
 
-
 .highlight {
   color: var(--highlight-color, var(--text-color));
   font-weight: bold;
