@@ -29,15 +29,15 @@
 
 /* titles */
 .title {
-  color: var(--title-color);
-  font-size: 2.5rem;
+  color: var(--title-color, var(--base-color-2));
+  font-size: var(--title-size, 4rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  color: var(--subtitle-color);
-  font-size: 1rem;
+  color: var(--subtitle-color, var(--base-color-2));
+  font-size: var(--subtitle-size, 2rem);
   margin-bottom: 3rem;
 }
 
@@ -51,6 +51,7 @@
 
 /* card */
 .card {
+  flex: 1 1 0;
   background-color: var(--item-bg);
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
@@ -59,43 +60,36 @@
   flex-direction: column;
   gap: 0.75rem;
   text-align: center;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgb(0 0 0 / 8%);
 }
 
 /* header */
 .logo {
-  height: 46px;
-  width: 90%;
+  height: 5rem;
   object-fit: contain;
   margin: 0 auto 0.5rem;
 }
 
 .company {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--title-color);
+  font-size: var(--comany-size, 1.6rem);
+  font-weight: bold;
+  color: var(--company-color, var(--base-color-2));
+  margin: 1rem 0;
 }
 
 /* role */
 .role {
-  font-size: 0.75rem;
-  color: var(--subtitle-color);
+  font-size: var(--role-size, 1.6rem);
+  color: var(--role-color, var(--base-color-3));
   margin-top: -0.25rem;
 }
 
 /* description */
 .description {
-  font-size: 0.75rem;
+  font-size: var(--text-size, 1.6rem);
   line-height: 1.4;
   color: var(--text-color, #555);
   margin-top: 0.25rem;
+  height: 8rem;
 }
 
 /* technologies */
@@ -110,17 +104,17 @@
 }
 
 .techList li {
-  font-size: 0.65rem;
+  font-size: var(--chip-size, 1rem);
   padding: 0.15rem 0.45rem;
   border-radius: 0.4rem;
-  background-color: var(--chip-bg, rgba(0, 0, 0, 0.05));
-  color: var(--chip-color, #444);
+  background-color: var(--chip-bg, var(--dark-90));
+  color: var(--chip-color, var(--dark-10));
 }
 
 /* link */
 .link {
   margin-top: auto;
-  font-size: 0.75rem;
+  font-size: 1.5rem;
   color: var(--link-color, var(--anchor-color));
 }
 

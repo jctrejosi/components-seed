@@ -1,17 +1,9 @@
-:root {
-  /* variables guía; ajústalas a tu theme */
-  --bg-dark: #0b1220;
-  --overlay: rgba(3, 8, 15, 0.55);
-  --muted: #b6c0cc;
-  --accent: #ffd16a;
-}
-
 /* contenedor general */
 .container {
   position: relative;
   overflow: hidden;
   background-color: var(--bg-dark);
-  color: #fff;
+  color: var(--text-color, var(--dark-0));
   padding: 4rem 1rem 6rem;
   display: flex;
   justify-content: center;
@@ -28,7 +20,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  filter: brightness(0.45) saturate(0.8);
+
 }
 
 /* contenido centrado y con z-index */
@@ -51,7 +43,7 @@
   text-align: center;
   line-height: 0.95;
   font-size: clamp(3.8rem, 9.5vw, 8.2rem); /* empata gran tamaño */
-  color: #ffffff;
+  color: var(--text-color, var(--dark-0));
   z-index: 2;
 }
 
@@ -62,7 +54,7 @@
   font-size: clamp(0.85rem, 1.4vw, 1.25rem);
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-color, var(--dark-0));
   margin-bottom: 2.6rem;
 }
 
@@ -79,7 +71,7 @@
 /* texto opaco tipo "as featured in" */
 .featuredTitle {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-color, var(--dark-40));
   text-transform: uppercase;
   letter-spacing: 0.5em;
   background: linear-gradient(
@@ -109,7 +101,7 @@
   width: max-content;
   animation: scrollLeft linear infinite;
   animation-duration: calc(
-    var(--items-count, 6) * 2.1s
+    var(--items-count, 6) * 5s
   ); /* velocidad dependiente del count */
 }
 
