@@ -6,6 +6,7 @@ import { translationsSoruces } from './translations'
 
 export const HeroSectionAntlia = ({
   items = [],
+  style,
   backgroundImage,
   translations = translationsSoruces,
   className = '',
@@ -17,6 +18,7 @@ export const HeroSectionAntlia = ({
     <section
       className={`${styles.container} ${className}`}
       aria-label={returnTranslation(translations.featuredTitle)}
+      style={style}
     >
       {backgroundImage && (
         <img

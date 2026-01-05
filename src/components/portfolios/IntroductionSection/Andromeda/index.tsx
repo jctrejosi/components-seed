@@ -14,11 +14,11 @@ export const IntroductionSectionAndromeda = ({
   style,
 }: IntroductionSectionAndromedaProps) => {
   return (
-    <div className={styles.main_container}>
+    <div className={styles.main_container} style={style}>
       {backgroundImage && (
         <img className={styles.backgroundImage} src={backgroundImage} />
       )}
-      <section className={`${styles.container} ${className}`} style={style}>
+      <section className={`${styles.container} ${className}`}>
         <h1 className={styles.title}>
           {returnTranslation(translations.hi_there)}
         </h1>
