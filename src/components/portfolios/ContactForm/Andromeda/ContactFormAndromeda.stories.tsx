@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ContactFormAndromeda } from './index'
-import { defaults } from './defaults'
-
 const meta: Meta<any> = {
   title: 'Components/ContactForm/Andromeda',
   component: ContactFormAndromeda,
   argTypes: {
+    '--bg-container': { control: 'text', name: '--bg-container' },
     '--object-fit-bg': { control: 'text', name: '--object-fit-bg' },
     '--title-color': { control: 'text', name: '--title-color' },
     '--introduction-color': { control: 'text', name: '--introduction-color' },
@@ -25,7 +24,16 @@ const meta: Meta<any> = {
       }
     })
     return (
-      <div style={cssVars}>
+      <div
+        style={{
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...cssVars,
+        }}
+      >
         <ContactFormAndromeda {...args} />
       </div>
     )
@@ -37,7 +45,7 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    ...defaults,
+    '--bg-container': '',
     '--object-fit-bg': '',
     '--title-color': '',
     '--introduction-color': '',

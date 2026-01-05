@@ -14,7 +14,6 @@ export type WorkItem = {
 
 export type WorkSectionAndromedaProps = BasePropComponents & {
   items?: WorkItem[]
-  translations?: any
   style?: React.CSSProperties
   backgroundImage?: string
   className?: string

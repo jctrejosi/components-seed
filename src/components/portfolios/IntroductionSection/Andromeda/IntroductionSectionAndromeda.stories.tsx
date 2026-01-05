@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { IntroductionSectionAndromeda } from './index'
-import { defaults } from './defaults'
-
 const meta: Meta<any> = {
   title: 'Components/IntroductionSection/Andromeda',
   component: IntroductionSectionAndromeda,
@@ -26,7 +24,16 @@ const meta: Meta<any> = {
       }
     })
     return (
-      <div style={cssVars}>
+      <div
+        style={{
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...cssVars,
+        }}
+      >
         <IntroductionSectionAndromeda {...args} />
       </div>
     )
@@ -38,7 +45,6 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    ...defaults,
     '--object-fit-bg': '',
     '--bg-container': '',
     '--text-color': '',

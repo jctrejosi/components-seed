@@ -50,9 +50,11 @@ function generateStory(filePath: string) {
 
   const defaultsFile = path.join(dir, 'defaults.ts')
   const hasDefaults = fs.existsSync(defaultsFile)
+  /*
   const defaultsImport = hasDefaults
     ? `import { defaults } from './defaults';\n`
     : ''
+  */
 
   const argTypesEntries = cssVars
     .map((v) => `    '${v}': { control: 'text', name: '${v}' }`)
@@ -60,8 +62,16 @@ function generateStory(filePath: string) {
   const argTypesBlock =
     cssVars.length > 0 ? `,\n  argTypes: {\n${argTypesEntries}\n  }` : ''
 
-  const argsBlock = hasDefaults
+  /* Anidar defaults */
+  /*const argsBlock = hasDefaults
     ? `\n  args: {\n    ...defaults,\n${cssVars.map((v) => `    '${v}': ''`).join(',\n')}\n  }`
+    : cssVars.length > 0
+      ? `\n  args: {\n${cssVars.map((v) => `    '${v}': ''`).join(',\n')}\n  }`
+      : ''
+  */
+  /* Sin defaults */
+  const argsBlock = hasDefaults
+    ? `\n  args: {${cssVars.map((v) => `    '${v}': ''`).join(',\n')}\n  }`
     : cssVars.length > 0
       ? `\n  args: {\n${cssVars.map((v) => `    '${v}': ''`).join(',\n')}\n  }`
       : ''
@@ -77,7 +87,16 @@ function generateStory(filePath: string) {
       }
     })
     return (
-      <div style={cssVars}>
+      <div
+        style={{
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...cssVars,
+        }}
+      >
         <${componentName} {...args} />
       </div>
     )
@@ -86,7 +105,6 @@ function generateStory(filePath: string) {
 
   const storyContent = `import type { Meta, StoryObj } from '@storybook/react';
 import { ${componentName} } from '${importPath}';
-${defaultsImport}
 const meta: Meta<any> = {
   title: '${storyTitle}',
   component: ${componentName}${argTypesBlock}${renderBlock},

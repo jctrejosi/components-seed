@@ -3,8 +3,68 @@ import styles from './styles.module.css'
 import { translationsSources } from './translations'
 import type { WorkSectionAndromedaProps } from './types'
 
+const exampleItems = [
+  {
+    name: 'GAIA',
+    logo: '',
+    role: 'desarrollador de software / investigador',
+    description:
+      'soluciones web hoteleras. frontend y backend. flujos optimizados. sistemas en producción.',
+    technologies: [
+      'python',
+      'flask',
+      'react',
+      'docker',
+      'linux',
+      'análisis de datos',
+    ],
+    link: {
+      url: 'https://gaia.manizales.unal.edu.co/grupo_inv/grupo-de-investigacion-en-ambientes-inteligentes-adaptativos-gaia',
+      text: 'website',
+    },
+  },
+  {
+    name: 'Aranda Software',
+    logo: '',
+    role: 'frontend developer',
+    description:
+      'aplicaciones saas empresariales. interfaces reutilizables. consumo de apis. arquitectura escalable.',
+    technologies: [
+      'react',
+      'typescript',
+      'redux',
+      'axios',
+      'css modules',
+      'git',
+    ],
+    link: {
+      url: 'https://arandasoft.com/en/',
+      text: 'website',
+    },
+  },
+  {
+    name: 'Roiback Latam',
+    logo: '',
+    role: 'full stack developer',
+    description:
+      'soluciones web hoteleras. frontend y backend. flujos optimizados. sistemas en producción.',
+    technologies: [
+      'javascript',
+      'react',
+      'node.js',
+      'apis rest',
+      'sql',
+      'docker',
+    ],
+    link: {
+      url: 'https://en.roiback.com/',
+      text: 'website',
+    },
+  },
+]
+
 export const WorkSectionAndromeda = ({
-  items = [],
+  items = exampleItems,
   translations = translationsSources,
   style,
   backgroundImage,

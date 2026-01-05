@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ProjectsAndromeda } from './index'
-
 const meta: Meta<any> = {
   title: 'Components/Projects/Andromeda',
   component: ProjectsAndromeda,
@@ -16,7 +15,16 @@ const meta: Meta<any> = {
       }
     })
     return (
-      <div style={cssVars}>
+      <div
+        style={{
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...cssVars,
+        }}
+      >
         <ProjectsAndromeda {...args} />
       </div>
     )

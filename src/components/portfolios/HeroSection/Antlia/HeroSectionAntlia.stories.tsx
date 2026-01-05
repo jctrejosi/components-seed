@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { HeroSectionAntlia } from './index'
-
 const meta: Meta<any> = {
   title: 'Components/HeroSection/Antlia',
   component: HeroSectionAntlia,
   argTypes: {
-    '--bg-dark': { control: 'text', name: '--bg-dark' },
+    '--bg-container': { control: 'text', name: '--bg-container' },
+    '--text-color': { control: 'text', name: '--text-color' },
     '--items-count': { control: 'text', name: '--items-count' },
   },
   render: (args) => {
@@ -16,7 +16,16 @@ const meta: Meta<any> = {
       }
     })
     return (
-      <div style={cssVars}>
+      <div
+        style={{
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...cssVars,
+        }}
+      >
         <HeroSectionAntlia {...args} />
       </div>
     )
@@ -28,7 +37,8 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    '--bg-dark': '',
+    '--bg-container': '',
+    '--text-color': '',
     '--items-count': '',
   },
 }

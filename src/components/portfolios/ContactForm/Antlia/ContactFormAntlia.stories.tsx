@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ContactFormAntlia } from './index'
-
 const meta: Meta<any> = {
   title: 'Components/ContactForm/Antlia',
   component: ContactFormAntlia,
@@ -19,7 +18,16 @@ const meta: Meta<any> = {
       }
     })
     return (
-      <div style={cssVars}>
+      <div
+        style={{
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...cssVars,
+        }}
+      >
         <ContactFormAntlia {...args} />
       </div>
     )

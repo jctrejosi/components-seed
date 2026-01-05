@@ -1,6 +1,8 @@
 .section {
   background-color: var(--bg-primary);
   padding: 6rem 2rem;
+  width: 100%;
+  height: 100%;
 }
 
 .titleContainer {
@@ -11,6 +13,14 @@
 .title {
   color: var(--title-color, var(--base-color-2));
   font-size: var(--title-size, 4rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.subtitle {
+  color: var(--subtitle-color, var(--base-color-3));
+  font-size: var(--subtitle-size, 2rem);
   font-weight: 700;
   margin-bottom: 5rem;
   text-align: center;

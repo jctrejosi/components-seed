@@ -1,5 +1,6 @@
 .container {
   margin: 0 auto;
+  background-color: var(--bg-container, var(--dark-90));
   width: 100%;
   height: -webkit-fill-available;
   text-align: center;

@@ -4,7 +4,7 @@ import { translationsSources } from './translations'
 import type { WorkSectionAntliaProps, WorkSectionAntliaItem } from './types'
 import { FaCode, FaReact, FaMobileAlt } from 'react-icons/fa'
 
-export const expertiseItems: WorkSectionAntliaItem[] = [
+export const exampleItems: WorkSectionAntliaItem[] = [
   {
     icon: FaCode,
     title: {
@@ -13,9 +13,9 @@ export const expertiseItems: WorkSectionAntliaItem[] = [
       pt: 'Desenvolvimento de software',
     },
     description: {
-      es: 'Experiencia en programación funcional y orientada a objetos: Dart, Python, Java, JavaScript y TypeScript.',
-      en: 'Experienced in both functional and object-oriented programming: Dart, Python, Java, JavaScript and TypeScript.',
-      pt: 'Experiência em programação funcional e orientada a objetos: Dart, Python, Java, JavaScript e TypeScript.',
+      es: 'Programación funcional y orientada a objetos.',
+      en: 'Functional and object-oriented programming.',
+      pt: 'Programação funcional e orientada a objetos.',
     },
   },
   {
@@ -31,9 +31,9 @@ export const expertiseItems: WorkSectionAntliaItem[] = [
       pt: 'React, Next.js',
     },
     description: {
-      es: 'Enfocado en UI/UX. Más de 5 años de experiencia con HTML, CSS, JavaScript, React y Next.js.',
-      en: 'Focused on UI/UX. Over 5 years of experience with HTML, CSS, JavaScript, React and Next.js.',
-      pt: 'Foco em UI/UX. Mais de 5 anos de experiência com HTML, CSS, JavaScript, React e Next.js.',
+      es: 'UI/UX con React y Next.js.',
+      en: 'UI/UX with React and Next.js.',
+      pt: 'UI/UX com React e Next.js.',
     },
   },
   {
@@ -49,9 +49,9 @@ export const expertiseItems: WorkSectionAntliaItem[] = [
       pt: 'Flutter · Android · iOS',
     },
     description: {
-      es: 'Desarrollo de aplicaciones móviles híbridas y soluciones multiplataforma usando Flutter.',
-      en: 'Development of hybrid mobile applications and cross-platform solutions using Flutter.',
-      pt: 'Desenvolvimento de aplicações móveis híbridas e soluções multiplataforma usando Flutter.',
+      es: 'Aplicaciones móviles multiplataforma con Flutter.',
+      en: 'Cross-platform mobile apps with Flutter.',
+      pt: 'Aplicações móveis multiplataforma com Flutter.',
     },
   },
 ]
@@ -59,11 +59,14 @@ export const expertiseItems: WorkSectionAntliaItem[] = [
 export const WorkSectionAntlia = ({
   translations = translationsSources,
   className = 'WorkSectionAntlia',
-  items = expertiseItems,
+  items = exampleItems,
 }: WorkSectionAntliaProps) => {
   return (
     <section className={`${styles.section} ${className}`}>
       <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
+      <h3 className={styles.subtitle}>
+        {returnTranslation(translations.subtitle)}
+      </h3>
 
       <div className={styles.grid}>
         {items?.map((item, index) => {

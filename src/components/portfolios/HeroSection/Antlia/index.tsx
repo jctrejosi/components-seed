@@ -5,8 +5,6 @@ import { returnTranslation } from '@/utils'
 import { translationsSoruces } from './translations'
 
 export const HeroSectionAntlia = ({
-  mainTitle,
-  subtitle,
   items = [],
   backgroundImage,
   translations = translationsSoruces,
@@ -30,8 +28,14 @@ export const HeroSectionAntlia = ({
       )}
 
       <div className={styles.content}>
-        <h1 className={styles.heroTitle}>{mainTitle}</h1>
-        {subtitle && <div className={styles.heroSubtitle}>{subtitle}</div>}
+        <h1 className={styles.heroTitle}>
+          {returnTranslation(translations.title)}
+        </h1>
+        {
+          <div className={styles.heroSubtitle}>
+            {returnTranslation(translations.subtitle)}
+          </div>
+        }
 
         <div className={styles.featuredBlock}>
           <div className={styles.featuredTitle}>

@@ -1,21 +1,14 @@
-export interface FeaturedIconItem {
+import { type BasePropComponents } from '@/types'
+export type FeaturedIconItem = {
   image: string
   url?: string
   alt?: string
 }
 
-export interface HeroFeaturedAntliaProps {
-  /** texto grande principal (por ejemplo "TAMAL SEN") */
-  mainTitle: string
-  /** subtítulo (p. ej. "Software engineer, ...") */
-  subtitle?: string
+export type HeroFeaturedAntliaProps = BasePropComponents & {
   /** logos para el carousel */
   items?: FeaturedIconItem[]
   /** fondo */
   backgroundImage?: string
-  /** traducciones (featuredTitle debe existir) */
-  translations: {
-    featuredTitle: Record<string, string>
-  }
   className?: string
 }

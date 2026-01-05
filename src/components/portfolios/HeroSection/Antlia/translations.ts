@@ -1,14 +1,14 @@
 export const translationsSoruces = {
-  heroTitle: {
-    es: 'tamal sen',
-    en: 'tamal sen',
+  title: {
+    es: 'JUAN TREJOS',
+    en: 'JUAN TREJOS',
   },
-  heroSubtitle: {
-    es: 'ingeniero de software, frontend y desarrollador de aplicaciones.',
-    en: 'software engineer, front end & app developer.',
+  subtitle: {
+    es: 'INGENIERO DE SOFTWARE, FRONTEND Y DESARROLLADOR DE APLICACIONES.',
+    en: 'SOFTWARE INGENIER, FRONTEND AND APP DEVELOPER.',
   },
   featuredTitle: {
-    es: 'como visto en',
-    en: 'as featured in',
+    es: 'TECNOLOGÍAS QUE USO',
+    en: 'TECH STACK',
   },
 }
