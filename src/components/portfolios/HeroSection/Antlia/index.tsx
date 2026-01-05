@@ -10,6 +10,7 @@ export const HeroSectionAntlia = ({
   backgroundImage,
   translations = translationsSoruces,
   className = '',
+  logo,
 }: HeroFeaturedAntliaProps) => {
   // duplicamos items para crear el loop continuo en el track CSS
   const loopItems = [...items, ...items]
@@ -30,9 +31,12 @@ export const HeroSectionAntlia = ({
       )}
 
       <div className={styles.content}>
-        <h1 className={styles.heroTitle}>
-          {returnTranslation(translations.title)}
-        </h1>
+        <div className={styles.titleBlock}>
+          <h1 className={styles.heroTitle}>
+            {returnTranslation(translations.title)}
+          </h1>
+          <img src={logo} alt="Logo personal" className={styles.titleLogo} />
+        </div>
         {
           <div className={styles.heroSubtitle}>
             {returnTranslation(translations.subtitle)}
@@ -62,6 +66,7 @@ export const HeroSectionAntlia = ({
                     alt={it.alt ?? it.image}
                     className={styles.logo}
                   />
+                  <p className={styles.logoText}>{it.text}</p>
                 </a>
               ))}
             </div>
