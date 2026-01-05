@@ -6,6 +6,8 @@ const meta: Meta<any> = {
   argTypes: {
     '--bg-section': { control: 'text', name: '--bg-section' },
     '--title-color': { control: 'text', name: '--title-color' },
+    '--link-color': { control: 'text', name: '--link-color' },
+    '--link-color-hover': { control: 'text', name: '--link-color-hover' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -38,5 +40,7 @@ export const Default: Story = {
   args: {
     '--bg-section': '',
     '--title-color': '',
+    '--link-color': '',
+    '--link-color-hover': '',
   },
 }

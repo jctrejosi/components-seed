@@ -3,4 +3,8 @@ export const translationsSources = {
     es: 'proyectos destacados',
     en: 'featured projects',
   },
+  show: {
+    es: 'ver proyecto',
+    en: 'show project',
+  },
 }

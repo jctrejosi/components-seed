@@ -52,7 +52,7 @@
 /* card */
 .card {
   flex: 1 1 0;
-  background-color: var(--item-bg);
+  background-color: var(--bg-item);
   border: 1px solid var(--item-border-color, var(--base-color-12));
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
@@ -157,7 +157,7 @@
   position: absolute;
   inset: 2px;
   border-radius: inherit;
-  background-color: var(--item-bg);
+  background-color: var(--bg-item);
   z-index: -1;
 }
 

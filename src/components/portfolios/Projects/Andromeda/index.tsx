@@ -52,7 +52,8 @@ export const ProjectsAndromeda = ({
               <span className={styles.type}>
                 <span className={styles.typeDefault}>{item.type}</span>
                 <span className={styles.typeHover}>
-                  show project <span className={styles.arrow}>→</span>
+                  {returnTranslation(translations.show)}{' '}
+                  <span className={styles.arrow}>→</span>
                 </span>
               </span>
             </div>

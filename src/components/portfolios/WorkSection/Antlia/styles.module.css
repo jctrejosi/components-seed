@@ -35,7 +35,7 @@
 }
 
 .card {
-  background-color: var(--item-bg, var(--base-color-10));
+  background-color: var(--bg-item, var(--base-color-10));
   border: 1px solid var(--item-border-color, var(--base-color-6)); /* bordes blancos */
   border-radius: 1.2rem;
   padding: 3rem 2.5rem;

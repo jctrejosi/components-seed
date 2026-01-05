@@ -1,14 +1,11 @@
-export interface WorkProjectItem {
+import { type BasePropComponents } from '@/types'
+export type WorkProjectItem = {
   name: string
   type: string
   image: string
   url: string
 }
 
-export interface WorkSectionProjectsProps {
+export type WorkSectionProjectsProps = BasePropComponents & {
   items?: WorkProjectItem[]
-  translations: {
-    title: Record<string, string>
-  }
-  className?: string
 }
