@@ -9,6 +9,11 @@ const meta: Meta<any> = {
     '--accent-color': { control: 'text', name: '--accent-color' },
     '--title-color': { control: 'text', name: '--title-color' },
     '--subtitle-color': { control: 'text', name: '--subtitle-color' },
+    '--formtitle-color': { control: 'text', name: '--formtitle-color' },
+    '--label-color': { control: 'text', name: '--label-color' },
+    '--focus-color': { control: 'text', name: '--focus-color' },
+    '--submit-bg': { control: 'text', name: '--submit-bg' },
+    '--submit-color': { control: 'text', name: '--submit-color' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -44,5 +49,10 @@ export const Default: Story = {
     '--accent-color': '',
     '--title-color': '',
     '--subtitle-color': '',
+    '--formtitle-color': '',
+    '--label-color': '',
+    '--focus-color': '',
+    '--submit-bg': '',
+    '--submit-color': '',
   },
 }

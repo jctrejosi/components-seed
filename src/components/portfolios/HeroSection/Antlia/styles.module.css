@@ -42,7 +42,7 @@
   text-align: center;
   line-height: 0.95;
   font-size: clamp(3.8rem, 9.5vw, 8.2rem); /* empata gran tamaño */
-  color: var(--text-color, var(--dark-0));
+  color: var(--title-color, var(--dark-0));
   z-index: 2;
 }
 
@@ -52,7 +52,7 @@
     ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
   font-size: clamp(0.85rem, 1.4vw, 1.25rem);
   letter-spacing: 0.35em;
-  color: var(--text-color, var(--dark-0));
+  color: var(--subtitle-color, var(--dark-0));
   margin-bottom: 2.6rem;
 }
 
@@ -69,7 +69,7 @@
 /* texto opaco tipo "as featured in" */
 .featuredTitle {
   font-size: 0.95rem;
-  color: var(--text-color, var(--dark-40));
+  color: var(--featured-color, var(--dark-40));
   letter-spacing: 0.5em;
   background: linear-gradient(
     90deg,

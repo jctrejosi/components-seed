@@ -60,9 +60,10 @@ export const WorkSectionAntlia = ({
   translations = translationsSources,
   className = 'WorkSectionAntlia',
   items = exampleItems,
+  style,
 }: WorkSectionAntliaProps) => {
   return (
-    <section className={`${styles.section} ${className}`}>
+    <section className={`${styles.section} ${className}`} style={style}>
       <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
       <h3 className={styles.subtitle}>
         {returnTranslation(translations.subtitle)}

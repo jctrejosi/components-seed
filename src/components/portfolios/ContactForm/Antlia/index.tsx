@@ -47,6 +47,7 @@ export const contactItems = [
 export const ContactFormAntlia = ({
   items = contactItems,
   translations = translationsSoruces,
+  style,
   className = '',
 }: ContactFormAntliaProps) => {
   const [name, setName] = useState('')
@@ -64,7 +65,7 @@ export const ContactFormAntlia = ({
   }
 
   return (
-    <section className={`${styles.container} ${className}`}>
+    <section className={`${styles.container} ${className}`} style={style}>
       <div className={styles.inner}>
         <div className={styles.leftColumn}>
           {items.map((item: ContactItem) => (

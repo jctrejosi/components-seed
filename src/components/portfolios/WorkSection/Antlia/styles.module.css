@@ -34,15 +34,9 @@
   margin: 0 auto;
 }
 
-@media (max-width: calc(var(--bp-m) * 1px)) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .card {
   background-color: var(--item-bg, var(--base-color-10));
-  border: 1px solid var(--anchor-color, var(--base-color-6)); /* bordes blancos */
+  border: 1px solid var(--item-border-color, var(--base-color-6)); /* bordes blancos */
   border-radius: 1.2rem;
   padding: 3rem 2.5rem;
   display: flex;

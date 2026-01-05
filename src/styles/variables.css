@@ -1,5 +1,21 @@
 :root {
+  --base-color-1: #f5f7fa; /* fondo claro */
+  --base-color-2: #e4e8ef; /* fondo secundario */
+  --base-color-3: #8bc5ff; /* acento primario */
+  --base-color-4: #ff6b6b; /* error / highlight */
+  --base-color-5: #4caf50; /* éxito */
+  --base-color-6: #ffcc00; /* warning */
+  --base-color-7: #b3d4fc; /* acento suave */
+  --base-color-8: #1f2937; /* fondo oscuro */
+  --base-color-9: #374151; /* gris oscuro */
+  --base-color-10: #6b7280; /* texto secundario */
+  --base-color-11: #111827; /* texto principal */
+  --base-color-12: #2563eb; /* link / acción */
+
+  --submit-color: var(--base-color-5);
+  --focus-color: var(--base-color-3);
   --anchor-color: var(--base-color-6);
+  --anchor-color-hover: var(--base-color-7);
   --link-size: 1.4rem;
   --bg-alter: var(--base-color-10);
   --bg-primary: var(--base-color-11);

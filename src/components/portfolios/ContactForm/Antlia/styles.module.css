@@ -84,7 +84,7 @@
 
 .icon {
   font-size: 1.6rem;
-  color: var(--accent-color, #4f9fff);
+  color: var(--accent-color, var(--icon-color));
   display: inline-block;
   transition:
     transform 0.3s ease,
@@ -118,14 +118,14 @@
 .cardAction {
   margin-top: 0.35rem;
   font-size: 0.85rem;
-  color: var(--accent-color, #4f9fff);
+  color: var(--accent-color, var(--submit-color));
 }
 
 /* formulario */
 .formTitle {
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--title-color);
+  color: var(--formtitle-color);
   margin-bottom: 1.6rem;
 }
 
@@ -145,7 +145,7 @@
 
 .label {
   font-size: 0.85rem;
-  color: var(--subtitle-color);
+  color: var(--label-color);
 }
 
 .input,
@@ -166,7 +166,7 @@
 .textarea:focus {
   box-shadow: 0 8px 28px rgba(2, 6, 23, 0.45);
   transform: translateY(-2px);
-  border-color: rgba(79, 159, 255, 0.9);
+  border-color: var(--focus-color);
 }
 
 /* textarea específico */
@@ -181,8 +181,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: var(--accent-color, #4f9fff);
-  color: white;
+  background: var(--submit-bg);
+  color: var(--submit-color);
   padding: 0.9rem 1.4rem;
   border-radius: 0.7rem;
   border: none;

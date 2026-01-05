@@ -6,6 +6,9 @@ const meta: Meta<any> = {
   argTypes: {
     '--bg-container': { control: 'text', name: '--bg-container' },
     '--text-color': { control: 'text', name: '--text-color' },
+    '--title-color': { control: 'text', name: '--title-color' },
+    '--subtitle-color': { control: 'text', name: '--subtitle-color' },
+    '--featured-color': { control: 'text', name: '--featured-color' },
     '--items-count': { control: 'text', name: '--items-count' },
   },
   render: (args) => {
@@ -39,6 +42,9 @@ export const Default: Story = {
   args: {
     '--bg-container': '',
     '--text-color': '',
+    '--title-color': '',
+    '--subtitle-color': '',
+    '--featured-color': '',
     '--items-count': '',
   },
 }

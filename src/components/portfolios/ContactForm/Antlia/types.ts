@@ -1,8 +1,9 @@
+import type { BasePropComponents } from '@/types'
 import type { ReactNode } from 'react'
 
 export type ContactType = 'phone' | 'email' | 'whatsapp' | 'other'
 
-export interface ContactItem {
+export type ContactItem = {
   key: string
   type: ContactType
   title: string
@@ -13,7 +14,7 @@ export interface ContactItem {
   targetBlank?: boolean
 }
 
-export interface ContactFormAntliaProps {
+export type ContactFormAntliaProps = BasePropComponents & {
   items?: ContactItem[]
   translations: {
     title: Record<string, string>
