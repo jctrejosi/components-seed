@@ -28,10 +28,14 @@ export const ProjectsAndromeda = ({
   items = projects,
   translations = translationsSources,
   className = '',
+  style,
 }: WorkSectionProjectsProps) => {
   return (
-    <section className={`${styles.section} ${className}`}>
+    <section className={`${styles.section} ${className}`} style={style}>
       <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
+      <h5 className={styles.subtitle}>
+        {returnTranslation(translations.subtitle)}
+      </h5>
 
       <div className={styles.grid}>
         {items.map((item) => (

@@ -63,7 +63,7 @@
 }
 
 .field:focus-within label {
-  color: var(--input-focus-color, var(--focus-color));
+  color: var(--input-color-focus, var(--focus-color));
 }
 
 .field label {
@@ -75,7 +75,7 @@
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--field-color, var(--border-color));
-  color: var(--input-text-color, var(--text-color));
+  color: var(--input-color-text, var(--text-color));
   font-size: 1rem;
   outline: none;
   padding: 0.5rem;

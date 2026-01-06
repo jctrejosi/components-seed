@@ -6,7 +6,7 @@ const meta: Meta<any> = {
   argTypes: {
     '--dot-color': { control: 'text', name: '--dot-color' },
     '--link-size': { control: 'text', name: '--link-size' },
-    '--dot-active-color': { control: 'text', name: '--dot-active-color' },
+    '--dot-color-active': { control: 'text', name: '--dot-color-active' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -36,5 +36,5 @@ export default meta
 type Story = StoryObj<any>
 
 export const Default: Story = {
-  args: { '--dot-color': '', '--link-size': '', '--dot-active-color': '' },
+  args: { '--dot-color': '', '--link-size': '', '--dot-color-active': '' },
 }

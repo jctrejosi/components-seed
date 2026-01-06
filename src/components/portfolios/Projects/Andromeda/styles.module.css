@@ -1,5 +1,5 @@
 .section {
-  background-color: var(--bg-section, var(--bg-primary));
+  background-color: var(--bg-section);
   padding: 6rem 2rem;
   width: 80%;
 }
@@ -7,10 +7,18 @@
 /* title */
 .title {
   color: var(--title-color);
-  font-size: 2.5rem;
+  font-size: var(--title-size);
   font-weight: 700;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
+}
+
+/* subtitle */
+.subtitle {
+  color: var(--subtitle-color);
+  font-size: var(--subtitle-size);
+  margin-bottom: 5rem;
+  text-align: center;
 }
 
 /* grid */
@@ -18,7 +26,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  max-width: 90rem;
+  max-width: 120rem;
   margin: 0 auto;
 }
 
@@ -30,7 +38,7 @@
 
 /* card */
 .card {
-  background-color: #1a1a1a;
+  background-color: var(--bg-item);
   border-radius: 0.8rem;
   overflow: hidden;
   text-decoration: none;
@@ -41,7 +49,7 @@
 /* image */
 .imageWrapper {
   overflow: hidden;
-  height: 220px;
+  height: 22rem;
 }
 
 .image {
@@ -58,22 +66,22 @@
 /* info */
 .info {
   padding: 1.4rem 1.6rem;
-  background-color: #141414;
+  background-color: var(--bg-description);
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 
 .name {
-  font-size: 1.05rem;
+  font-size: var(--text-size);
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 /* type / hover swap */
 .type {
-  font-size: 0.85rem;
-  color: #b5b5b5;
+  font-size: var(--link-size);
+  color: var(--link-color);
   position: relative;
   height: 1.2rem;
 }
@@ -86,12 +94,13 @@
   transition:
     opacity 0.25s ease,
     transform 0.25s ease;
+  color:var(--link-color);
 }
 
 .typeHover {
   opacity: 0;
   transform: translateY(4px);
-  color: var(--link-color);
+  color: var(--link-color-hover);
 }
 
 .card:hover .typeDefault {

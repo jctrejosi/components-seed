@@ -137,8 +137,8 @@
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
-  border: 0.1rem solid var(--link-color, var(--anchor-color));
-  color: var(--link-color, var(--anchor-color));
+  border: 0.1rem solid var(--link-color, var(--link-color));
+  color: var(--link-color, var(--link-color));
   background: transparent;
   z-index: 1;
   overflow: hidden;
@@ -154,7 +154,7 @@
   background: conic-gradient(
     from 0deg,
     transparent 0%,
-    var(--link-color-hover, var(--anchor-color-hover)),
+    var(--link-color-hover, var(--link-color-hover)),
     transparent 40%
   );
   opacity: 0;
@@ -179,8 +179,8 @@
 
 /* opcional: resaltar texto */
 .card:hover .link {
-  color: var(--link-color-hover, var(--anchor-color-hover));
-  border: 0.1rem solid var(--link-color-hover, var(--anchor-color-hover));
+  color: var(--link-color-hover, var(--link-color-hover));
+  border: 0.1rem solid var(--link-color-hover, var(--link-color-hover));
 }
 
 /* animación */

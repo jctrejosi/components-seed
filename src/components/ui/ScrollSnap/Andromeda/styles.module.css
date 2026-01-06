@@ -55,7 +55,7 @@
 }
 
 .dotActive {
-  color: var(--dot-active-color);
+  color: var(--dot-color-active);
   text-decoration: underline;
 }
 
@@ -84,6 +84,6 @@
 
 .dotActive::after {
   background-color: transparent;
-  border: 2px solid var(--dot-active-color);
+  border: 2px solid var(--dot-color-active);
   transform: rotate(0deg);
 }

@@ -69,7 +69,7 @@ export const ScrollSnapAndromeda = ({
             className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ''}`}
             style={
               {
-                '--dot-active-color': child.dotColor,
+                '--dot-color-active': child.dotColor,
               } as React.CSSProperties
             }
           >
