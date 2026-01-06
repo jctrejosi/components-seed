@@ -4,55 +4,23 @@ import { translationsSources } from './translations'
 import type { WorkSectionAntliaProps, WorkSectionAntliaItem } from './types'
 import { FaCode, FaReact, FaMobileAlt } from 'react-icons/fa'
 
-export const exampleItems: WorkSectionAntliaItem[] = [
+const exampleItems: WorkSectionAntliaItem[] = [
   {
     icon: FaCode,
-    title: {
-      es: 'Desarrollo de software',
-      en: 'Software development',
-      pt: 'Desenvolvimento de software',
-    },
-    description: {
-      es: 'Programación funcional y orientada a objetos.',
-      en: 'Functional and object-oriented programming.',
-      pt: 'Programação funcional e orientada a objetos.',
-    },
+    title: 'Desarrollo de software',
+    description: 'Programación funcional y orientada a objetos.',
   },
   {
     icon: FaReact,
-    title: {
-      es: 'Desarrollo frontend',
-      en: 'Frontend development',
-      pt: 'Desenvolvimento frontend',
-    },
-    subtitle: {
-      es: 'React, Next.js',
-      en: 'React, Next.js',
-      pt: 'React, Next.js',
-    },
-    description: {
-      es: 'UI/UX con React y Next.js.',
-      en: 'UI/UX with React and Next.js.',
-      pt: 'UI/UX com React e Next.js.',
-    },
+    title: 'Desarrollo web',
+    subtitle: 'React, Next.js',
+    description: 'UI/UX con React y Next.js.',
   },
   {
     icon: FaMobileAlt,
-    title: {
-      es: 'Desarrollo móvil',
-      en: 'Mobile development',
-      pt: 'Desenvolvimento mobile',
-    },
-    subtitle: {
-      es: 'Flutter · Android · iOS',
-      en: 'Flutter · Android · iOS',
-      pt: 'Flutter · Android · iOS',
-    },
-    description: {
-      es: 'Aplicaciones móviles multiplataforma con Flutter.',
-      en: 'Cross-platform mobile apps with Flutter.',
-      pt: 'Aplicações móveis multiplataforma com Flutter.',
-    },
+    title: 'Desarrollo móvil',
+    subtitle: 'Flutter · Android · iOS',
+    description: 'Aplicaciones móviles multiplataforma con Flutter.',
   },
 ]
 
@@ -78,20 +46,14 @@ export const WorkSectionAntlia = ({
               <div className={styles.titleContainer}>
                 <Icon className={styles.icon} />
 
-                <h3 className={styles.cardTitle}>
-                  {returnTranslation(item.title)}
-                </h3>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
               </div>
 
               {item.subtitle && (
-                <span className={styles.cardSubtitle}>
-                  {returnTranslation(item.subtitle)}
-                </span>
+                <span className={styles.cardSubtitle}>{item.subtitle}</span>
               )}
 
-              <p className={styles.description}>
-                {returnTranslation(item.description)}
-              </p>
+              <p className={styles.description}>{item.description}</p>
             </div>
           )
         })}
