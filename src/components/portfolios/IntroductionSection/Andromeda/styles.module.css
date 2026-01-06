@@ -48,6 +48,7 @@
 }
 
 .highlight {
+  font-style: oblique;
   color: var(--highlight-color, var(--text-color));
   font-weight: bold;
 }

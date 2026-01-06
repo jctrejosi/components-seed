@@ -27,7 +27,7 @@ export const IntroductionSectionAndromeda = ({
           <span className={styles.highlight}>
             {returnTranslation(translations.name)}
           </span>
-          <span>{returnTranslation(translations.developer_focus)}.</span>
+          <span>{returnTranslation(translations.developer_focus)}</span>
           <br />
           <span>{returnTranslation(translations.slogan)}</span>
         </p>
