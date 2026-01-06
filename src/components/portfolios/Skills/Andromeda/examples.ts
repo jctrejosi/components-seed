@@ -10,7 +10,7 @@ export const itemsExample = [
       { label: 'HTML5', value: 95 },
       { label: 'CSS / Tailwind', value: 90 },
     ],
-    icons: FaCode,
+    icon: FaCode,
   },
   {
     title: 'backend',
@@ -21,7 +21,7 @@ export const itemsExample = [
       { label: 'Flask', value: 80 },
       { label: 'REST APIs', value: 85 },
     ],
-    icons: FaServer,
+    icon: FaServer,
   },
   {
     title: 'databases',
@@ -29,7 +29,7 @@ export const itemsExample = [
       { label: 'PostgreSQL', value: 80 },
       { label: 'MongoDB', value: 75 },
     ],
-    icons: FaDatabase,
+    icon: FaDatabase,
   },
   {
     title: 'devops',
@@ -38,7 +38,7 @@ export const itemsExample = [
       { label: 'Linux', value: 85 },
       { label: 'CI/CD', value: 70 },
     ],
-    icons: FaDocker,
+    icon: FaDocker,
   },
   {
     title: 'tools',
@@ -47,6 +47,6 @@ export const itemsExample = [
       { label: 'Webpack', value: 75 },
       { label: 'Jest', value: 70 },
     ],
-    icons: FaTools,
+    icon: FaTools,
   },
 ]
