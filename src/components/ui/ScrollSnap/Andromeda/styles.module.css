@@ -36,16 +36,34 @@
 .dot {
   align-items: center;
   color: var(--dot-color);
+  gap: 0.6rem;
   font-size: var(--link-size);
   cursor: pointer;
   display: flex;
   position: relative;
 }
 
+.dotLabel {
+  white-space: nowrap;
+  pointer-events: none;
+
+  opacity: 0;
+  transform: translateX(2rem);
+  transition:
+    opacity 0.9s ease,
+    transform 1s ease;
+}
+
 .dotActive {
   color: var(--dot-active-color);
   text-decoration: underline;
 }
+
+.dotActive .dotLabel {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 .dot::after {
   background-color: var(--dot-color);

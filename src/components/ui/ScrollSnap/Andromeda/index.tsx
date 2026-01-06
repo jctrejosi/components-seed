@@ -73,7 +73,7 @@ export const ScrollSnapAndromeda = ({
               } as React.CSSProperties
             }
           >
-            {child.dotLabel || ''}
+            <span className={styles.dotLabel}>{child.dotLabel || ''}</span>
           </div>
         ))}
       </div>
