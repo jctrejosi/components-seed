@@ -1,7 +1,10 @@
 .section {
   background-color: var(--bg-section);
   padding: 6rem 2rem;
-  width: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* title */
@@ -21,29 +24,45 @@
   text-align: center;
 }
 
-/* grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  max-width: 120rem;
-  margin: 0 auto;
+/* carousel wrapper */
+.carousel {
+  width: 100%;
+  max-width: 150rem;
+  position: relative;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
+/* track: flex row con duplicación para loop. la animación mueve -50% */
+.track {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  width: max-content;
+  animation: scrollLeft linear infinite;
+  animation-duration: calc(
+    var(--items-count, 6) * 15s
+  ); /* velocidad dependiente del count */
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
 /* card */
 .card {
+  display: block;
   background-color: var(--bg-item);
   border-radius: 0.8rem;
-  overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.25s ease;
   position: relative;
   overflow: visible;
 }
@@ -74,17 +93,15 @@
   gap: 0.4rem;
 }
 
-
 .name {
   font-size: var(--text-size);
   font-weight: 600;
   color: var(--text-color);
 }
 
-/* type / hover swap */
+/* type hover swap */
 .type {
   font-size: var(--link-size);
-  color: var(--link-color);
   position: relative;
   height: 1.2rem;
 }
@@ -94,10 +111,11 @@
   position: absolute;
   left: 0;
   top: 0;
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-  color:var(--link-color);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.typeDefault {
+  color: var(--link-color);
 }
 
 .typeHover {
@@ -114,35 +132,35 @@
 .card:hover .typeHover {
   opacity: 1;
   transform: translateY(0);
-  color: var(--link-color-hover);
 }
 
 .arrow {
   margin-left: 0.3rem;
 }
 
-/* Description tooltip */
+/* description tooltip */
 .description {
   position: absolute;
-  bottom: 105%;
+  bottom: 6.3rem;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--bg-description);
   color: var(--text-color);
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 0.9rem;
   border-radius: 0.5rem;
   font-size: var(--text-size);
-  white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.7s, transform 0.7s;
-  z-index: 10;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 20;
+
+  max-width: 90%
+  ;
+  text-align: left;
   white-space: normal;
-  word-wrap: break-word;
-  max-width: 100%;
 }
 
 .card:hover .description {
   opacity: 1;
-  transform: translateX(-50%) translateY(-0.5rem);
+  transform: translateX(-50%) translateY(-0.4rem);
 }

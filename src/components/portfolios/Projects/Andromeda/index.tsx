@@ -43,35 +43,41 @@ export const ProjectsAndromeda = ({
         {returnTranslation(translations.subtitle)}
       </h5>
 
-      <div className={styles.grid}>
-        {items.map((item) => (
-          <a
-            key={item.name}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <div className={styles.imageWrapper}>
-              <img src={item.image} alt={item.name} className={styles.image} />
-            </div>
+      <div className={styles.carousel}>
+        <div className={styles.track}>
+          {items.map((item) => (
+            <a
+              key={item.name}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.card}
+            >
+              <div className={styles.imageWrapper}>
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className={styles.image}
+                />
+              </div>
 
-            <div className={styles.info}>
-              <strong className={styles.name}>{item.name}</strong>
+              <div className={styles.info}>
+                <strong className={styles.name}>{item.name}</strong>
 
-              <span className={styles.type}>
-                <span className={styles.typeDefault}>{item.type}</span>
-                <span className={styles.typeHover}>
-                  {returnTranslation(translations.show)}{' '}
-                  <span className={styles.arrow}>→</span>
+                <span className={styles.type}>
+                  <span className={styles.typeDefault}>{item.type}</span>
+                  <span className={styles.typeHover}>
+                    {returnTranslation(translations.show)} <span>→</span>
+                  </span>
                 </span>
-              </span>
-            </div>
-            {item.description && (
-              <span className={styles.description}>{item.description}</span>
-            )}
-          </a>
-        ))}
+              </div>
+
+              {item.description && (
+                <span className={styles.description}>{item.description}</span>
+              )}
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   )
