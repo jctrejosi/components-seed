@@ -1,6 +1,6 @@
 {
   "name": "@jctrejosi/components-seed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "author": "Juan Carlos Trejos Iglesias",
   "main": "./bundle/index.cjs.js",
