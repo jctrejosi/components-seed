@@ -111,7 +111,9 @@
   position: absolute;
   left: 0;
   top: 0;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .typeDefault {
@@ -151,11 +153,12 @@
   font-size: var(--text-size);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
   z-index: 20;
 
-  max-width: 90%
-  ;
+  max-width: 90%;
   text-align: left;
   white-space: normal;
 }

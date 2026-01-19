@@ -64,7 +64,6 @@
   transform: translateX(0);
 }
 
-
 .dot::after {
   background-color: var(--dot-color);
   content: '';

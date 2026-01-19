@@ -104,8 +104,6 @@
   min-height: calc(1.4em * var(--lines-description, 5));
 }
 
-
-
 /* technologies */
 .techList {
   display: flex;

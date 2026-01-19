@@ -54,7 +54,6 @@
   font-weight: 600;
 }
 
-
 .list {
   display: flex;
   flex-direction: column;
@@ -79,7 +78,7 @@
 }
 
 .bar {
-  height: var(--bar-height, .8rem);
+  height: var(--bar-height, 0.8rem);
   background: var(--bar-bg);
   border-radius: 6px;
   overflow: hidden;
