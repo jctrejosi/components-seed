@@ -1,3 +1,4 @@
+export * from './ui/SocialLinks/Andromeda'
 export * from './ui/ScrollSnap/Andromeda'
 export * from './portfolios/WorkSection/Antlia'
 export * from './portfolios/WorkSection/Andromeda'

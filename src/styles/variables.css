@@ -59,7 +59,10 @@
   --btn-hover-color: var(--base-color-7);
   --btn-size: 1.4rem;
 
-  --icon-size: 1.6rem;
+  --icon-content-size: 5rem;
+  --icon-size: 3rem;
   --icon-color: var(--base-color-1);
   --icon-hover-color: var(--base-color-7);
+  --icon-bg: var(--base-color-2);
+  --icon-bg-hocer: var(--base-color-6)
 }

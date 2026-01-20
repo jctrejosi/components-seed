@@ -167,3 +167,33 @@
   opacity: 1;
   transform: translateX(-50%) translateY(-0.4rem);
 }
+
+@media (max-width: 1024px) {
+  .carousel {
+    overflow: hidden;
+    height: calc(3 * 26rem + 4rem);
+  }
+
+  .track {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    animation: scrollUp linear infinite;
+    animation-duration: calc(var(--items-count, 6) * 5s);
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
