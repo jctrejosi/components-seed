@@ -1,6 +1,7 @@
 {
   "name": "@jctrejosi/components-seed",
   "version": "1.0.2",
+  "license": "MIT",
   "type": "module",
   "author": "Juan Carlos Trejos Iglesias",
   "main": "./bundle/index.cjs.js",

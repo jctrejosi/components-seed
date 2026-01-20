@@ -11,26 +11,46 @@ export const ScrollSnapAndromeda = ({
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute('data-index'))
-            setActiveIndex(index)
-          }
-        })
-      },
-      {
-        root: containerRef.current,
-        threshold: 0.5,
+  const isMobile = window.innerWidth <= 1024
+
+  const handleScroll = () => {
+    const children = containerRef.current?.children ?? []
+    let newIndex = 0
+
+    Array.from(children).forEach((child, i) => {
+      const rect = child as HTMLElement
+      const box = rect.getBoundingClientRect()
+      const viewportMid = window.innerHeight / 2
+
+      if (box.top <= viewportMid && box.bottom >= viewportMid) {
+        newIndex = i
       }
-    )
+    })
 
-    const sections = containerRef.current?.children ?? []
-    Array.from(sections).forEach((child) => observer.observe(child))
+    setActiveIndex(newIndex)
+  }
 
-    return () => observer.disconnect()
-  }, [])
+  if (isMobile) {
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleScroll)
+  } else {
+    containerRef.current?.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleScroll)
+  }
+
+  handleScroll() // inicializa el estado
+
+  return () => {
+    if (isMobile) {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    } else {
+      containerRef.current?.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }
+}, [])
+
 
   const scrollToSection = (index: number) => {
     const section = containerRef.current?.children[index]

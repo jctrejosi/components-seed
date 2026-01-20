@@ -10,6 +10,7 @@
   --base-color-9: #4a557a;
   --base-color-10: #505452;
   --base-color-11: #1a1a1a;
+  --base-color-12: #2563eb;
   --dark-0: #fff;
   --dark-10: #f0f0f0;
   --dark-20: #d9d9d9;
@@ -21,4 +22,14 @@
   --dark-80: #404040;
   --dark-90: #262626;
   --dark-100: #000;
+  --bg-transparent-0: rgba(0,0,0,0);
+  --bg-transparent-10: rgba(0,0,0,0.1);
+  --bg-transparent-20: rgba(0,0,0,0.2);
+  --bg-transparent-30: rgba(0,0,0,0.3);
+  --bg-transparent-40: rgba(0,0,0,0.4);
+  --bg-transparent-50: rgba(0,0,0,0.5);
+  --bg-transparent-60: rgba(0,0,0,0.6);
+  --bg-transparent-70: rgba(0,0,0,0.7);
+  --bg-transparent-80: rgba(0,0,0,0.8);
+  --bg-transparent-90: rgba(0,0,0,0.9);
 }

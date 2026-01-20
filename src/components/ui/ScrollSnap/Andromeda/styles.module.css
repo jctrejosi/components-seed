@@ -16,6 +16,7 @@
   height: 100%;
   justify-content: center;
   scroll-snap-align: start;
+  position: relative;
 }
 
 .section * {
@@ -86,3 +87,20 @@
   border: 2px solid var(--dot-color-active);
   transform: rotate(0deg);
 }
+
+@media (max-width: 1024px) {
+  .container {
+    scroll-snap-type: none;
+  }
+
+  .section {
+    scroll-snap-align: none;
+  }
+
+  .wrapper,
+  .section,
+  .container {
+    height: auto;
+  }
+}
+
