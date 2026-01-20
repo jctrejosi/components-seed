@@ -43,7 +43,7 @@
   width: max-content;
   animation: scrollLeft linear infinite;
   animation-duration: calc(
-    var(--items-count, 6) * 15s
+    var(--items-count, 6) * 10s
   ); /* velocidad dependiente del count */
 }
 

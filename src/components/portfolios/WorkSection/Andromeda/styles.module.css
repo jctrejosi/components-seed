@@ -29,37 +29,33 @@
 
 /* titles */
 .title {
-  color: var(--title-color, var(--base-color-2));
+  color: var(--title-color);
   font-size: var(--title-size, 4rem);
   font-weight: 700;
   margin-bottom: 2rem;
 }
 
 .subtitle {
-  color: var(--subtitle-color, var(--base-color-2));
+  color: var(--subtitle-color);
   font-size: var(--subtitle-size, 2rem);
   margin-bottom: 5rem;
 }
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
-
 .card {
-  flex: 1 1 18rem;
-  max-width: 22rem;
   background-color: var(--bg-item);
-  border: 1px solid var(--item-border-color, var(--base-color-12));
+  border: 1px solid var(--item-border-color);
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   text-align: center;
   transition: border 0.3s ease;
 }
@@ -67,6 +63,7 @@
 /* header */
 .logo {
   height: 5rem;
+  max-width: 100%;
   object-fit: contain;
   margin: 0 auto 0.5rem;
 }
@@ -74,14 +71,14 @@
 .company {
   font-size: var(--comany-size, 1.6rem);
   font-weight: bold;
-  color: var(--company-color, var(--base-color-2));
+  color: var(--company-color);
   margin: 1rem 0;
 }
 
 /* role */
 .role {
   font-size: var(--role-size, 1.6rem);
-  color: var(--role-color, var(--base-color-3));
+  color: var(--role-color);
   margin-top: -0.25rem;
 }
 
@@ -103,6 +100,12 @@
   min-height: calc(1.4em * var(--lines-description, 5));
 }
 
+.company,
+.role,
+.description {
+  word-break: break-word;
+}
+
 /* technologies */
 .techList {
   display: flex;
@@ -120,9 +123,9 @@
   font-size: var(--chip-size, 1.2rem);
   padding: 0.15rem 0.45rem;
   border-radius: 0.4rem;
-  border: 1px solid var(--tech-border-color, var(--base-color-1));
-  background-color: var(--chip-bg, var(--dark-90));
-  color: var(--chip-color, var(--dark-10));
+  border: 1px solid var(--subitem-color);
+  background-color: var(--subitem-bg);
+  color: var(--subitem-color);
 }
 
 /* link */
@@ -134,11 +137,12 @@
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
-  border: 0.1rem solid var(--link-color, var(--link-color));
-  color: var(--link-color, var(--link-color));
+  border: 0.1rem solid var(--link-color);
+  color: var(--link-color);
   background: transparent;
   z-index: 1;
   overflow: hidden;
+  margin-top: auto;
   font-size: var(--link-size, 2rem);
 }
 
@@ -151,7 +155,7 @@
   background: conic-gradient(
     from 0deg,
     transparent 0%,
-    var(--link-color-hover, var(--link-color-hover)),
+    var(--link-color-hover),
     transparent 40%
   );
   opacity: 0;
@@ -176,8 +180,8 @@
 
 /* opcional: resaltar texto */
 .card:hover .link {
-  color: var(--link-color-hover, var(--link-color-hover));
-  border: 0.1rem solid var(--link-color-hover, var(--link-color-hover));
+  color: var(--link-color-hover);
+  border: 0.1rem solid var(--link-color-hover);
 }
 
 /* animación */
@@ -189,8 +193,12 @@
 
 /* responsive tablet */
 @media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .workSection {
-    width: 90%;
+    width: 100%;
     padding: 4rem 1.5rem;
   }
 
@@ -204,8 +212,6 @@
   }
 
   .card {
-    flex: 1 1 45%; /* dos tarjetas por fila */
-    max-width: 20rem;
     padding: 1.8rem 1.5rem;
   }
 
@@ -239,8 +245,11 @@
 
 /* responsive móvil */
 @media (max-width: 680px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
   .workSection {
-    width: 95%;
     padding: 3rem 1rem;
   }
 
@@ -254,7 +263,7 @@
   }
 
   .card {
-    flex: 1 1 100%; /* una tarjeta por fila */
+    flex: 1 1 100%;
     max-width: 100%;
     padding: 1.5rem 1rem;
   }

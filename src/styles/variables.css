@@ -43,6 +43,9 @@
   --item-title-size: 1.8rem;
   --item-title-color: var(--base-color-1);
 
+  --subitem-bg: var(--dark-90);
+  --subitem-color: var(--dark-10);
+
   --text-size: 1.6rem;
   --text-color: var(--base-color-1);
 
