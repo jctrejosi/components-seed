@@ -16,8 +16,5 @@ export type ContactItem = {
 
 export type ContactFormAntliaProps = BasePropComponents & {
   items?: ContactItem[]
-  translations: {
-    title: Record<string, string>
-  }
-  className?: string
+  idForm: string
 }

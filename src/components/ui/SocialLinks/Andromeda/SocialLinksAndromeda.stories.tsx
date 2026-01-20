@@ -4,10 +4,13 @@ const meta: Meta<any> = {
   title: 'Components/SocialLinks/Andromeda',
   component: SocialLinksAndromeda,
   argTypes: {
-    '--bg-link': { control: 'text', name: '--bg-link' },
-    '--link-color': { control: 'text', name: '--link-color' },
-    '--bg-link-hover': { control: 'text', name: '--bg-link-hover' },
-    '--link-color-hover': { control: 'text', name: '--link-color-hover' },
+    '--icon-content-size': { control: 'text', name: '--icon-content-size' },
+    '--border-radius': { control: 'text', name: '--border-radius' },
+    '--icon-bg': { control: 'text', name: '--icon-bg' },
+    '--icon-color': { control: 'text', name: '--icon-color' },
+    '--icon-size': { control: 'text', name: '--icon-size' },
+    '--icon-bg-hover': { control: 'text', name: '--icon-bg-hover' },
+    '--icon-color-hover': { control: 'text', name: '--icon-color-hover' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -38,9 +41,12 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    '--bg-link': '',
-    '--link-color': '',
-    '--bg-link-hover': '',
-    '--link-color-hover': '',
+    '--icon-content-size': '',
+    '--border-radius': '',
+    '--icon-bg': '',
+    '--icon-color': '',
+    '--icon-size': '',
+    '--icon-bg-hover': '',
+    '--icon-color-hover': '',
   },
 }

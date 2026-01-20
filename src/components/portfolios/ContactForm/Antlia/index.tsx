@@ -1,67 +1,63 @@
-import React, { useState } from 'react'
-import {
-  FaPhoneAlt,
-  FaEnvelope,
-  FaWhatsapp,
-  FaPaperPlane,
-} from 'react-icons/fa'
+import { useState } from 'react'
+import { FaPaperPlane } from 'react-icons/fa'
 import styles from './styles.module.css'
 import type { ContactItem, ContactFormAntliaProps } from './types'
 import { returnTranslation } from '@/utils'
 import { translationsSoruces } from './translations'
-
-export const contactItems = [
-  {
-    key: 'phone',
-    type: 'phone' as const,
-    title: 'Teléfono',
-    subtitle: '+1 234 567 890',
-    actionText: 'Llamar →',
-    url: 'tel:+1234567890',
-    icon: <FaPhoneAlt />,
-    targetBlank: false,
-  },
-  {
-    key: 'email',
-    type: 'email' as const,
-    title: 'Email',
-    subtitle: 'alex@ejemplo.com',
-    actionText: 'Escribir →',
-    url: 'mailto:alex@ejemplo.com',
-    icon: <FaEnvelope />,
-    targetBlank: false,
-  },
-  {
-    key: 'whatsapp',
-    type: 'whatsapp' as const,
-    title: 'WhatsApp',
-    subtitle: '+1 234 567 890',
-    actionText: 'Escribir →',
-    // formato estándar para wa.me: https://wa.me/<number>?text=<mensaje>
-    url: 'https://wa.me/1234567890?text=Hola%2C%20quiero%20hablar%20de%20un%20proyecto',
-    icon: <FaWhatsapp />,
-    targetBlank: true,
-  },
-]
+import { contactItemsExample } from './example'
 
 export const ContactFormAntlia = ({
-  items = contactItems,
+  items = contactItemsExample,
   translations = translationsSoruces,
+  idForm = '',
   style,
   className = '',
 }: ContactFormAntliaProps) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [project, setProject] = useState('')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // construye un mailto simple para enviar la info del formulario
-    const subject = encodeURIComponent(`Contacto: ${name || 'Sin nombre'}`)
-    const body = encodeURIComponent(
-      `Nombre: ${name}\nEmail: ${email}\nProyecto:\n${project}`
-    )
-    window.location.href = `mailto:${items.find((i) => i.type === 'email')?.url?.replace('mailto:', '') || ''}?subject=${subject}&body=${body}`
+    setStatus('sending')
+
+    const formData = new FormData()
+    formData.append('name', name)
+    formData.append('email', email)
+    formData.append('project', project)
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${idForm}`, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      })
+
+      if (res.ok) {
+        setStatus('success')
+        setName('')
+        setEmail('')
+        setProject('')
+      } else {
+        setStatus('error')
+      }
+    } catch (err) {
+      setStatus('error')
+    }
+  }
+
+  const getMessage = () => {
+    switch (status) {
+      case 'sending':
+        return 'Enviando mensaje…'
+      case 'success':
+        return '¡Mensaje enviado con éxito!'
+      case 'error':
+        return 'Error al enviar, intenta de nuevo.'
+      default:
+        return ''
+    }
   }
 
   return (
@@ -79,7 +75,6 @@ export const ContactFormAntlia = ({
               <div className={styles.iconWrap}>
                 <span className={styles.icon}>{item.icon}</span>
               </div>
-
               <div className={styles.cardContent}>
                 <div className={styles.cardTitle}>{item.title}</div>
                 <div className={styles.cardSubtitle}>{item.subtitle}</div>
@@ -130,10 +125,29 @@ export const ContactFormAntlia = ({
               />
             </label>
 
-            <button className={styles.submitButton} type="submit">
+            <button
+              className={styles.submitButton}
+              type="submit"
+              disabled={status === 'sending'}
+            >
               <FaPaperPlane className={styles.buttonIcon} />
               <span>Enviar Mensaje</span>
             </button>
+
+            {/* aviso flotante / mensaje */}
+            {status !== 'idle' && (
+              <div
+                className={`${styles.formStatus} ${
+                  status === 'success'
+                    ? styles.success
+                    : status === 'error'
+                    ? styles.error
+                    : styles.sending
+                }`}
+              >
+                {getMessage()}
+              </div>
+            )}
           </form>
         </div>
       </div>

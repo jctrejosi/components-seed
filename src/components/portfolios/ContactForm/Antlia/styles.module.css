@@ -204,6 +204,31 @@
   font-size: var(--icon-size);
 }
 
+.formStatus {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: var(--text-size);
+  text-align: center;
+}
+
+.sending {
+  background-color: var(--yellow-50);
+  color: var(--yellow-900);
+}
+
+.success {
+  background-color: var(--green-50);
+  color: var(--green-900);
+}
+
+.error {
+  background-color: var(--red-50);
+  color: var(--red-900);
+}
+
+
 /* responsive */
 @media (max-width: 980px) {
   .inner {
