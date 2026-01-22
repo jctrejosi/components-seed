@@ -1,0 +1,76 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  overflow-x: scroll;
+  gap: var(--carousel-gap);
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 calc(
+    (100% - (var(--carousel-gap) * (var(--items-per-view) - 1)))
+    / var(--items-per-view)
+  );
+  scroll-snap-align: start;
+}
+
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-base);
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  z-index: 10;
+}
+
+.arrowLeft {
+  left: 1rem;
+}
+
+.arrowRight {
+  right: 1rem;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot-color, #999);
+  border: none;
+  cursor: pointer;
+}
+
+.dotActive {
+  background: var(--dot-color-active, #000);
+}
+
+@media (max-width: 768px) {
+  .slide {
+    flex: 0 0 100%;
+  }
+
+  .arrowLeft,
+  .arrowRight {
+    display: none;
+  }
+}

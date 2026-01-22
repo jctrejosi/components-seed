@@ -1,0 +1,204 @@
+import { useEffect, useRef, useState } from 'react'
+import styles from './styles.module.css'
+import type { CarouselAndromedaProps, CarouselItemsPerView } from './types'
+
+const resolveItemsPerView = (value: CarouselItemsPerView): number => {
+  if (typeof value === 'number') return value
+
+  const width = window.innerWidth
+
+  if (width <= 768) return value.mobile ?? 1
+  if (width <= 1024) return value.tablet ?? value.desktop ?? 1
+
+  return value.desktop ?? 1
+}
+
+export const CarouselAndromeda = ({
+  items = [],
+  showArrows = true,
+  showDots = true,
+  gap = 16,
+  autoplay = true,
+  autoplayInterval = 4000,
+  pauseOnHover = true,
+  itemsPerView = {
+    mobile: 1,
+    tablet: 2,
+    desktop: 3,
+  },
+  style,
+}: CarouselAndromedaProps) => {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const autoplayRef = useRef<number | null>(null)
+
+  const [resolvedItemsPerView, setResolvedItemsPerView] = useState(1)
+  const [activePage, setActivePage] = useState(0)
+
+  const totalPages = Math.max(1, Math.ceil(items.length / resolvedItemsPerView))
+
+  const getPageWidth = () => {
+    const container = trackRef.current
+    if (!container) return 0
+
+    const slide = container.querySelector<HTMLElement>(`.${styles.slide}`)
+    if (!slide) return container.clientWidth
+
+    const slideWidth = slide.offsetWidth
+    const gapValue = getComputedStyle(container).gap
+    const gap = parseFloat(gapValue) || 0
+
+    return slideWidth * resolvedItemsPerView + gap * (resolvedItemsPerView - 1)
+  }
+
+  const getActivePage = () => {
+    const container = trackRef.current
+    if (!container) return 0
+
+    const slides = Array.from(
+      container.querySelectorAll<HTMLElement>(`.${styles.slide}`)
+    )
+
+    const scrollLeft = container.scrollLeft
+
+    const firstVisibleIndex = slides.findIndex(
+      (slide) => slide.offsetLeft + slide.offsetWidth > scrollLeft + 1
+    )
+
+    if (firstVisibleIndex === -1) return 0
+
+    return Math.min(
+      totalPages - 1,
+      Math.floor(firstVisibleIndex / resolvedItemsPerView)
+    )
+  }
+
+  const scrollToPage = (page: number) => {
+    const container = trackRef.current
+    if (!container) return
+
+    const pageWidth = getPageWidth()
+
+    container.scrollTo({
+      left: page * pageWidth,
+      behavior: 'smooth',
+    })
+  }
+
+  const next = () => {
+    setActivePage((prev) => {
+      const nextPage = (prev + 1) % totalPages
+      scrollToPage(nextPage)
+      return nextPage
+    })
+  }
+
+  const prev = () => {
+    setActivePage((prev) => {
+      const nextPage = (prev - 1 + totalPages) % totalPages
+      scrollToPage(nextPage)
+      return nextPage
+    })
+  }
+
+  /* resolve responsive itemsPerView */
+  useEffect(() => {
+    const update = () => {
+      setResolvedItemsPerView(resolveItemsPerView(itemsPerView))
+      setActivePage(0)
+    }
+
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [itemsPerView])
+
+  /* scroll -> active page */
+  useEffect(() => {
+    const container = trackRef.current
+    if (!container) return
+
+    const onScroll = () => {
+      const page = getActivePage()
+      setActivePage((prev) => (prev === page ? prev : page))
+    }
+
+    container.addEventListener('scroll', onScroll)
+    window.addEventListener('resize', onScroll)
+    onScroll()
+
+    return () => {
+      container.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [resolvedItemsPerView])
+
+  /* autoplay */
+  useEffect(() => {
+    if (!autoplay || totalPages <= 1) return
+
+    autoplayRef.current = window.setInterval(next, autoplayInterval)
+
+    return () => {
+      if (autoplayRef.current) clearInterval(autoplayRef.current)
+    }
+  }, [autoplay, autoplayInterval, totalPages])
+
+  const handleMouseEnter = () => {
+    if (pauseOnHover && autoplayRef.current) {
+      clearInterval(autoplayRef.current)
+      autoplayRef.current = null
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (pauseOnHover && autoplay && totalPages > 1) {
+      autoplayRef.current = window.setInterval(next, autoplayInterval)
+    }
+  }
+
+  return (
+    <div
+      className={styles.wrapper}
+      style={{
+        ...style,
+        ['--items-per-view' as any]: resolvedItemsPerView,
+        ['--carousel-gap' as any]: `${gap}px`,
+      }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div ref={trackRef} className={styles.track}>
+        {items.map((item, i) => (
+          <div key={i} className={styles.slide}>
+            {item.component}
+          </div>
+        ))}
+      </div>
+
+      {showArrows && totalPages > 1 && (
+        <>
+          <button className={styles.arrowLeft} onClick={prev}>
+            ‹
+          </button>
+          <button className={styles.arrowRight} onClick={next}>
+            ›
+          </button>
+        </>
+      )}
+
+      {showDots && totalPages > 1 && (
+        <div className={styles.dots}>
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              className={`${styles.dot} ${
+                i === activePage ? styles.dotActive : ''
+              }`}
+              onClick={() => scrollToPage(i)}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}

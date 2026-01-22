@@ -2,36 +2,11 @@ import { returnTranslation } from '@/utils'
 import styles from './styles.module.css'
 import type { WorkSectionProjectsProps } from './types'
 import { translationsSources } from './translations'
-
-const projects = [
-  {
-    name: 'Flight Local (B2B Travel Solution)',
-    type: 'web development',
-    image: '',
-    url: 'https://flightlocal.com',
-    description:
-      'A B2B travel platform providing tailored solutions for businesses.',
-  },
-  {
-    name: 'AI Lab Granada',
-    type: 'web development',
-    image: '',
-    url: 'https://ailabgranada.com',
-    description:
-      'A research lab focused on advancing artificial intelligence technologies.',
-  },
-  {
-    name: 'Khora – Urban Thinkers Consulting',
-    type: 'web development',
-    image: '',
-    url: 'https://khora.consulting',
-    description:
-      'A consulting firm specializing in urban development and planning.',
-  },
-]
+import { projectsExample } from './examples'
+import { CarouselAndromeda } from '@/components/ui/Carousel/Andromeda'
 
 export const ProjectsAndromeda = ({
-  items = projects,
+  items = projectsExample,
   translations = translationsSources,
   className = '',
   style,
@@ -39,13 +14,16 @@ export const ProjectsAndromeda = ({
   return (
     <section className={`${styles.section} ${className}`} style={style}>
       <h2 className={styles.title}>{returnTranslation(translations.title)}</h2>
+
       <h5 className={styles.subtitle}>
         {returnTranslation(translations.subtitle)}
       </h5>
 
-      <div className={styles.carousel}>
-        <div className={styles.track}>
-          {items.map((item) => (
+      <CarouselAndromeda
+        showArrows
+        showDots
+        items={items.map((item) => ({
+          component: (
             <a
               key={item.name}
               href={item.url}
@@ -76,9 +54,9 @@ export const ProjectsAndromeda = ({
                 <span className={styles.description}>{item.description}</span>
               )}
             </a>
-          ))}
-        </div>
-      </div>
+          ),
+        }))}
+      />
     </section>
   )
 }

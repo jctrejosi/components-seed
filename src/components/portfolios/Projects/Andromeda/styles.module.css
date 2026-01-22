@@ -24,38 +24,6 @@
   text-align: center;
 }
 
-/* carousel wrapper */
-.carousel {
-  width: 100%;
-  max-width: 150rem;
-  position: relative;
-  padding: 1rem 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: visible;
-}
-
-/* track: flex row con duplicación para loop. la animación mueve -50% */
-.track {
-  display: flex;
-  gap: 2.5rem;
-  align-items: center;
-  width: max-content;
-  animation: scrollLeft linear infinite;
-  animation-duration: calc(
-    var(--items-count, 6) * 10s
-  ); /* velocidad dependiente del count */
-}
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 /* card */
 .card {
   display: block;
@@ -64,7 +32,8 @@
   text-decoration: none;
   color: inherit;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+  height: 100%;
 }
 
 /* image */
@@ -136,10 +105,6 @@
   transform: translateY(0);
 }
 
-.arrow {
-  margin-left: 0.3rem;
-}
-
 /* description tooltip */
 .description {
   position: absolute;
@@ -168,31 +133,9 @@
   transform: translateX(-50%) translateY(-0.4rem);
 }
 
-@media (max-width: 1024px) {
-  .carousel {
-    overflow: hidden;
-    height: calc(3 * 26rem + 4rem);
-  }
-
-  .track {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    animation: scrollUp linear infinite;
-    animation-duration: calc(var(--items-count, 6) * 5s);
-  }
-
-  .card {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-}
-
-@keyframes scrollUp {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
+/* responsive adjustments */
+@media (max-width: 768px) {
+  .imageWrapper {
+    height: 18rem;
   }
 }
