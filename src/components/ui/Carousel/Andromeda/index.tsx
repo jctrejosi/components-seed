@@ -36,20 +36,6 @@ export const CarouselAndromeda = ({
 
   const totalPages = Math.max(1, Math.ceil(items.length / resolvedItemsPerView))
 
-  const getPageWidth = () => {
-    const container = trackRef.current
-    if (!container) return 0
-
-    const slide = container.querySelector<HTMLElement>(`.${styles.slide}`)
-    if (!slide) return container.clientWidth
-
-    const slideWidth = slide.offsetWidth
-    const gapValue = getComputedStyle(container).gap
-    const gap = parseFloat(gapValue) || 0
-
-    return slideWidth * resolvedItemsPerView + gap * (resolvedItemsPerView - 1)
-  }
-
   const getActivePage = () => {
     const container = trackRef.current
     if (!container) return 0
@@ -76,11 +62,16 @@ export const CarouselAndromeda = ({
     const container = trackRef.current
     if (!container) return
 
-    const pageWidth = getPageWidth()
+    const slides = container.querySelectorAll<HTMLElement>(`.${styles.slide}`)
+    const firstIndex = page * resolvedItemsPerView
+    const target = slides[firstIndex]
 
-    container.scrollTo({
-      left: page * pageWidth,
+    if (!target) return
+
+    target.scrollIntoView({
       behavior: 'smooth',
+      inline: 'start',
+      block: 'nearest',
     })
   }
 
@@ -102,14 +93,8 @@ export const CarouselAndromeda = ({
 
   /* resolve responsive itemsPerView */
   useEffect(() => {
-    const update = () => {
-      setResolvedItemsPerView(resolveItemsPerView(itemsPerView))
-      setActivePage(0)
-    }
-
-    update()
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
+    const value = resolveItemsPerView(itemsPerView)
+    setResolvedItemsPerView((prev) => (prev === value ? prev : value))
   }, [itemsPerView])
 
   /* scroll -> active page */
@@ -120,6 +105,7 @@ export const CarouselAndromeda = ({
     const onScroll = () => {
       const page = getActivePage()
       setActivePage((prev) => (prev === page ? prev : page))
+      console.log('Se ejecutó el resolvedItemsPerView', page)
     }
 
     container.addEventListener('scroll', onScroll)

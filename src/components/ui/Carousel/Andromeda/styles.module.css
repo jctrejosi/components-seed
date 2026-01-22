@@ -55,13 +55,13 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--dot-color, #999);
+  background: var(--dot-color);
   border: none;
   cursor: pointer;
 }
 
 .dotActive {
-  background: var(--dot-color-active, #000);
+  background: var(--dot-color-active);
 }
 
 @media (max-width: 768px) {
