@@ -1,5 +1,6 @@
 export * from './ui/SocialLinks/Andromeda'
 export * from './ui/ScrollSnap/Andromeda'
+export * from './ui/Carousel/Andromeda'
 export * from './portfolios/WorkSection/Antlia'
 export * from './portfolios/WorkSection/Andromeda'
 export * from './portfolios/Skills/Andromeda'

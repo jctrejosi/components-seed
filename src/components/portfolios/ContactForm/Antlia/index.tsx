@@ -16,7 +16,9 @@ export const ContactFormAntlia = ({
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [project, setProject] = useState('')
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<
+    'idle' | 'sending' | 'success' | 'error'
+  >('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -141,8 +143,8 @@ export const ContactFormAntlia = ({
                   status === 'success'
                     ? styles.success
                     : status === 'error'
-                    ? styles.error
-                    : styles.sending
+                      ? styles.error
+                      : styles.sending
                 }`}
               >
                 {getMessage()}

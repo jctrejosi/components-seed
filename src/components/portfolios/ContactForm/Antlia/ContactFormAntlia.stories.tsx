@@ -22,6 +22,13 @@ const meta: Meta<any> = {
     '--focus-color': { control: 'text', name: '--focus-color' },
     '--submit-bg': { control: 'text', name: '--submit-bg' },
     '--submit-color': { control: 'text', name: '--submit-color' },
+    '--text-size': { control: 'text', name: '--text-size' },
+    '--yellow-50': { control: 'text', name: '--yellow-50' },
+    '--yellow-900': { control: 'text', name: '--yellow-900' },
+    '--green-50': { control: 'text', name: '--green-50' },
+    '--green-900': { control: 'text', name: '--green-900' },
+    '--red-50': { control: 'text', name: '--red-50' },
+    '--red-900': { control: 'text', name: '--red-900' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -70,5 +77,12 @@ export const Default: Story = {
     '--focus-color': '',
     '--submit-bg': '',
     '--submit-color': '',
+    '--text-size': '',
+    '--yellow-50': '',
+    '--yellow-900': '',
+    '--green-50': '',
+    '--green-900': '',
+    '--red-50': '',
+    '--red-900': '',
   },
 }
