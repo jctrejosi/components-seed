@@ -30,6 +30,7 @@ export const CarouselAndromeda = ({
 }: CarouselAndromedaProps) => {
   const trackRef = useRef<HTMLDivElement>(null)
   const autoplayRef = useRef<number | null>(null)
+  const activePageRef = useRef(0)
 
   const [resolvedItemsPerView, setResolvedItemsPerView] = useState(1)
   const [activePage, setActivePage] = useState(0)
@@ -76,19 +77,30 @@ export const CarouselAndromeda = ({
   }
 
   const next = () => {
-    setActivePage((prev) => {
-      const nextPage = (prev + 1) % totalPages
-      scrollToPage(nextPage)
-      return nextPage
-    })
+    const nextPage = (activePageRef.current + 1) % totalPages
+    activePageRef.current = nextPage
+    setActivePage(nextPage)
+    scrollToPage(nextPage)
   }
 
   const prev = () => {
-    setActivePage((prev) => {
-      const nextPage = (prev - 1 + totalPages) % totalPages
-      scrollToPage(nextPage)
-      return nextPage
-    })
+    const nextPage = (activePageRef.current - 1 + totalPages) % totalPages
+    activePageRef.current = nextPage
+    setActivePage(nextPage)
+    scrollToPage(nextPage)
+  }
+
+  const handleMouseEnter = () => {
+    if (pauseOnHover && autoplayRef.current) {
+      clearInterval(autoplayRef.current)
+      autoplayRef.current = null
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (pauseOnHover && autoplay && totalPages > 1) {
+      autoplayRef.current = window.setInterval(next, autoplayInterval)
+    }
   }
 
   /* resolve responsive itemsPerView */
@@ -129,18 +141,9 @@ export const CarouselAndromeda = ({
     }
   }, [autoplay, autoplayInterval, totalPages])
 
-  const handleMouseEnter = () => {
-    if (pauseOnHover && autoplayRef.current) {
-      clearInterval(autoplayRef.current)
-      autoplayRef.current = null
-    }
-  }
-
-  const handleMouseLeave = () => {
-    if (pauseOnHover && autoplay && totalPages > 1) {
-      autoplayRef.current = window.setInterval(next, autoplayInterval)
-    }
-  }
+  useEffect(() => {
+    activePageRef.current = activePage
+  }, [activePage])
 
   return (
     <div
