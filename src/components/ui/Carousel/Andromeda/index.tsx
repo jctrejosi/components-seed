@@ -166,7 +166,6 @@ export const CarouselAndromeda = ({
     const onScroll = () => {
       const page = getActivePage()
       setActivePage((prev) => (prev === page ? prev : page))
-      console.log('Se ejecutó el resolvedItemsPerView', page)
     }
 
     container.addEventListener('scroll', onScroll)
