@@ -20,6 +20,7 @@ export const ProjectsAndromeda = ({
       </h5>
 
       <CarouselAndromeda
+        style={{ ...style }}
         showArrows
         showDots
         items={items.map((item) => ({
