@@ -84,17 +84,14 @@ export const CarouselAndromeda = ({
     if (!container) return
 
     const slides = container.querySelectorAll<HTMLElement>(`.${styles.slide}`)
-
-    // índice del primer slide de la página
     const firstIndex = page * resolvedItemsPerView
     const target = slides[firstIndex]
 
     if (!target) return
 
-    target.scrollIntoView({
+    container.scrollTo({
+      left: target.offsetLeft,
       behavior: 'smooth',
-      inline: 'start',
-      block: 'nearest',
     })
   }
 
