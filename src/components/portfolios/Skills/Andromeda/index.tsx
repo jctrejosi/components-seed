@@ -17,8 +17,8 @@ export const SkillsAndromeda = ({
         {returnTranslation(translations.subtitle)}
       </h5>
       <div className={`${styles.container} ${className}`}>
-        {items.map((section) => (
-          <section className={styles.section}>
+        {items.map((section, i) => (
+          <section className={styles.section} key={i}>
             <header className={styles.header}>
               {section.icon && <section.icon className={styles.icon} />}
               <h6 className={styles.itemTitle}>{section.title}</h6>

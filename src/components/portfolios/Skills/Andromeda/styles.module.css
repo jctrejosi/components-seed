@@ -2,6 +2,24 @@
   width: 100%;
   padding: 2rem 0;
   box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
 }
 
 .title {
@@ -95,8 +113,20 @@
   border-radius: 6px;
 }
 
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 1.2rem;
+  }
+
+  .container {
+    width: 100%;
+    column-width: auto;
+    column-count: 1;
   }
 }
