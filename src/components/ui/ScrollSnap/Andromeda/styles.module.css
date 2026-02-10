@@ -102,4 +102,8 @@
   .container {
     height: auto;
   }
+
+  .dots {
+    right: 1rem;
+  }
 }
