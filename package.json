@@ -26,10 +26,10 @@
     "generate:types": "ts-node ./scripts/generate-types.ts",
     "generate:utils": "ts-node ./scripts/generate-utils.ts",
     "generate:components": "ts-node ./scripts/generate-components.ts",
-    "generate:indexes": "npm run generate:types && npm run generate:utils && npm run generate:components && npm run generate:stories",
+    "generate:indexes": "yarn run generate:types && yarn run generate:utils && yarn run generate:components && yarn run generate:stories",
     "generate:stories": "ts-node ./scripts/generate-stories.ts",
     "generate:defaults": "ts-node ./scripts/generate-defaults.ts",
-    "bundle": "npm run generate:indexes && npm run format && tsc -b && vite build",
+    "bundle": "yarn run generate:indexes && yarn run format && tsc -b && vite build",
     "watch": "vite build --watch",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
