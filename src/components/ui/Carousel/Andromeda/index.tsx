@@ -199,15 +199,37 @@ export const CarouselAndromeda = ({
     activePageRef.current = activePage
   }, [activePage])
 
+  /**
+   * evita que el scroll horizontal del carousel dispare el scroll vertical de la página
+   */
+  useEffect(() => {
+    const el = trackRef.current
+    if (!el) return
+
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.stopPropagation()
+      }
+    }
+
+    el.addEventListener('wheel', onWheel, { passive: true })
+    return () => el.removeEventListener('wheel', onWheel)
+  }, [])
+
   return (
     <div
       className={styles.wrapper}
+      onMouseEnter={(e) => {
+        e.stopPropagation()
+        handleMouseEnter()
+      }}
+      onMouseDown={(e) => e.stopPropagation()}
+      onTouchStart={(e) => e.stopPropagation()}
       style={{
         ...style,
         ['--items-per-view' as any]: resolvedItemsPerView,
         ['--carousel-gap' as any]: `${gap}px`,
       }}
-      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div ref={trackRef} className={styles.track}>
@@ -220,10 +242,24 @@ export const CarouselAndromeda = ({
 
       {showArrows && totalPages > 1 && (
         <>
-          <button className={styles.arrowLeft} onClick={prev}>
+          <button
+            className={styles.arrowLeft}
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              prev()
+            }}
+          >
             ‹
           </button>
-          <button className={styles.arrowRight} onClick={next}>
+          <button
+            className={styles.arrowRight}
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              next()
+            }}
+          >
             ›
           </button>
         </>
