@@ -13,10 +13,21 @@ export const FileDownloaderAndromeda = ({
   style,
   className = 'file-downloader-andromeda',
 }: FileDownloaderAndromedaProps) => {
+  const getFileNameFromUrl = (url: string) => {
+    try {
+      const cleanUrl = url.split('?')[0].split('#')[0]
+      const segments = cleanUrl.split('/')
+      const last = segments[segments.length - 1]
+      return decodeURIComponent(last || 'download')
+    } catch {
+      return 'download'
+    }
+  }
+
   const handleDownload = (url: string, name?: string) => {
     const link = document.createElement('a')
     link.href = url
-    link.download = name || 'download'
+    link.download = name || getFileNameFromUrl(url)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
