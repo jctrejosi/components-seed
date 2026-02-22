@@ -1,0 +1,80 @@
+:root {
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --font-size-small: 0.875rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.25rem;
+  --font-family: 'Arial', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-large);
+}
+
+.fileUpload {
+  margin-bottom: var(--spacing-medium);
+}
+
+.fileInput {
+  padding: var(--spacing-small);
+  font-size: var(--font-size-medium);
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--spacing-small);
+  outline: none;
+}
+
+.fileInput:hover {
+  border-color: var(--color-primary);
+}
+
+.regressionLineal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.executeButton {
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: var(--font-size-medium);
+  color: white;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  margin-bottom: var(--spacing-small);
+}
+
+.executeButton:hover {
+  background-color: var(--color-secondary);
+}
+
+.dependentVariableSelect {
+  padding: var(--spacing-small);
+  font-size: var(--font-size-medium);
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--spacing-small);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-medium);
+  }
+
+  .fileInput,
+  .executeButton,
+  .dependentVariableSelect {
+    padding: var(--spacing-small);
+  }
+}

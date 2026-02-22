@@ -6,8 +6,15 @@ const meta: Meta<any> = {
   argTypes: {
     '--downloader-gap': { control: 'text', name: '--downloader-gap' },
     '--downloader-bg': { control: 'text', name: '--downloader-bg' },
+    '--downloader-title-size': {
+      control: 'text',
+      name: '--downloader-title-size',
+    },
+    '--downloader-title-color': {
+      control: 'text',
+      name: '--downloader-title-color',
+    },
     '--downloader-color': { control: 'text', name: '--downloader-color' },
-    '--shadow-color': { control: 'text', name: '--shadow-color' },
     '--downloader-size': { control: 'text', name: '--downloader-size' },
     '--offset-y': { control: 'text', name: '--offset-y' },
     '--offset-x': { control: 'text', name: '--offset-x' },
@@ -43,8 +50,9 @@ export const Default: Story = {
   args: {
     '--downloader-gap': '',
     '--downloader-bg': '',
+    '--downloader-title-size': '',
+    '--downloader-title-color': '',
     '--downloader-color': '',
-    '--shadow-color': '',
     '--downloader-size': '',
     '--offset-y': '',
     '--offset-x': '',

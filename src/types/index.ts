@@ -1,6 +1,7 @@
 export * from '../components/ContactForm/Andromeda/types'
 export * from '../components/ContactForm/Antlia/types'
 export * from '../components/FileDownloader/Andromeda/types'
+export * from '../components/FileUpload/Andromeda/types'
 export * from '../components/HeroSection/Andromeda/types'
 export * from '../components/HeroSection/Antlia/types'
 export * from '../components/IntroductionSection/Andromeda/types'
