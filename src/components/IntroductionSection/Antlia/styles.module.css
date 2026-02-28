@@ -1,0 +1,126 @@
+:root {
+  --font-size-title: 18px;
+  --font-size-welcome-message: 16px;
+  --font-size-specialist-name: 32px;
+  --font-size-specialist-description: 16px;
+  --font-size-cta-button: 16px;
+  --font-weight-bold: 700;
+  --font-weight-medium: 600;
+
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+
+  --color-background-dark: #1a1a1a;
+  --color-text-light: #ffffff;
+  --color-text-gray: #cccccc;
+  --color-accent: #d4af37;
+  --color-text-dark: #1a1a1a;
+
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+}
+
+/* ===== desktop por defecto ===== */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-background-dark, #1a1a1a);
+  color: var(--color-text-light, #ffffff);
+  text-align: left;
+  padding: 4rem;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.arrowDown {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid var(--color-accent, #d4af37);
+  margin: 0 auto var(--spacing-large, 24px);
+}
+
+.welcomeMessage {
+  font-size: var(--font-size-welcome-message, 16px);
+  color: var(--color-accent, #d4af37);
+  margin-bottom: var(--spacing-small, 8px);
+}
+
+.statistics {
+  margin-top: 2rem;
+}
+
+.specialistName {
+  font-size: var(--font-size-specialist-name, 32px);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-accent, #d4af37);
+  margin-bottom: var(--spacing-small, 12px);
+  position: relative;
+  display: inline-block;
+}
+
+.specialistName::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 40px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: var(--color-accent, #d4af37);
+}
+
+.specialistDescription {
+  font-size: var(--font-size-specialist-description, 16px);
+  color: var(--color-text-gray, #cccccc);
+  max-width: 500px;
+  margin-top: 2rem;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 400px;
+  margin: var(--spacing-large, 24px) 0;
+}
+
+.specialistImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-medium, 8px);
+}
+
+.ctaButton {
+  padding: var(--spacing-small, 12px) var(--spacing-medium, 24px);
+  background-color: var(--color-accent, #d4af37);
+  color: var(--color-text-dark, #1a1a1a);
+  border: none;
+  border-radius: var(--border-radius-small, 4px);
+  font-size: var(--font-size-cta-button, 16px);
+  font-weight: var(--font-weight-bold, 700);
+  cursor: pointer;
+  margin-top: var(--spacing-medium, 16px);
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .specialistDescription {
+    max-width: 300px;
+  }
+
+  .imageContainer {
+    max-width: 300px;
+  }
+
+  .statistics {
+    display: none;
+  }
+}
