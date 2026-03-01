@@ -1,0 +1,50 @@
+.mapContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 16px;
+  color: #666;
+}
+
+.openInMapsButton {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background-color: var(--color-accent, #d4af37);
+  color: var(--color-text-dark, #1a1a1a);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.openInMapsButton:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .mapContainer {
+    height: 300px;
+  }
+
+  .openInMapsButton {
+    bottom: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
