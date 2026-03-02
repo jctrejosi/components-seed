@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.container input,
+.container select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  font-size: 14px;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-accent, #0b3bff);
+}
+
+.summary {
+  font-size: 14px;
+  color: #555;
+}
+
+.container button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--color-accent, #0b3bff);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.container button:hover {
+  transform: translateY(-2px);
+}
+
+/* posiciones opcionales */
+.static {
+  position: static;
+}
+.sticky {
+  position: sticky;
+  top: 20px;
+}
+.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* responsive */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 12px;
+  }
+}
