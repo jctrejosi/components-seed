@@ -30,9 +30,7 @@ export const InfoItemAndromeda = (props: InfoItemAndromedaProps) => {
                 onClick={item.onButtonClick}
               >
                 {item.buttonText ||
-                  returnTranslation(
-                    translationsSources.before_after_quote_button
-                  )}
+                  returnTranslation(translationsSources.quote_button)}
               </button>
             </div>
 

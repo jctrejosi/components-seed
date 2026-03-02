@@ -72,11 +72,38 @@
 
 @media (max-width: 768px) {
   .itemContainer {
-    flex-direction: column !important;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
+  /* el contenido se vuelve transparente al layout */
+  .content {
+    display: contents;
+  }
+
+  .title {
+    order: 1;
+  }
+
   .carouselContainer {
+    order: 2;
     max-width: 100%;
+  }
+
+  .subtitle {
+    order: 3;
+  }
+
+  .description {
+    order: 4;
+  }
+
+  .price {
+    order: 5;
+  }
+
+  .quoteButton {
+    order: 6;
   }
 }

@@ -7,7 +7,7 @@ export const exampleItems = [
     price: '$1.500.000 COP',
     beforeImageUrl: 'https://ejemplo.com/before1.jpg',
     afterImageUrl: 'https://ejemplo.com/after1.jpg',
-    buttonText: 'Cotizar ahora',
+    buttonText: 'Agendar cita',
     onButtonClick: () => window.open('https://tusitio.com/cotizar', '_blank'),
   },
   {
@@ -18,7 +18,7 @@ export const exampleItems = [
     price: '$800.000 COP',
     beforeImageUrl: 'https://ejemplo.com/before2.jpg',
     afterImageUrl: 'https://ejemplo.com/after2.jpg',
-    buttonText: 'Cotizar ahora',
+    buttonText: 'Agendar cita',
     onButtonClick: () => window.open('https://tusitio.com/cotizar', '_blank'),
   },
 ]
