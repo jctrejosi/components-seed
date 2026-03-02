@@ -13,21 +13,26 @@ export const ScrollSnapAndromeda = ({
   useEffect(() => {
     const isMobile = window.innerWidth <= 1024
 
-    const handleScroll = () => {
-      const children = containerRef.current?.children ?? []
+    const handleScroll = (e?: Event) => {
+      const container = containerRef.current
+      if (!container) return
+
+      // si el evento existe y no viene del contenedor snap, ignorar
+      if (e && e.target !== container && e.target !== window) return
+
+      const children = container.children
       let newIndex = 0
 
-      Array.from(children).forEach((child, i) => {
-        const rect = child as HTMLElement
-        const box = rect.getBoundingClientRect()
+      for (let i = 0; i < children.length; i++) {
+        const rect = (children[i] as HTMLElement).getBoundingClientRect()
         const viewportMid = window.innerHeight / 2
-
-        if (box.top <= viewportMid && box.bottom >= viewportMid) {
+        if (rect.top <= viewportMid && rect.bottom >= viewportMid) {
           newIndex = i
+          break
         }
-      })
+      }
 
-      setActiveIndex(newIndex)
+      setActiveIndex((prev) => (prev === newIndex ? prev : newIndex))
     }
 
     if (isMobile) {
@@ -38,7 +43,7 @@ export const ScrollSnapAndromeda = ({
       window.addEventListener('resize', handleScroll)
     }
 
-    handleScroll() // inicializa el estado
+    handleScroll()
 
     return () => {
       if (isMobile) {

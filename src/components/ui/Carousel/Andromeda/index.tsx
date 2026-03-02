@@ -208,11 +208,12 @@ export const CarouselAndromeda = ({
 
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault() // requiere passive: false
         e.stopPropagation()
       }
     }
 
-    el.addEventListener('wheel', onWheel, { passive: true })
+    el.addEventListener('wheel', onWheel, { passive: false })
     return () => el.removeEventListener('wheel', onWheel)
   }, [])
 
@@ -243,7 +244,10 @@ export const CarouselAndromeda = ({
       {showArrows && totalPages > 1 && (
         <>
           <button
+            type="button"
+            tabIndex={-1}
             className={styles.arrowLeft}
+            onMouseDown={(e) => e.preventDefault()}
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
@@ -252,8 +256,12 @@ export const CarouselAndromeda = ({
           >
             ‹
           </button>
+
           <button
+            type="button"
+            tabIndex={-1}
             className={styles.arrowRight}
+            onMouseDown={(e) => e.preventDefault()}
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
