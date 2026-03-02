@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import styles from './styles.module.css'
-import type { CalendarAndromedaProps, Slot } from './types'
+import type { CalendarAndromedaProps, SlotCalendarAndromeda } from './types'
 import { availableSlotsExample } from './examples'
 
 const formatDate = (date: Date) => date.toISOString().split('T')[0]
@@ -35,7 +35,7 @@ export const CalendarAndromeda = ({
     }
 
     // caso: array de slots
-    ;(availableSlots as Slot[]).forEach((s) => {
+    ;(availableSlots as SlotCalendarAndromeda[]).forEach((s) => {
       map.set(s.date, Array.isArray(s.times) ? s.times : [])
     })
     return map

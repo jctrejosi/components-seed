@@ -1,14 +1,10 @@
+import type { SlotCalendarAndromeda } from '@/components/Calendar/Andromeda/types'
 import type { BasePropComponents } from '@/types'
 
 export type AppointmentType = {
   id: string
   label: string
   price: number
-}
-
-export type Slot = {
-  date: string
-  times: string[]
 }
 
 export type AppointmentSubmitPayload = {
@@ -22,7 +18,7 @@ export type AppointmentSubmitPayload = {
 }
 
 export type AppointmentFormAndromedaProps = BasePropComponents & {
-  availableSlots?: Slot[]
+  availableSlots?: SlotCalendarAndromeda[]
   appointmentTypes?: AppointmentType[]
   onSubmit: (payload: AppointmentSubmitPayload) => void
   style?: React.CSSProperties
