@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   font-size: var(--footer-font-size, 1rem);
+  width: 100%;
 }
 
 .contact {

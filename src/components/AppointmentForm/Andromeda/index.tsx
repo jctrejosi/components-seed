@@ -73,11 +73,13 @@ export const AppointmentFormAndromeda = ({
         onChange={(e) => setPhone(e.target.value)}
       />
 
-      <CalendarAndromeda
-        availableSlots={availableSlots}
-        value={date}
-        onChange={handleCalendarChange}
-      />
+      <div className={styles.containerCalendar}>
+        <CalendarAndromeda
+          availableSlots={availableSlots}
+          value={date}
+          onChange={handleCalendarChange}
+        />
+      </div>
 
       <select
         value={appointmentTypeId}

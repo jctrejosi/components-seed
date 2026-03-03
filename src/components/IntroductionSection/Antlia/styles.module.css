@@ -11,7 +11,7 @@
   --spacing-medium: 16px;
   --spacing-large: 24px;
 
-  --color-background-dark: #1a1a1a;
+  --bg: #1a1a1a;
   --color-text-light: #ffffff;
   --color-text-gray: #cccccc;
   --color-accent: #d4af37;
@@ -26,8 +26,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  background-color: var(--color-background-dark, #1a1a1a);
+  align-items: flex-start;
+  background-color: var(--bg, #1a1a1a);
   color: var(--color-text-light, #ffffff);
   text-align: left;
   padding: 4rem;
@@ -62,14 +62,15 @@
   margin-bottom: var(--spacing-small, 12px);
   position: relative;
   display: inline-block;
+  text-align: left;
+  width: 100%;
 }
 
 .specialistName::after {
   content: '';
   position: absolute;
   bottom: -8px;
-  left: 40px;
-  transform: translateX(-50%);
+  left: 0;
   width: 80px;
   height: 2px;
   background-color: var(--color-accent, #d4af37);
@@ -80,12 +81,12 @@
   color: var(--color-text-gray, #cccccc);
   max-width: 500px;
   margin-top: 2rem;
+  text-align: left;
 }
 
 .imageContainer {
   width: 100%;
   max-width: 400px;
-  margin: var(--spacing-large, 24px) 0;
 }
 
 .specialistImage {
@@ -118,6 +119,7 @@
 
   .imageContainer {
     max-width: 300px;
+    margin-top: 2rem;
   }
 
   .statistics {

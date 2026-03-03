@@ -5,6 +5,9 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  background-color: var(--bg);
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 .container input,
@@ -39,6 +42,12 @@
 
 .container button:hover {
   transform: translateY(-2px);
+}
+
+.containerCalendar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* posiciones opcionales */

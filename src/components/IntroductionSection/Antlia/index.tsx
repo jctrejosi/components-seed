@@ -6,10 +6,10 @@ import type { IntroductionSectionAntliaProps } from './types'
 export const IntroductionSectionAntlia = (
   props: IntroductionSectionAntliaProps
 ) => {
-  const { onCtaClick } = props
+  const { onCtaClick, image, style } = props
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} style={style}>
       <div className={styles.specialistInfo}>
         <h2 className={styles.specialistName}>
           {returnTranslation(translationsSources.specialist_name)}
@@ -45,7 +45,7 @@ export const IntroductionSectionAntlia = (
       </div>
       <div className={styles.imageContainer}>
         <img
-          src="https://via.placeholder.com/500x600"
+          src={image}
           alt={returnTranslation(translationsSources.specialist_name)}
           className={styles.specialistImage}
         />
