@@ -1,11 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { AppointmentFormAndromeda } from './index'
+import { NavbarAntlia } from './index'
 const meta: Meta<any> = {
-  title: 'Components/AppointmentForm/Andromeda',
-  component: AppointmentFormAndromeda,
+  title: 'Components/Navbar/Antlia',
+  component: NavbarAntlia,
   argTypes: {
-    '--bg': { control: 'text', name: '--bg' },
-    '--color-accent': { control: 'text', name: '--color-accent' },
+    '--navbar-bg': { control: 'text', name: '--navbar-bg' },
+    '--navbar-border': { control: 'text', name: '--navbar-border' },
+    '--navbar-text': { control: 'text', name: '--navbar-text' },
+    '--navbar-cta-bg': { control: 'text', name: '--navbar-cta-bg' },
+    '--navbar-cta-text': { control: 'text', name: '--navbar-cta-text' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -25,7 +28,7 @@ const meta: Meta<any> = {
           ...cssVars,
         }}
       >
-        <AppointmentFormAndromeda {...args} />
+        <NavbarAntlia {...args} />
       </div>
     )
   },
@@ -36,7 +39,10 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    '--bg': '',
-    '--color-accent': '',
+    '--navbar-bg': '',
+    '--navbar-border': '',
+    '--navbar-text': '',
+    '--navbar-cta-bg': '',
+    '--navbar-cta-text': '',
   },
 }

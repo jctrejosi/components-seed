@@ -3,11 +3,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background-color: var(--footer-bg, #fff);
-  color: var(--footer-color, #000);
+  background-color: var(--bg, #fff);
+  color: var(--navbar-color, #000);
   flex-wrap: wrap;
   gap: 1rem;
-  font-size: var(--footer-font-size, 1rem);
+  font-size: var(--navbar-font-size, 1rem);
   width: 100%;
 }
 
@@ -22,11 +22,16 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--navbar-color, #000);
+}
+
+.link {
+  color: var(--navbar-color, #000);
 }
 
 .icon {
   font-size: 1.2rem;
-  color: var(--footer-icon-color, #000);
+  color: var(--navbar-color, #000);
 }
 
 .socials {
@@ -37,12 +42,12 @@
 
 .socialIcon {
   font-size: 1.6rem;
-  color: var(--footer-social-color, #000);
+  color: var(--navbar-color, #000);
   transition: color 0.2s ease;
 }
 
 .socialIcon:hover {
-  color: var(--footer-social-hover, #ff007f);
+  color: var(--navbar-color-hover, #ff007f);
 }
 
 @media (max-width: 768px) {

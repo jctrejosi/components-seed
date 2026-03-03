@@ -4,12 +4,10 @@ const meta: Meta<any> = {
   title: 'Components/Navbar/Andromeda',
   component: NavbarAndromeda,
   argTypes: {
-    '--footer-bg': { control: 'text', name: '--footer-bg' },
-    '--footer-color': { control: 'text', name: '--footer-color' },
-    '--footer-font-size': { control: 'text', name: '--footer-font-size' },
-    '--footer-icon-color': { control: 'text', name: '--footer-icon-color' },
-    '--footer-social-color': { control: 'text', name: '--footer-social-color' },
-    '--footer-social-hover': { control: 'text', name: '--footer-social-hover' },
+    '--bg': { control: 'text', name: '--bg' },
+    '--navbar-color': { control: 'text', name: '--navbar-color' },
+    '--navbar-font-size': { control: 'text', name: '--navbar-font-size' },
+    '--navbar-color-hover': { control: 'text', name: '--navbar-color-hover' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -40,11 +38,9 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    '--footer-bg': '',
-    '--footer-color': '',
-    '--footer-font-size': '',
-    '--footer-icon-color': '',
-    '--footer-social-color': '',
-    '--footer-social-hover': '',
+    '--bg': '',
+    '--navbar-color': '',
+    '--navbar-font-size': '',
+    '--navbar-color-hover': '',
   },
 }

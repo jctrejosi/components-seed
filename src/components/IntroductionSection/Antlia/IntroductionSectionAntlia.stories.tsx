@@ -4,10 +4,7 @@ const meta: Meta<any> = {
   title: 'Components/IntroductionSection/Antlia',
   component: IntroductionSectionAntlia,
   argTypes: {
-    '--color-background-dark': {
-      control: 'text',
-      name: '--color-background-dark',
-    },
+    '--bg': { control: 'text', name: '--bg' },
     '--color-text-light': { control: 'text', name: '--color-text-light' },
     '--color-accent': { control: 'text', name: '--color-accent' },
     '--spacing-large': { control: 'text', name: '--spacing-large' },
@@ -67,7 +64,7 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    '--color-background-dark': '',
+    '--bg': '',
     '--color-text-light': '',
     '--color-accent': '',
     '--spacing-large': '',

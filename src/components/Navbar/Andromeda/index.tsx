@@ -13,21 +13,26 @@ export const NavbarAndromeda = ({
     instagram: 'https://instagram.com/',
     tiktok: 'https://tiktok.com/',
   },
+  style,
 }: NavbarAndromedaProps) => {
   return (
-    <div className={styles.footer}>
+    <div className={styles.footer} style={style}>
       <div className={styles.contact}>
         <div className={styles.item}>
           <FiMail className={styles.icon} />
-          <a href={`mailto:${email}`}>{email}</a>
+          <a className={styles.link} href={`mailto:${email}`}>
+            {email}
+          </a>
         </div>
         <div className={styles.item}>
           <FiPhone className={styles.icon} />
-          <a href={`tel:${phone}`}>{phone}</a>
+          <a className={styles.link} href={`tel:${phone}`}>
+            {phone}
+          </a>
         </div>
         <div className={styles.item}>
           <FiMapPin className={styles.icon} />
-          <span>{address}</span>
+          <span className={styles.link}>{address}</span>
         </div>
       </div>
 
