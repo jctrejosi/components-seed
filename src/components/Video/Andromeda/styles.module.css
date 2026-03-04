@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: clamp(1rem, 4vw, 4rem);
+  box-sizing: border-box;
+}
+
+.video,
+.poster {
+  width: 100%;
+  max-width: 100rem;
+  height: 100%;
+  object-fit: cover;
+}
