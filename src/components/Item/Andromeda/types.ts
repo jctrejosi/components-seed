@@ -5,8 +5,7 @@ type InfoItemAndromeda = {
   subtitle: string
   description: string
   price: string
-  beforeImageUrl: string
-  afterImageUrl: string
+  images: string[]
   buttonText: string
   onButtonClick?: () => void
 }

@@ -5,11 +5,11 @@ import { returnTranslation } from '@/utils'
 import { CarouselAndromeda } from '@/components/ui/Carousel/Andromeda'
 import { exampleItems } from './examples'
 
-export const InfoItemAndromeda = (props: InfoItemAndromedaProps) => {
+export const ItemAndromeda = (props: InfoItemAndromedaProps) => {
   const { items = exampleItems } = props
 
   return (
-    <div>
+    <div className={styles.container}>
       {items.map((item, index) => {
         const isImageOnLeft = index % 2 !== 0
 
@@ -36,26 +36,17 @@ export const InfoItemAndromeda = (props: InfoItemAndromedaProps) => {
 
             <div className={styles.carouselContainer}>
               <CarouselAndromeda
-                items={[
-                  {
-                    component: (
-                      <img
-                        src={item.beforeImageUrl}
-                        alt="Before"
-                        className={styles.carouselImage}
-                      />
-                    ),
-                  },
-                  {
-                    component: (
-                      <img
-                        src={item.afterImageUrl}
-                        alt="After"
-                        className={styles.carouselImage}
-                      />
-                    ),
-                  },
-                ]}
+                items={(item.images ?? []).map((img, imgIndex) => ({
+                  component: (
+                    <img
+                      src={img}
+                      alt={`${item.title} ${imgIndex + 1}`}
+                      className={styles.carouselImage}
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  ),
+                }))}
                 showArrows={true}
                 showDots={true}
                 itemsPerView={{ mobile: 1, tablet: 1, desktop: 1 }}

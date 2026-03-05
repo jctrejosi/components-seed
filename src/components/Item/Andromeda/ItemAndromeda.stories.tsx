@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { InfoItemAndromeda } from './index'
+import { ItemAndromeda } from './index'
 const meta: Meta<any> = {
-  title: 'Components/InfoItem/Andromeda',
-  component: InfoItemAndromeda,
+  title: 'Components/Item/Andromeda',
+  component: ItemAndromeda,
   argTypes: {
     '--font-size-xlarge': { control: 'text', name: '--font-size-xlarge' },
     '--font-weight-bold': { control: 'text', name: '--font-weight-bold' },
@@ -34,7 +34,7 @@ const meta: Meta<any> = {
           ...cssVars,
         }}
       >
-        <InfoItemAndromeda {...args} />
+        <ItemAndromeda {...args} />
       </div>
     )
   },
