@@ -1,18 +1,26 @@
 .navbar {
-  --navbar-bg: #2f3036;
-  --navbar-text: #c8a36a;
-  --navbar-border: rgba(255, 255, 255, 0.08);
-  --navbar-cta-bg: #c8a36a;
-  --navbar-cta-text: #2f3036;
+  --bg: #2f3036;
+  --text-color: #c8a36a;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --cta-bg: #c8a36a;
+  --cta-text: #2f3036;
+  --max-width-navbar: 100rem;
 
   width: 100%;
-  background: var(--navbar-bg);
-  border-bottom: 0.1rem solid var(--navbar-border);
-  color: var(--navbar-text);
+  background: var(--bg);
+  border-bottom: 0.1rem solid var(--border-color);
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: var(--max-width-navbar);
+  color: var(--text-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 48px;
+  padding: 2rem 0;
   box-sizing: border-box;
   position: relative;
 }
@@ -23,7 +31,7 @@
 }
 
 .logo {
-  height: 40px;
+  height: 8rem;
 }
 
 .center {
@@ -39,7 +47,7 @@
 .linkButton {
   background: none;
   border: none;
-  color: var(--navbar-text);
+  color: var(--text-color);
   font-size: 14px;
   letter-spacing: 1px;
   cursor: pointer;
@@ -54,8 +62,8 @@
   position: absolute;
   top: 120%;
   left: 0;
-  background: var(--navbar-bg);
-  border: 1px solid var(--navbar-border);
+  background: var(--bg);
+  border: 1px solid var(--border-color);
   padding: 10px 0;
   min-width: 180px;
   display: none;
@@ -66,13 +74,13 @@
 .dropdownMenu a {
   padding: 8px 16px;
   text-decoration: none;
-  color: var(--navbar-text);
+  color: var(--text-color);
   font-size: 13px;
   transition: background 0.2s ease;
 }
 
 .dropdownMenu a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--dropdown-bg);
 }
 
 .show {
@@ -80,10 +88,10 @@
 }
 
 .ctaButton {
-  background: var(--navbar-cta-bg);
-  color: var(--navbar-cta-text);
+  background: var(--cta-bg);
+  color: var(--cta-text);
   border: none;
-  padding: 10px 18px;
+  padding: 1.5rem 2.5rem;
   border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
@@ -104,7 +112,7 @@
   display: none;
   background: none;
   border: none;
-  color: var(--navbar-text);
+  color: var(--text-color);
   cursor: pointer;
 }
 
@@ -116,7 +124,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--navbar-bg);
+    background: var(--bg);
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;

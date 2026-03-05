@@ -5,13 +5,12 @@ const meta: Meta<any> = {
   component: IntroductionSectionAntlia,
   argTypes: {
     '--bg': { control: 'text', name: '--bg' },
-    '--color-text-light': { control: 'text', name: '--color-text-light' },
-    '--color-accent': { control: 'text', name: '--color-accent' },
-    '--spacing-large': { control: 'text', name: '--spacing-large' },
+    '--color-text': { control: 'text', name: '--color-text' },
     '--font-size-welcome-message': {
       control: 'text',
       name: '--font-size-welcome-message',
     },
+    '--color-accent': { control: 'text', name: '--color-accent' },
     '--spacing-small': { control: 'text', name: '--spacing-small' },
     '--font-size-specialist-name': {
       control: 'text',
@@ -22,12 +21,15 @@ const meta: Meta<any> = {
       control: 'text',
       name: '--font-size-specialist-description',
     },
-    '--color-text-gray': { control: 'text', name: '--color-text-gray' },
+    '--color-specialist-text': {
+      control: 'text',
+      name: '--color-specialist-text',
+    },
     '--border-radius-medium': {
       control: 'text',
       name: '--border-radius-medium',
     },
-    '--color-text-dark': { control: 'text', name: '--color-text-dark' },
+    '--color-cta-text': { control: 'text', name: '--color-cta-text' },
     '--border-radius-small': { control: 'text', name: '--border-radius-small' },
     '--font-size-cta-button': {
       control: 'text',
@@ -65,17 +67,16 @@ type Story = StoryObj<any>
 export const Default: Story = {
   args: {
     '--bg': '',
-    '--color-text-light': '',
-    '--color-accent': '',
-    '--spacing-large': '',
+    '--color-text': '',
     '--font-size-welcome-message': '',
+    '--color-accent': '',
     '--spacing-small': '',
     '--font-size-specialist-name': '',
     '--font-weight-bold': '',
     '--font-size-specialist-description': '',
-    '--color-text-gray': '',
+    '--color-specialist-text': '',
     '--border-radius-medium': '',
-    '--color-text-dark': '',
+    '--color-cta-text': '',
     '--border-radius-small': '',
     '--font-size-cta-button': '',
     '--spacing-medium': '',

@@ -23,53 +23,55 @@ export const NavbarAntlia = ({
 
   return (
     <nav className={`${styles.navbar} ${className}`} style={style}>
-      <div className={styles.left}>
-        <img className={styles.logo} src={logo} alt="logo" />
-      </div>
+      <div className={styles.content}>
+        <div className={styles.left}>
+          <img className={styles.logo} src={logo} alt="logo" />
+        </div>
 
-      <div
-        className={`${styles.center} ${mobileOpen ? styles.mobileOpen : ''}`}
-      >
-        {links.map((link) => (
-          <div
-            key={link.label}
-            className={styles.dropdown}
-            onMouseEnter={() => setOpenDropdown(link.label)}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <button
-              className={styles.linkButton}
-              onClick={() => toggleDropdown(link.label)}
-            >
-              {link.label}
-            </button>
-
+        <div
+          className={`${styles.center} ${mobileOpen ? styles.mobileOpen : ''}`}
+        >
+          {links.map((link) => (
             <div
-              className={`${styles.dropdownMenu} ${
-                openDropdown === link.label ? styles.show : ''
-              }`}
+              key={link.label}
+              className={styles.dropdown}
+              onMouseEnter={() => setOpenDropdown(link.label)}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
-              {link.items.map((item) => (
-                <a key={item.href} href={item.href}>
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        ))}
+              <button
+                className={styles.linkButton}
+                onClick={() => toggleDropdown(link.label)}
+              >
+                {link.label}
+              </button>
 
-        <button className={styles.ctaButton} onClick={onAction}>
-          <FaCalendarCheck size={14} />
-          {returnTranslation(translations.action_btn)}
+              <div
+                className={`${styles.dropdownMenu} ${
+                  openDropdown === link.label ? styles.show : ''
+                }`}
+              >
+                {link.items.map((item) => (
+                  <a key={item.href} href={item.href}>
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <button className={styles.ctaButton} onClick={onAction}>
+            <FaCalendarCheck size={14} />
+            {returnTranslation(translations.action_btn)}
+          </button>
+        </div>
+
+        <button
+          className={styles.mobileToggle}
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
         </button>
       </div>
-
-      <button
-        className={styles.mobileToggle}
-        onClick={() => setMobileOpen(!mobileOpen)}
-      >
-        {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-      </button>
     </nav>
   )
 }
