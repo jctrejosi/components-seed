@@ -1,4 +1,6 @@
-export type MapAndromedaProps = {
+import type { BasePropComponents } from '@/types'
+
+export type MapAndromedaProps = BasePropComponents & {
   address: string
   apiKey: string
   logoUrl?: string
