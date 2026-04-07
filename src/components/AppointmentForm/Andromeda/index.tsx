@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import styles from './styles.module.css'
 import type { AppointmentFormAndromedaProps } from './types'
 import { translationsSources } from './translations'
@@ -10,6 +10,7 @@ export const AppointmentFormAndromeda = ({
   availableSlots = availableSlotsExample,
   appointmentTypes = appointmentTypesExample,
   onSubmit,
+  selectedServiceDefault,
   position = 'static',
   style,
   className = 'appointment-form-andromeda',
@@ -19,7 +20,17 @@ export const AppointmentFormAndromeda = ({
   const [phone, setPhone] = useState('')
   const [date, setDate] = useState<string | undefined>(undefined)
   const [time, setTime] = useState<string | undefined>(undefined)
-  const [appointmentTypeId, setAppointmentTypeId] = useState('')
+
+  const [appointmentTypeId, setAppointmentTypeId] = useState(
+    selectedServiceDefault ?? ''
+  )
+
+  // sincroniza cuando cambia desde afuera
+  useEffect(() => {
+    if (selectedServiceDefault) {
+      setAppointmentTypeId(selectedServiceDefault)
+    }
+  }, [selectedServiceDefault])
 
   const selectedType = useMemo(
     () => appointmentTypes.find((t) => t.id === appointmentTypeId),
@@ -35,9 +46,11 @@ export const AppointmentFormAndromeda = ({
   }
 
   const handleSubmit = () => {
-    if (!name || !document || !phone || !date || !time || !selectedType) return
+    if (!name || !document || !phone || !date || !time || !selectedType) {
+      return
+    }
 
-    onSubmit({
+    onSubmit?.({
       name,
       document,
       phone,
@@ -88,6 +101,7 @@ export const AppointmentFormAndromeda = ({
         <option value="">
           {returnTranslation(translationsSources.select_appointment_type)}
         </option>
+
         {appointmentTypes.map((t) => (
           <option key={t.id} value={t.id}>
             {t.label}

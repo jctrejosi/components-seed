@@ -21,6 +21,7 @@ export type AppointmentFormAndromedaProps = BasePropComponents & {
   availableSlots?: SlotCalendarAndromeda[]
   appointmentTypes?: AppointmentType[]
   onSubmit: (payload: AppointmentSubmitPayload) => void
+  selectedServiceDefault?: string
   style?: React.CSSProperties
   className?: string
   position?: 'static' | 'sticky' | 'fixed'
