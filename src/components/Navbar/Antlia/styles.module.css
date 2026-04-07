@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding: 1.6rem 2rem;
   box-sizing: border-box;
   position: relative;
 }
@@ -31,7 +31,7 @@
 }
 
 .logo {
-  height: 8rem;
+  height: 6rem;
 }
 
 .center {
@@ -51,11 +51,6 @@
   font-size: 14px;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.linkButton:hover {
-  opacity: 0.7;
 }
 
 .dropdownMenu {
@@ -76,11 +71,10 @@
   text-decoration: none;
   color: var(--text-color);
   font-size: 13px;
-  transition: background 0.2s ease;
 }
 
 .dropdownMenu a:hover {
-  background: var(--dropdown-bg);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .show {
@@ -91,21 +85,14 @@
   background: var(--cta-bg);
   color: var(--cta-text);
   border: none;
-  padding: 1.5rem 2.5rem;
+  padding: 1.2rem 1.8rem;
   border-radius: 4px;
   font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition:
-    transform 0.15s ease,
-    opacity 0.2s ease;
-}
-
-.ctaButton:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
 }
 
 .mobileToggle {
@@ -116,32 +103,73 @@
   cursor: pointer;
 }
 
-/* responsive */
+/* botón cerrar */
+.closeButton {
+  display: none;
+}
+
+/* =========================
+   mobile
+   ========================= */
 
 @media (max-width: 900px) {
+  .logo {
+    height: 5rem;
+  }
+
   .center {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: auto;
     background: var(--bg);
     flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px;
-    display: none;
+    align-items: center;
+    padding: 60px 24px 24px;
+    gap: 16px;
+    transition: right 0.3s ease;
+    z-index: 100;
   }
 
   .mobileOpen {
-    display: flex;
+    right: 0;
+  }
+
+  .mobileToggle {
+    display: block;
+  }
+
+  .closeButton {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
   }
 
   .dropdownMenu {
     position: static;
     border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 10px;
   }
 
-  .mobileToggle {
-    display: block;
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* desktop */
+
+@media (min-width: 901px) {
+  .content {
+    padding: 2rem 0;
   }
 }

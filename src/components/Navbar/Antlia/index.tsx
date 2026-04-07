@@ -28,9 +28,18 @@ export const NavbarAntlia = ({
           <img className={styles.logo} src={logo} alt="logo" />
         </div>
 
+        {/* menú */}
         <div
           className={`${styles.center} ${mobileOpen ? styles.mobileOpen : ''}`}
         >
+          {/* botón cerrar */}
+          <button
+            className={styles.closeButton}
+            onClick={() => setMobileOpen(false)}
+          >
+            <FiX size={22} />
+          </button>
+
           {links.map((link) => (
             <div
               key={link.label}
@@ -65,11 +74,12 @@ export const NavbarAntlia = ({
           </button>
         </div>
 
+        {/* botón abrir */}
         <button
           className={styles.mobileToggle}
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen(true)}
         >
-          {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+          <FiMenu size={22} />
         </button>
       </div>
     </nav>

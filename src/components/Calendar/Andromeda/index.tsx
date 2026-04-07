@@ -3,7 +3,11 @@ import styles from './styles.module.css'
 import type { CalendarAndromedaProps, SlotCalendarAndromeda } from './types'
 import { availableSlotsExample } from './examples'
 
-const formatDate = (date: Date) => date.toISOString().split('T')[0]
+// evita problemas de timezone
+const formatDate = (date: Date) => date.toLocaleDateString('en-CA') // YYYY-MM-DD
+
+const buildDateTime = (date: string, time?: string) =>
+  time ? `${date}T${time}` : date
 
 export const CalendarAndromeda = ({
   availableSlots = availableSlotsExample,
@@ -17,27 +21,31 @@ export const CalendarAndromeda = ({
   const [currentMonth, setCurrentMonth] = useState(() =>
     value ? new Date(value) : new Date()
   )
-  const [selectedDate, setSelectedDate] = useState<string | undefined>(value)
-  const [selectedTime, setSelectedTime] = useState<string | undefined>(
-    undefined
+
+  // parsea value correctamente
+  const [selectedDate, setSelectedDate] = useState<string | undefined>(() =>
+    value ? value.split('T')[0] : undefined
   )
 
-  // normaliza availableSlots a un Map<date, times[]>
+  const [selectedTime, setSelectedTime] = useState<string | undefined>(() =>
+    value ? value.split('T')[1] : undefined
+  )
+
+  // normaliza slots
   const slotsMap = useMemo(() => {
     const map = new Map<string, string[]>()
 
     if (!availableSlots) return map
 
-    // primer caso: array de strings
     if (availableSlots.length && typeof availableSlots[0] === 'string') {
       ;(availableSlots as string[]).forEach((d) => map.set(d, []))
       return map
     }
 
-    // caso: array de slots
     ;(availableSlots as SlotCalendarAndromeda[]).forEach((s) => {
       map.set(s.date, Array.isArray(s.times) ? s.times : [])
     })
+
     return map
   }, [availableSlots])
 
@@ -57,7 +65,10 @@ export const CalendarAndromeda = ({
     return result
   }, [year, month, startWeekDay, daysInMonth])
 
-  const isAvailable = (date: Date) => slotsMap.has(formatDate(date))
+  const isAvailable = (date: Date) => {
+    const times = slotsMap.get(formatDate(date))
+    return times && times.length > 0
+  }
 
   const isDisabledByRange = (date: Date) => {
     const d = formatDate(date)
@@ -69,24 +80,22 @@ export const CalendarAndromeda = ({
   const handleSelect = (date: Date) => {
     const formatted = formatDate(date)
 
-    if (!isAvailable(date)) {
-      alert('Fecha no disponible')
-      return
-    }
-
-    if (isDisabledByRange(date)) return
+    if (!isAvailable(date) || isDisabledByRange(date)) return
 
     setSelectedDate(formatted)
     setSelectedTime(undefined)
 
-    // notifica la selección de fecha (sin hora)
-    onChange?.(formatted, undefined)
+    onChange?.(buildDateTime(formatted), undefined)
   }
 
   const handleSelectTime = (time: string) => {
     if (!selectedDate) return
+
+    const validTimes = slotsMap.get(selectedDate) ?? []
+    if (!validTimes.includes(time)) return
+
     setSelectedTime(time)
-    onChange?.(selectedDate, time)
+    onChange?.(buildDateTime(selectedDate, time), time)
   }
 
   const changeMonth = (offset: number) => {
@@ -103,12 +112,14 @@ export const CalendarAndromeda = ({
         <button type="button" onClick={() => changeMonth(-1)}>
           ‹
         </button>
+
         <span className={styles.monthLabel}>
           {currentMonth.toLocaleDateString(undefined, {
             month: 'long',
             year: 'numeric',
           })}
         </span>
+
         <button type="button" onClick={() => changeMonth(1)}>
           ›
         </button>
@@ -124,22 +135,22 @@ export const CalendarAndromeda = ({
 
       <div className={styles.grid}>
         {days.map((date, i) => {
-          if (!date) return <div key={i} />
+          if (!date || !isAvailable(date) || isDisabledByRange(date)) {
+            return <div key={i} />
+          }
+
           const formatted = formatDate(date)
-          const available = isAvailable(date)
-          const selected = value === formatted || selectedDate === formatted
-          const disabled = !available || isDisabledByRange(date)
+
+          const selected =
+            selectedDate === formatted || (value && value.startsWith(formatted))
 
           return (
             <button
               key={i}
               type="button"
-              className={`
-                ${styles.day}
-                ${available ? styles.available : styles.unavailable}
-                ${selected ? styles.selected : ''}
-              `}
-              disabled={disabled}
+              className={`${styles.day} ${styles.available} ${
+                selected ? styles.selected : ''
+              }`}
               onClick={() => handleSelect(date)}
             >
               {date.getDate()}
@@ -148,18 +159,20 @@ export const CalendarAndromeda = ({
         })}
       </div>
 
-      {/* panel de horas */}
       <div className={styles.timesPanel}>
         {selectedDate ? (
           availableTimesForSelected.length ? (
             <>
               <div className={styles.timesLabel}>Horas disponibles</div>
+
               <div className={styles.timesGrid}>
                 {availableTimesForSelected.map((t) => (
                   <button
                     key={t}
                     type="button"
-                    className={`${styles.timeButton} ${selectedTime === t ? styles.timeSelected : ''}`}
+                    className={`${styles.timeButton} ${
+                      selectedTime === t ? styles.timeSelected : ''
+                    }`}
                     onClick={() => handleSelectTime(t)}
                   >
                     {t}

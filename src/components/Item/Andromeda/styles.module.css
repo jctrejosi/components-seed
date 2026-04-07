@@ -89,18 +89,18 @@
     gap: 16px;
   }
 
-  /* el contenido se vuelve transparente al layout */
   .content {
-    display: contents;
-  }
-
-  .title {
-    order: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .carouselContainer {
     order: 2;
     max-width: 100%;
+  }
+
+  .title {
+    order: 1;
   }
 
   .subtitle {
