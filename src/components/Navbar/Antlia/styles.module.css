@@ -31,7 +31,7 @@
 }
 
 .logo {
-  height: 6rem;
+  height: 10rem;
 }
 
 .center {
@@ -114,7 +114,7 @@
 
 @media (max-width: 900px) {
   .logo {
-    height: 5rem;
+    height: 7rem;
   }
 
   .center {
