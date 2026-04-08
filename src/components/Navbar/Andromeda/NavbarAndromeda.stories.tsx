@@ -7,6 +7,7 @@ const meta: Meta<any> = {
     '--bg': { control: 'text', name: '--bg' },
     '--navbar-color': { control: 'text', name: '--navbar-color' },
     '--navbar-font-size': { control: 'text', name: '--navbar-font-size' },
+    '--border-color': { control: 'text', name: '--border-color' },
     '--navbar-color-hover': { control: 'text', name: '--navbar-color-hover' },
   },
   render: (args) => {
@@ -41,6 +42,7 @@ export const Default: Story = {
     '--bg': '',
     '--navbar-color': '',
     '--navbar-font-size': '',
+    '--border-color': '',
     '--navbar-color-hover': '',
   },
 }

@@ -37,7 +37,7 @@
 }
 
 .subtitle {
-  color: var(--introduction-color, var(--subtitle-color));
+  color: var(--subtitle-color);
   margin: 1rem 0 2rem;
 }
 
@@ -109,6 +109,6 @@
 }
 
 .button:hover {
-  border: 1px solid var(--btn-hover-color);
-  color: var(--btn-hover-color);
+  border: 1px solid var(--btn-color-hover);
+  color: var(--btn-color-hover);
 }
