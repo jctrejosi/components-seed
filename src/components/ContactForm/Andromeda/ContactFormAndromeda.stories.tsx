@@ -13,8 +13,9 @@ const meta: Meta<any> = {
     '--input-color-text': { control: 'text', name: '--input-color-text' },
     '--placeholder-color': { control: 'text', name: '--placeholder-color' },
     '--field-focus-color': { control: 'text', name: '--field-focus-color' },
-    '--btn-color': { control: 'text', name: '--btn-color' },
-    '--btn-color-hover': { control: 'text', name: '--btn-color-hover' },
+    '--cta-bg': { control: 'text', name: '--cta-bg' },
+    '--color-cta-text': { control: 'text', name: '--color-cta-text' },
+    '--border-radius-small': { control: 'text', name: '--border-radius-small' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -54,7 +55,8 @@ export const Default: Story = {
     '--input-color-text': '',
     '--placeholder-color': '',
     '--field-focus-color': '',
-    '--btn-color': '',
-    '--btn-color-hover': '',
+    '--cta-bg': '',
+    '--color-cta-text': '',
+    '--border-radius-small': '',
   },
 }

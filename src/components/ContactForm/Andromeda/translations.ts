@@ -15,6 +15,10 @@ export const translationsSources = {
     es: 'Dirección de correo electrónico',
     en: 'Email Address',
   },
+  label_phone: {
+    es: 'Teléfono',
+    en: 'Phone',
+  },
   label_message: {
     es: 'Tu mensaje',
     en: 'Your Message',
@@ -26,6 +30,10 @@ export const translationsSources = {
   placeholder_email: {
     es: 'Ingresa tu dirección de correo electrónico',
     en: 'Enter your email address',
+  },
+  placeholder_phone: {
+    es: 'Ingresa tu número de teléfono',
+    en: 'Enter your phone number',
   },
   placeholder_message: {
     es: 'Hola, creo que necesitamos un sistema de diseño para nuestros productos en la empresa X...',
