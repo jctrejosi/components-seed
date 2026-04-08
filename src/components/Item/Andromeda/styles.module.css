@@ -62,7 +62,7 @@
 
 .quoteButton {
   padding: 12px 24px;
-  background-color: var(--color-accent, #d4af37);
+  background: var(--quote-bg, #d4af37);
   color: var(--color-text-dark, #1a1a1a);
   border: none;
   border-radius: 4px;
@@ -83,6 +83,10 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+
   .itemContainer {
     display: grid;
     grid-template-columns: 1fr;

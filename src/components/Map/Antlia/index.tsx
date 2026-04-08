@@ -78,6 +78,7 @@ export const MapAntlia = ({
   imageUrl = '',
   height = '420px',
   onOpenMaps,
+  style,
 }: MapAntliaProps) => {
   const mapsUrl = useMemo(
     () =>
@@ -90,7 +91,7 @@ export const MapAntlia = ({
   const showImage = Boolean(imageUrl)
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} style={style}>
       <div className={styles.info}>
         <h2 className={styles.title}>
           {returnTranslation(translationsSources.contact_title)}

@@ -29,6 +29,7 @@ const meta: Meta<any> = {
       control: 'text',
       name: '--border-radius-medium',
     },
+    '--cta-bg': { control: 'text', name: '--cta-bg' },
     '--color-cta-text': { control: 'text', name: '--color-cta-text' },
     '--border-radius-small': { control: 'text', name: '--border-radius-small' },
     '--font-size-cta-button': {
@@ -76,6 +77,7 @@ export const Default: Story = {
     '--font-size-specialist-description': '',
     '--color-specialist-text': '',
     '--border-radius-medium': '',
+    '--cta-bg': '',
     '--color-cta-text': '',
     '--border-radius-small': '',
     '--font-size-cta-button': '',

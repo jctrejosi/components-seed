@@ -4,6 +4,7 @@ const meta: Meta<any> = {
   title: 'Components/Item/Andromeda',
   component: ItemAndromeda,
   argTypes: {
+    '--bg': { control: 'text', name: '--bg' },
     '--font-size-xlarge': { control: 'text', name: '--font-size-xlarge' },
     '--font-weight-bold': { control: 'text', name: '--font-weight-bold' },
     '--color-text-dark': { control: 'text', name: '--color-text-dark' },
@@ -15,6 +16,7 @@ const meta: Meta<any> = {
       control: 'text',
       name: '--color-text-secondary',
     },
+    '--quote-bg': { control: 'text', name: '--quote-bg' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -45,6 +47,7 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
+    '--bg': '',
     '--font-size-xlarge': '',
     '--font-weight-bold': '',
     '--color-text-dark': '',
@@ -53,5 +56,6 @@ export const Default: Story = {
     '--color-accent': '',
     '--font-size-medium': '',
     '--color-text-secondary': '',
+    '--quote-bg': '',
   },
 }

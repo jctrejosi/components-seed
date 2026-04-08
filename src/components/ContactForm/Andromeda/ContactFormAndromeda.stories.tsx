@@ -4,7 +4,7 @@ const meta: Meta<any> = {
   title: 'Components/ContactForm/Andromeda',
   component: ContactFormAndromeda,
   argTypes: {
-    '--bg-container': { control: 'text', name: '--bg-container' },
+    '--bg': { control: 'text', name: '--bg' },
     '--object-fit-bg': { control: 'text', name: '--object-fit-bg' },
     '--title-color': { control: 'text', name: '--title-color' },
     '--introduction-color': { control: 'text', name: '--introduction-color' },
@@ -45,7 +45,7 @@ type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
-    '--bg-container': '',
+    '--bg': '',
     '--object-fit-bg': '',
     '--title-color': '',
     '--introduction-color': '',

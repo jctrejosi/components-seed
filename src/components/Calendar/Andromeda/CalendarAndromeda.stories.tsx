@@ -5,15 +5,6 @@ const meta: Meta<any> = {
   component: CalendarAndromeda,
   argTypes: {
     '--calendar-bg': { control: 'text', name: '--calendar-bg' },
-    '--calendar-weekday': { control: 'text', name: '--calendar-weekday' },
-    '--calendar-available-bg': {
-      control: 'text',
-      name: '--calendar-available-bg',
-    },
-    '--calendar-available-color': {
-      control: 'text',
-      name: '--calendar-available-color',
-    },
     '--calendar-selected-bg': {
       control: 'text',
       name: '--calendar-selected-bg',
@@ -49,9 +40,6 @@ type Story = StoryObj<any>
 export const Default: Story = {
   args: {
     '--calendar-bg': '',
-    '--calendar-weekday': '',
-    '--calendar-available-bg': '',
-    '--calendar-available-color': '',
     '--calendar-selected-bg': '',
   },
 }

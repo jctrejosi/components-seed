@@ -68,7 +68,7 @@
 
 .ctaButton {
   padding: var(--spacing-small, 12px) var(--spacing-medium, 24px);
-  background-color: var(--color-accent, #d4af37);
+  background: var(--cta-bg, #d4af37);
   color: var(--color-cta-text, #1a1a1a);
   border: none;
   border-radius: var(--border-radius-small, 4px);

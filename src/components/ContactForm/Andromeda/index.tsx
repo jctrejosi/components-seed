@@ -31,11 +31,11 @@ export const ContactFormAndromeda = ({
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={style}>
       {backgroundImage && (
         <img className={styles.backgroundImage} src={backgroundImage} />
       )}
-      <section className={styles.innerContainer} style={style}>
+      <section className={styles.innerContainer}>
         <h2 className={styles.title}>
           {returnTranslation(translations.title)}
         </h2>

@@ -6,6 +6,7 @@
   padding: 60px 48px;
   box-sizing: border-box;
   align-items: stretch;
+  background: var(--bg);
 }
 
 .info {
@@ -40,7 +41,7 @@
 .secondaryButton {
   margin-top: 12px;
   width: fit-content;
-  background: var(--color-primary);
+  background: var(--cta-bg, red);
   color: var(--color-bg);
   border: none;
   padding: 10px 20px;
