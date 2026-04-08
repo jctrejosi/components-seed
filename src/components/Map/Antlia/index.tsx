@@ -1,24 +1,25 @@
+import { useMemo } from 'react'
 import { GoogleMap, useLoadScript } from '@react-google-maps/api'
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import styles from './styles.module.css'
 import type { MapAntliaProps } from './types'
 import { translationsSources } from './translations'
 import { returnTranslation } from '@/utils'
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 
 const mapContainerStyle = {
   width: '100%',
   height: '100%',
 }
 
-export const MapAntlia = ({
+const MapApiContent = ({
   apiKey,
   address,
-  phone,
-  email,
   logoUrl,
-  height = '420px',
-  onOpenMaps,
-}: MapAntliaProps) => {
+}: {
+  apiKey: string
+  address: string
+  logoUrl?: string
+}) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: apiKey,
   })
@@ -31,7 +32,6 @@ export const MapAntlia = ({
     geocoder.geocode({ address }, (results, status) => {
       if (status === 'OK' && results && results[0]) {
         const location = results[0].geometry.location
-
         map.setCenter(location)
 
         new google.maps.Marker({
@@ -57,17 +57,51 @@ export const MapAntlia = ({
   }
 
   return (
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      center={center}
+      zoom={15}
+      onLoad={onLoad}
+      options={{
+        disableDefaultUI: true,
+        zoomControl: true,
+      }}
+    />
+  )
+}
+
+export const MapAntlia = ({
+  apiKey = '',
+  address = 'asd asd asd',
+  phone = '132412',
+  email = 'mail',
+  imageUrl = '',
+  height = '420px',
+  onOpenMaps,
+}: MapAntliaProps) => {
+  const mapsUrl = useMemo(
+    () =>
+      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        address
+      )}`,
+    [address]
+  )
+
+  const showImage = Boolean(imageUrl)
+
+  return (
     <section className={styles.container}>
-      {/* izquierda */}
       <div className={styles.info}>
         <h2 className={styles.title}>
           {returnTranslation(translationsSources.contact_title)}
         </h2>
 
-        <div className={styles.item}>
-          <FaMapMarkerAlt />
-          <span>{address}</span>
-        </div>
+        {address && (
+          <div className={styles.item}>
+            <FaMapMarkerAlt />
+            <span>{address}</span>
+          </div>
+        )}
 
         {phone && (
           <div className={styles.item}>
@@ -83,25 +117,35 @@ export const MapAntlia = ({
           </div>
         )}
 
+        <a
+          className={styles.mapsButton}
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {returnTranslation(translationsSources.map_open_in_google_maps)}
+        </a>
+
         {onOpenMaps && (
-          <button className={styles.mapsButton} onClick={onOpenMaps}>
+          <button className={styles.secondaryButton} onClick={onOpenMaps}>
             {returnTranslation(translationsSources.map_open_in_google_maps)}
           </button>
         )}
       </div>
 
-      {/* derecha */}
       <div className={styles.mapWrapper} style={{ height }}>
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          center={center}
-          zoom={15}
-          onLoad={onLoad}
-          options={{
-            disableDefaultUI: true,
-            zoomControl: true,
-          }}
-        />
+        {showImage ? (
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.mapLink}
+          >
+            <img src={imageUrl} alt={address} className={styles.mapImage} />
+          </a>
+        ) : (
+          <MapApiContent apiKey={apiKey} address={address} logoUrl={mapsUrl} />
+        )}
       </div>
     </section>
   )
