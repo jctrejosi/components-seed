@@ -1,14 +1,10 @@
 import type { BasePropComponents } from '@/types'
 
-export type SocialLinks = {
+export type NavbarAndromedaProps = BasePropComponents & {
   facebook?: string
   instagram?: string
   tiktok?: string
-}
-
-export type NavbarAndromedaProps = BasePropComponents & {
   email?: string
   phone?: string
   address?: string
-  socialLinks?: SocialLinks
 }

@@ -5,48 +5,74 @@ import { FaFacebookF, FaInstagram } from 'react-icons/fa'
 import { SiTiktok } from 'react-icons/si'
 
 export const NavbarAndromeda = ({
-  email = 'contacto@odontosana.com',
-  phone = '3137448700',
-  address = 'Calle 38A #34-40',
-  socialLinks = {
-    facebook: 'https://facebook.com/',
-    instagram: 'https://instagram.com/',
-    tiktok: 'https://tiktok.com/',
-  },
+  email,
+  phone,
+  address,
+  facebook,
+  instagram,
+  tiktok,
   style,
 }: NavbarAndromedaProps) => {
+  const hasEmail = Boolean(email?.trim())
+  const hasPhone = Boolean(phone?.trim())
+  const hasAddress = Boolean(address?.trim())
+
+  const hasFacebook = Boolean(facebook?.trim())
+  const hasInstagram = Boolean(instagram?.trim())
+  const hasTiktok = Boolean(tiktok?.trim())
+
+  const hasSocialLinks = hasFacebook || hasInstagram || hasTiktok
+
   return (
     <div className={styles.footer} style={style}>
       <div className={styles.contact}>
-        <div className={styles.item}>
-          <FiMail className={styles.icon} />
-          <a className={styles.link} href={`mailto:${email}`}>
-            {email}
-          </a>
-        </div>
-        <div className={styles.item}>
-          <FiPhone className={styles.icon} />
-          <a className={styles.link} href={`tel:${phone}`}>
-            {phone}
-          </a>
-        </div>
-        <div className={styles.item}>
-          <FiMapPin className={styles.icon} />
-          <span className={styles.link}>{address}</span>
-        </div>
+        {hasEmail && (
+          <div className={styles.item}>
+            <FiMail className={styles.icon} />
+            <a className={styles.link} href={`mailto:${email}`}>
+              {email}
+            </a>
+          </div>
+        )}
+
+        {hasPhone && (
+          <div className={styles.item}>
+            <FiPhone className={styles.icon} />
+            <a className={styles.link} href={`tel:${phone}`}>
+              {phone}
+            </a>
+          </div>
+        )}
+
+        {hasAddress && (
+          <div className={styles.item}>
+            <FiMapPin className={styles.icon} />
+            <span className={styles.link}>{address}</span>
+          </div>
+        )}
       </div>
 
-      <div className={styles.socials}>
-        <a href={socialLinks.facebook} target="_blank" rel="noreferrer">
-          <FaFacebookF className={styles.socialIcon} />
-        </a>
-        <a href={socialLinks.instagram} target="_blank" rel="noreferrer">
-          <FaInstagram className={styles.socialIcon} />
-        </a>
-        <a href={socialLinks.tiktok} target="_blank" rel="noreferrer">
-          <SiTiktok className={styles.socialIcon} />
-        </a>
-      </div>
+      {hasSocialLinks && (
+        <div className={styles.socials}>
+          {hasFacebook && (
+            <a href={facebook} target="_blank" rel="noreferrer">
+              <FaFacebookF className={styles.socialIcon} />
+            </a>
+          )}
+
+          {hasInstagram && (
+            <a href={instagram} target="_blank" rel="noreferrer">
+              <FaInstagram className={styles.socialIcon} />
+            </a>
+          )}
+
+          {hasTiktok && (
+            <a href={tiktok} target="_blank" rel="noreferrer">
+              <SiTiktok className={styles.socialIcon} />
+            </a>
+          )}
+        </div>
+      )}
     </div>
   )
 }
