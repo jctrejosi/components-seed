@@ -1,3 +1,4 @@
+export * from '../components/Alert/Andromeda/types'
 export * from '../components/AppointmentForm/Andromeda/types'
 export * from '../components/Calendar/Andromeda/types'
 export * from '../components/ContactForm/Andromeda/types'

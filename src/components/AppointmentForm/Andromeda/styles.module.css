@@ -8,6 +8,13 @@
   background-color: var(--bg);
   padding: 2rem;
   border-radius: 1rem;
+  box-sizing: border-box;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .container input,
@@ -16,6 +23,30 @@
   border-radius: 8px;
   border: 1px solid #e6e6e6;
   font-size: 14px;
+  background: transparent;
+  color: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.container input:focus,
+.container select:focus {
+  border-color: var(--color-accent, #0b3bff);
+  box-shadow: 0 0 0 3px rgb(11 59 255 / 12%);
+}
+
+.fieldError input,
+.fieldError select {
+  border-color: #d22;
+  box-shadow: 0 0 0 3px rgb(221 34 34 / 10%);
+}
+
+.errorMessage {
+  color: #d22;
+  font-size: 0.85rem;
+  line-height: 1.2;
 }
 
 .price {
@@ -48,23 +79,36 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  border-radius: 1rem;
 }
 
-/* posiciones opcionales */
+.calendarErrorFrame {
+  outline: 1px solid #d22;
+  outline-offset: 6px;
+}
+
+.calendarErrorMessage {
+  color: #d22;
+  font-size: 0.9rem;
+  margin-top: -2px;
+  text-align: center;
+}
+
 .static {
   position: static;
 }
+
 .sticky {
   position: sticky;
   top: 20px;
 }
+
 .fixed {
   position: fixed;
   bottom: 20px;
   right: 20px;
 }
 
-/* responsive */
 @media (max-width: 480px) {
   .container {
     max-width: 100%;

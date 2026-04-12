@@ -20,12 +20,11 @@ export const AppointmentFormAndromeda = ({
   const [phone, setPhone] = useState('')
   const [date, setDate] = useState<string | undefined>(undefined)
   const [time, setTime] = useState<string | undefined>(undefined)
-
   const [appointmentTypeId, setAppointmentTypeId] = useState(
     selectedServiceDefault ?? ''
   )
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false)
 
-  // sincroniza cuando cambia desde afuera
   useEffect(() => {
     if (selectedServiceDefault) {
       setAppointmentTypeId(selectedServiceDefault)
@@ -37,6 +36,12 @@ export const AppointmentFormAndromeda = ({
     [appointmentTypeId, appointmentTypes]
   )
 
+  const nameError = attemptedSubmit && !name.trim()
+  const documentError = attemptedSubmit && !document.trim()
+  const phoneError = attemptedSubmit && !phone.trim()
+  const serviceError = attemptedSubmit && !appointmentTypeId.trim()
+  const calendarError = attemptedSubmit && (!date || !time)
+
   const handleCalendarChange = (
     selectedDate: string,
     selectedTime?: string
@@ -46,7 +51,17 @@ export const AppointmentFormAndromeda = ({
   }
 
   const handleSubmit = () => {
-    if (!name || !document || !phone || !date || !time || !selectedType) {
+    setAttemptedSubmit(true)
+
+    if (
+      !name.trim() ||
+      !document.trim() ||
+      !phone.trim() ||
+      !date ||
+      !time ||
+      !selectedType ||
+      !appointmentTypeId.trim()
+    ) {
       return
     }
 
@@ -66,27 +81,57 @@ export const AppointmentFormAndromeda = ({
       className={`${styles.container} ${styles[position]} ${className}`}
       style={style}
     >
-      <input
-        placeholder={returnTranslation(translationsSources.name_placeholder)}
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <input
-        placeholder={returnTranslation(
-          translationsSources.document_placeholder
+      <div className={`${styles.field} ${nameError ? styles.fieldError : ''}`}>
+        <input
+          placeholder={returnTranslation(translationsSources.name_placeholder)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          aria-invalid={nameError}
+        />
+        {nameError && (
+          <span className={styles.errorMessage}>
+            {returnTranslation(translationsSources.validation_required)}
+          </span>
         )}
-        value={document}
-        onChange={(e) => setDocument(e.target.value)}
-      />
+      </div>
 
-      <input
-        placeholder={returnTranslation(translationsSources.phone_placeholder)}
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
+      <div
+        className={`${styles.field} ${documentError ? styles.fieldError : ''}`}
+      >
+        <input
+          placeholder={returnTranslation(
+            translationsSources.document_placeholder
+          )}
+          value={document}
+          onChange={(e) => setDocument(e.target.value)}
+          aria-invalid={documentError}
+        />
+        {documentError && (
+          <span className={styles.errorMessage}>
+            {returnTranslation(translationsSources.validation_required)}
+          </span>
+        )}
+      </div>
 
-      <div className={styles.containerCalendar}>
+      <div className={`${styles.field} ${phoneError ? styles.fieldError : ''}`}>
+        <input
+          placeholder={returnTranslation(translationsSources.phone_placeholder)}
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          aria-invalid={phoneError}
+        />
+        {phoneError && (
+          <span className={styles.errorMessage}>
+            {returnTranslation(translationsSources.validation_required)}
+          </span>
+        )}
+      </div>
+
+      <div
+        className={`${styles.containerCalendar} ${
+          calendarError ? styles.calendarErrorFrame : ''
+        }`}
+      >
         <CalendarAndromeda
           availableSlots={availableSlots}
           value={date}
@@ -94,20 +139,37 @@ export const AppointmentFormAndromeda = ({
         />
       </div>
 
-      <select
-        value={appointmentTypeId}
-        onChange={(e) => setAppointmentTypeId(e.target.value)}
-      >
-        <option value="">
-          {returnTranslation(translationsSources.select_appointment_type)}
-        </option>
+      {calendarError && (
+        <span className={styles.calendarErrorMessage}>
+          {returnTranslation(translationsSources.validation_calendar)}
+        </span>
+      )}
 
-        {appointmentTypes.map((t) => (
-          <option key={t.id} value={t.id}>
-            {t.label}
+      <div
+        className={`${styles.field} ${serviceError ? styles.fieldError : ''}`}
+      >
+        <select
+          value={appointmentTypeId}
+          onChange={(e) => setAppointmentTypeId(e.target.value)}
+          aria-invalid={serviceError}
+        >
+          <option value="">
+            {returnTranslation(translationsSources.select_appointment_type)}
           </option>
-        ))}
-      </select>
+
+          {appointmentTypes.map((t) => (
+            <option key={t.id} value={t.id}>
+              {t.label}
+            </option>
+          ))}
+        </select>
+
+        {serviceError && (
+          <span className={styles.errorMessage}>
+            {returnTranslation(translationsSources.validation_service)}
+          </span>
+        )}
+      </div>
 
       {selectedType && (
         <div className={styles.price}>

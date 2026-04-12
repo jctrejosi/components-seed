@@ -35,4 +35,16 @@ export const translationsSources = {
     es: 'Fecha no disponible',
     en: 'Date not available',
   },
+  validation_required: {
+    es: 'Este campo es obligatorio',
+    en: 'This field is required',
+  },
+  validation_calendar: {
+    es: 'Debes seleccionar una fecha y hora para la cita',
+    en: 'You must select a date and time for the appointment',
+  },
+  validation_service: {
+    es: 'Debes seleccionar un tipo de cita',
+    en: 'You must select an appointment type',
+  },
 }
