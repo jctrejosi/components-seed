@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { NavbarAndromeda } from './index'
+import type { Meta, StoryObj } from '@storybook/react';
+import { NavbarAndromeda } from './index';
 const meta: Meta<any> = {
   title: 'Components/Navbar/Andromeda',
   component: NavbarAndromeda,
@@ -8,10 +8,10 @@ const meta: Meta<any> = {
     '--navbar-color': { control: 'text', name: '--navbar-color' },
     '--navbar-font-size': { control: 'text', name: '--navbar-font-size' },
     '--border-color': { control: 'text', name: '--border-color' },
-    '--navbar-color-hover': { control: 'text', name: '--navbar-color-hover' },
+    '--navbar-color-hover': { control: 'text', name: '--navbar-color-hover' }
   },
   render: (args) => {
-    const cssVars: Record<string, string> = {}
+    const cssVars: Record<string,string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -32,10 +32,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 export const Default: Story = {
   args: {
@@ -43,6 +43,6 @@ export const Default: Story = {
     '--navbar-color': '',
     '--navbar-font-size': '',
     '--border-color': '',
-    '--navbar-color-hover': '',
-  },
-}
+    '--navbar-color-hover': ''
+  }
+};

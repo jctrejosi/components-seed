@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { NavbarAntlia } from './index'
+import type { Meta, StoryObj } from '@storybook/react';
+import { NavbarAntlia } from './index';
 const meta: Meta<any> = {
   title: 'Components/Navbar/Antlia',
   component: NavbarAntlia,
@@ -9,10 +9,10 @@ const meta: Meta<any> = {
     '--max-width-navbar': { control: 'text', name: '--max-width-navbar' },
     '--text-color': { control: 'text', name: '--text-color' },
     '--cta-bg': { control: 'text', name: '--cta-bg' },
-    '--cta-text': { control: 'text', name: '--cta-text' },
+    '--cta-text': { control: 'text', name: '--cta-text' }
   },
   render: (args) => {
-    const cssVars: Record<string, string> = {}
+    const cssVars: Record<string,string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -33,10 +33,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 export const Default: Story = {
   args: {
@@ -45,6 +45,6 @@ export const Default: Story = {
     '--max-width-navbar': '',
     '--text-color': '',
     '--cta-bg': '',
-    '--cta-text': '',
-  },
-}
+    '--cta-text': ''
+  }
+};

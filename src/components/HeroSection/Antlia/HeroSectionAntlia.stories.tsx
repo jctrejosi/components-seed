@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { HeroSectionAntlia } from './index'
+import type { Meta, StoryObj } from '@storybook/react';
+import { HeroSectionAntlia } from './index';
 const meta: Meta<any> = {
   title: 'Components/HeroSection/Antlia',
   component: HeroSectionAntlia,
@@ -9,10 +9,10 @@ const meta: Meta<any> = {
     '--title-color': { control: 'text', name: '--title-color' },
     '--subtitle-color': { control: 'text', name: '--subtitle-color' },
     '--featured-color': { control: 'text', name: '--featured-color' },
-    '--items-count': { control: 'text', name: '--items-count' },
+    '--items-count': { control: 'text', name: '--items-count' }
   },
   render: (args) => {
-    const cssVars: Record<string, string> = {}
+    const cssVars: Record<string,string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -33,10 +33,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 export const Default: Story = {
   args: {
@@ -45,6 +45,6 @@ export const Default: Story = {
     '--title-color': '',
     '--subtitle-color': '',
     '--featured-color': '',
-    '--items-count': '',
-  },
-}
+    '--items-count': ''
+  }
+};

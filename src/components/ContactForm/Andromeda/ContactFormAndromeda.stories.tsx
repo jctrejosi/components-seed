@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ContactFormAndromeda } from './index'
+import type { Meta, StoryObj } from '@storybook/react';
+import { ContactFormAndromeda } from './index';
 const meta: Meta<any> = {
   title: 'Components/ContactForm/Andromeda',
   component: ContactFormAndromeda,
@@ -15,10 +15,10 @@ const meta: Meta<any> = {
     '--field-focus-color': { control: 'text', name: '--field-focus-color' },
     '--cta-bg': { control: 'text', name: '--cta-bg' },
     '--color-cta-text': { control: 'text', name: '--color-cta-text' },
-    '--border-radius-small': { control: 'text', name: '--border-radius-small' },
+    '--border-radius-small': { control: 'text', name: '--border-radius-small' }
   },
   render: (args) => {
-    const cssVars: Record<string, string> = {}
+    const cssVars: Record<string,string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -39,10 +39,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 export const Default: Story = {
   args: {
@@ -57,6 +57,6 @@ export const Default: Story = {
     '--field-focus-color': '',
     '--cta-bg': '',
     '--color-cta-text': '',
-    '--border-radius-small': '',
-  },
-}
+    '--border-radius-small': ''
+  }
+};

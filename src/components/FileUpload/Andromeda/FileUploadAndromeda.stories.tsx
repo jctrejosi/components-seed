@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { FileUploadAndromeda } from './index'
+import type { Meta, StoryObj } from '@storybook/react';
+import { FileUploadAndromeda } from './index';
 const meta: Meta<any> = {
   title: 'Components/FileUpload/Andromeda',
   component: FileUploadAndromeda,
@@ -9,10 +9,10 @@ const meta: Meta<any> = {
     '--spacing-small': { control: 'text', name: '--spacing-small' },
     '--font-size-medium': { control: 'text', name: '--font-size-medium' },
     '--color-secondary': { control: 'text', name: '--color-secondary' },
-    '--color-primary': { control: 'text', name: '--color-primary' },
+    '--color-primary': { control: 'text', name: '--color-primary' }
   },
   render: (args) => {
-    const cssVars: Record<string, string> = {}
+    const cssVars: Record<string,string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -33,10 +33,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 export const Default: Story = {
   args: {
@@ -45,6 +45,6 @@ export const Default: Story = {
     '--spacing-small': '',
     '--font-size-medium': '',
     '--color-secondary': '',
-    '--color-primary': '',
-  },
-}
+    '--color-primary': ''
+  }
+};

@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { AppointmentFormAndromeda } from './index'
+import type { Meta, StoryObj } from '@storybook/react';
+import { AppointmentFormAndromeda } from './index';
 const meta: Meta<any> = {
   title: 'Components/AppointmentForm/Andromeda',
   component: AppointmentFormAndromeda,
   argTypes: {
     '--bg': { control: 'text', name: '--bg' },
-    '--color-accent': { control: 'text', name: '--color-accent' },
+    '--color-accent': { control: 'text', name: '--color-accent' }
   },
   render: (args) => {
-    const cssVars: Record<string, string> = {}
+    const cssVars: Record<string,string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -29,14 +29,14 @@ const meta: Meta<any> = {
       </div>
     )
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 export const Default: Story = {
   args: {
     '--bg': '',
-    '--color-accent': '',
-  },
-}
+    '--color-accent': ''
+  }
+};

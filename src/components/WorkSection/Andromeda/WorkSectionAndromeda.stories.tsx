@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { WorkSectionAndromeda } from './index'
+import type { Meta, StoryObj } from '@storybook/react';
+import { WorkSectionAndromeda } from './index';
 const meta: Meta<any> = {
   title: 'Components/WorkSection/Andromeda',
   component: WorkSectionAndromeda,
@@ -25,10 +25,10 @@ const meta: Meta<any> = {
     '--subitem-bg': { control: 'text', name: '--subitem-bg' },
     '--link-color': { control: 'text', name: '--link-color' },
     '--link-size': { control: 'text', name: '--link-size' },
-    '--link-color-hover': { control: 'text', name: '--link-color-hover' },
+    '--link-color-hover': { control: 'text', name: '--link-color-hover' }
   },
   render: (args) => {
-    const cssVars: Record<string, string> = {}
+    const cssVars: Record<string,string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -49,14 +49,13 @@ const meta: Meta<any> = {
       </div>
     )
   },
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 export const Default: Story = {
-  args: {
-    '--bg-primary': '',
+  args: {    '--bg-primary': '',
     '--object-fit-bg': '',
     '--opacity-bg': '',
     '--title-color': '',
@@ -77,6 +76,6 @@ export const Default: Story = {
     '--subitem-bg': '',
     '--link-color': '',
     '--link-size': '',
-    '--link-color-hover': '',
-  },
-}
+    '--link-color-hover': ''
+  }
+};
