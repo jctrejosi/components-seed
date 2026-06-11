@@ -1,4 +1,7 @@
 import styles from './styles.module.css'
+import { FcGoogle } from 'react-icons/fc'
+import { BsMicrosoft } from 'react-icons/bs'
+import { FaApple } from 'react-icons/fa'
 import type { LoginAndromedaProps } from './types'
 
 export const LoginAndromeda = ({
@@ -77,7 +80,8 @@ export const LoginAndromeda = ({
                   className={styles.providerButton}
                   onClick={onGoogleLogin}
                 >
-                  Google
+                  <FcGoogle className={styles.providerIcon} />
+                  <span>Continuar con Google</span>
                 </button>
               )}
 
@@ -87,7 +91,8 @@ export const LoginAndromeda = ({
                   className={styles.providerButton}
                   onClick={onMicrosoftLogin}
                 >
-                  Microsoft
+                  <BsMicrosoft className={styles.providerIcon} />
+                  <span>Continuar con Microsoft</span>
                 </button>
               )}
 
@@ -97,7 +102,8 @@ export const LoginAndromeda = ({
                   className={styles.providerButton}
                   onClick={onAppleLogin}
                 >
-                  Apple
+                  <FaApple className={styles.providerIcon} />
+                  <span>Continuar con Apple</span>
                 </button>
               )}
             </div>
