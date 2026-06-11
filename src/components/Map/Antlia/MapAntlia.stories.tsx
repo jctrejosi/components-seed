@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { MapAntlia } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { MapAntlia } from './index'
 const meta: Meta<any> = {
   title: 'Components/Map/Antlia',
   component: MapAntlia,
@@ -9,10 +9,10 @@ const meta: Meta<any> = {
     '--color-text': { control: 'text', name: '--color-text' },
     '--cta-bg': { control: 'text', name: '--cta-bg' },
     '--color-bg': { control: 'text', name: '--color-bg' },
-    '--map-bg': { control: 'text', name: '--map-bg' }
+    '--map-bg': { control: 'text', name: '--map-bg' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -33,10 +33,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -45,6 +45,6 @@ export const Default: Story = {
     '--color-text': '',
     '--cta-bg': '',
     '--color-bg': '',
-    '--map-bg': ''
-  }
-};
+    '--map-bg': '',
+  },
+}

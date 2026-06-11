@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ContactFormAntlia } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { ContactFormAntlia } from './index'
 const meta: Meta<any> = {
   title: 'Components/ContactForm/Antlia',
   component: ContactFormAntlia,
@@ -28,10 +28,10 @@ const meta: Meta<any> = {
     '--green-50': { control: 'text', name: '--green-50' },
     '--green-900': { control: 'text', name: '--green-900' },
     '--red-50': { control: 'text', name: '--red-50' },
-    '--red-900': { control: 'text', name: '--red-900' }
+    '--red-900': { control: 'text', name: '--red-900' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -52,10 +52,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -83,6 +83,6 @@ export const Default: Story = {
     '--green-50': '',
     '--green-900': '',
     '--red-50': '',
-    '--red-900': ''
-  }
-};
+    '--red-900': '',
+  },
+}

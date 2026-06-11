@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { SkillsAndromeda } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { SkillsAndromeda } from './index'
 const meta: Meta<any> = {
   title: 'Components/Skills/Andromeda',
   component: SkillsAndromeda,
@@ -19,10 +19,10 @@ const meta: Meta<any> = {
     '--bar-height': { control: 'text', name: '--bar-height' },
     '--bar-bg': { control: 'text', name: '--bar-bg' },
     '--gradient-start': { control: 'text', name: '--gradient-start' },
-    '--gradient-end': { control: 'text', name: '--gradient-end' }
+    '--gradient-end': { control: 'text', name: '--gradient-end' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -43,10 +43,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -65,6 +65,6 @@ export const Default: Story = {
     '--bar-height': '',
     '--bar-bg': '',
     '--gradient-start': '',
-    '--gradient-end': ''
-  }
-};
+    '--gradient-end': '',
+  },
+}

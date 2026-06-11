@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ScrollSnapAndromeda } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { ScrollSnapAndromeda } from './index'
 const meta: Meta<any> = {
   title: 'Components/ScrollSnap/Andromeda',
   component: ScrollSnapAndromeda,
   argTypes: {
     '--dot-color': { control: 'text', name: '--dot-color' },
     '--link-size': { control: 'text', name: '--link-size' },
-    '--dot-color-active': { control: 'text', name: '--dot-color-active' }
+    '--dot-color-active': { control: 'text', name: '--dot-color-active' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -30,14 +30,11 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
-  args: {    '--dot-color': '',
-    '--link-size': '',
-    '--dot-color-active': ''
-  }
-};
+  args: { '--dot-color': '', '--link-size': '', '--dot-color-active': '' },
+}

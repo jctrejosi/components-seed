@@ -1,20 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { FileDownloaderAndromeda } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { FileDownloaderAndromeda } from './index'
 const meta: Meta<any> = {
   title: 'Components/FileDownloader/Andromeda',
   component: FileDownloaderAndromeda,
   argTypes: {
     '--downloader-gap': { control: 'text', name: '--downloader-gap' },
     '--downloader-bg': { control: 'text', name: '--downloader-bg' },
-    '--downloader-title-size': { control: 'text', name: '--downloader-title-size' },
-    '--downloader-title-color': { control: 'text', name: '--downloader-title-color' },
+    '--downloader-title-size': {
+      control: 'text',
+      name: '--downloader-title-size',
+    },
+    '--downloader-title-color': {
+      control: 'text',
+      name: '--downloader-title-color',
+    },
     '--downloader-color': { control: 'text', name: '--downloader-color' },
     '--downloader-size': { control: 'text', name: '--downloader-size' },
     '--offset-y': { control: 'text', name: '--offset-y' },
-    '--offset-x': { control: 'text', name: '--offset-x' }
+    '--offset-x': { control: 'text', name: '--offset-x' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -35,10 +41,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -49,6 +55,6 @@ export const Default: Story = {
     '--downloader-color': '',
     '--downloader-size': '',
     '--offset-y': '',
-    '--offset-x': ''
-  }
-};
+    '--offset-x': '',
+  },
+}

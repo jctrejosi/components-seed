@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { CarouselAndromeda } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { CarouselAndromeda } from './index'
 const meta: Meta<any> = {
   title: 'Components/Carousel/Andromeda',
   component: CarouselAndromeda,
@@ -8,10 +8,10 @@ const meta: Meta<any> = {
     '--items-per-view': { control: 'text', name: '--items-per-view' },
     '--bg-base': { control: 'text', name: '--bg-base' },
     '--dot-color': { control: 'text', name: '--dot-color' },
-    '--dot-color-active': { control: 'text', name: '--dot-color-active' }
+    '--dot-color-active': { control: 'text', name: '--dot-color-active' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -32,10 +32,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -43,6 +43,6 @@ export const Default: Story = {
     '--items-per-view': '',
     '--bg-base': '',
     '--dot-color': '',
-    '--dot-color-active': ''
-  }
-};
+    '--dot-color-active': '',
+  },
+}

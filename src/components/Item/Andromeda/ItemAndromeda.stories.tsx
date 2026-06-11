@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ItemAndromeda } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { ItemAndromeda } from './index'
 const meta: Meta<any> = {
   title: 'Components/Item/Andromeda',
   component: ItemAndromeda,
@@ -12,11 +12,14 @@ const meta: Meta<any> = {
     '--font-weight-medium': { control: 'text', name: '--font-weight-medium' },
     '--color-accent': { control: 'text', name: '--color-accent' },
     '--font-size-medium': { control: 'text', name: '--font-size-medium' },
-    '--color-text-secondary': { control: 'text', name: '--color-text-secondary' },
-    '--quote-bg': { control: 'text', name: '--quote-bg' }
+    '--color-text-secondary': {
+      control: 'text',
+      name: '--color-text-secondary',
+    },
+    '--quote-bg': { control: 'text', name: '--quote-bg' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -37,10 +40,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -53,6 +56,6 @@ export const Default: Story = {
     '--color-accent': '',
     '--font-size-medium': '',
     '--color-text-secondary': '',
-    '--quote-bg': ''
-  }
-};
+    '--quote-bg': '',
+  },
+}

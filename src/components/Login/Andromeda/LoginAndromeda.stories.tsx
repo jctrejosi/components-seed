@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { VideoAndromeda } from './index'
+import { LoginAndromeda } from './index'
 const meta: Meta<any> = {
-  title: 'Components/Video/Andromeda',
-  component: VideoAndromeda,
+  title: 'Components/Login/Andromeda',
+  component: LoginAndromeda,
 }
 export default meta
 

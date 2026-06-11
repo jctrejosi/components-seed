@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { HeroSectionAndromeda } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { HeroSectionAndromeda } from './index'
 const meta: Meta<any> = {
   title: 'Components/HeroSection/Andromeda',
   component: HeroSectionAndromeda,
@@ -17,10 +17,10 @@ const meta: Meta<any> = {
     '--highlight-size': { control: 'text', name: '--highlight-size' },
     '--bg-right': { control: 'text', name: '--bg-right' },
     '--shadow-color': { control: 'text', name: '--shadow-color' },
-    '--info-color': { control: 'text', name: '--info-color' }
+    '--info-color': { control: 'text', name: '--info-color' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -41,13 +41,14 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
-  args: {    '--bg-left': '',
+  args: {
+    '--bg-left': '',
     '--object-fit-bg': '',
     '--title-color': '',
     '--title-size': '',
@@ -60,6 +61,6 @@ export const Default: Story = {
     '--highlight-size': '',
     '--bg-right': '',
     '--shadow-color': '',
-    '--info-color': ''
-  }
-};
+    '--info-color': '',
+  },
+}

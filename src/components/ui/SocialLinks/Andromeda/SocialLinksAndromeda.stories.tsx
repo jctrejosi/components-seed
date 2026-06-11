@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { SocialLinksAndromeda } from './index';
+import type { Meta, StoryObj } from '@storybook/react'
+import { SocialLinksAndromeda } from './index'
 const meta: Meta<any> = {
   title: 'Components/SocialLinks/Andromeda',
   component: SocialLinksAndromeda,
@@ -10,10 +10,10 @@ const meta: Meta<any> = {
     '--icon-color': { control: 'text', name: '--icon-color' },
     '--icon-size': { control: 'text', name: '--icon-size' },
     '--icon-bg-hover': { control: 'text', name: '--icon-bg-hover' },
-    '--icon-color-hover': { control: 'text', name: '--icon-color-hover' }
+    '--icon-color-hover': { control: 'text', name: '--icon-color-hover' },
   },
   render: (args) => {
-    const cssVars: Record<string,string> = {}
+    const cssVars: Record<string, string> = {}
     Object.keys(args).forEach((k) => {
       if (k.startsWith('--') && args[k]) {
         cssVars[k] = args[k] as string
@@ -34,10 +34,10 @@ const meta: Meta<any> = {
       </div>
     )
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<any>;
+type Story = StoryObj<any>
 
 export const Default: Story = {
   args: {
@@ -47,6 +47,6 @@ export const Default: Story = {
     '--icon-color': '',
     '--icon-size': '',
     '--icon-bg-hover': '',
-    '--icon-color-hover': ''
-  }
-};
+    '--icon-color-hover': '',
+  },
+}
