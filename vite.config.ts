@@ -30,7 +30,13 @@ export default defineConfig({
       fileName: () => `index.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
+        '@react-google-maps/api',
+      ],
       output: {
         globals: {
           react: 'React',
