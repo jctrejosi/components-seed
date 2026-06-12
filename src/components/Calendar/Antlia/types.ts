@@ -20,4 +20,17 @@ export type CalendarAntliaProps = BasePropComponents & {
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
   onDateClick?: (date: Date, events: CalendarEventAntlia[]) => void
   onEventClick?: (event: CalendarEventAntlia) => void
+  onSaveEvent?: (event: CalendarEventAntlia) => void
+  onDeleteEvent?: (eventId: string) => void
+}
+
+export type CalendarModalAntliaProps = {
+  open: boolean
+  date: Date
+  events: CalendarEventAntlia[]
+  locale?: string
+  onClose: () => void
+  onEventClick?: (event: CalendarEventAntlia) => void
+  onSaveEvent?: (event: CalendarEventAntlia) => void
+  onDeleteEvent?: (eventId: string) => void
 }

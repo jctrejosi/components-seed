@@ -126,13 +126,20 @@ function walkDir(dir: string) {
   fs.readdirSync(dir).forEach((file) => {
     const fullPath = path.join(dir, file)
     const stat = fs.statSync(fullPath)
+
     if (stat.isDirectory()) {
+      if (file === 'components') {
+        return
+      }
+
       walkDir(fullPath)
-    } else if (
-      file.endsWith('.tsx') &&
+      return
+    }
+
+    if (
+      file === 'index.tsx' &&
       !file.endsWith('.stories.tsx') &&
-      !file.endsWith('.test.tsx') &&
-      file === 'index.tsx' // Solo generamos stories si es un index.tsx
+      !file.endsWith('.test.tsx')
     ) {
       generateStory(fullPath)
     }

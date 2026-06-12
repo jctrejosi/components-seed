@@ -1,13 +1,7 @@
-import { useEffect, useMemo, useState } from 'react'
-import {
-  FiChevronLeft,
-  FiChevronRight,
-  FiCalendar,
-  FiClock,
-  FiMapPin,
-  FiX,
-} from 'react-icons/fi'
+import { useMemo, useState } from 'react'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import styles from './styles.module.css'
+import { EventModal } from './components/EventModal'
 import type { CalendarAntliaProps, CalendarEventAntlia } from './types'
 
 function toLocalDateKey(date: Date) {
@@ -27,11 +21,6 @@ function isSameDay(a: Date, b: Date) {
     a.getMonth() === b.getMonth() &&
     a.getDate() === b.getDate()
   )
-}
-
-function formatTime(value?: string) {
-  if (!value) return ''
-  return value
 }
 
 function addDays(date: Date, amount: number) {
@@ -74,10 +63,12 @@ export const CalendarAntlia = ({
   initialDate = new Date(),
   locale = 'es-CO',
   weekStartsOn = 1,
-  className = 'calendar-andromeda',
+  className = 'calendar-Antlia',
   style,
   onDateClick,
   onEventClick,
+  onSaveEvent,
+  onDeleteEvent,
 }: CalendarAntliaProps) => {
   const initial =
     initialDate instanceof Date ? initialDate : parseDate(initialDate)
@@ -93,12 +84,6 @@ export const CalendarAntlia = ({
       }),
       weekday: new Intl.DateTimeFormat(locale, { weekday: 'short' }),
       dayLabel: new Intl.DateTimeFormat(locale, { day: 'numeric' }),
-      modalDate: new Intl.DateTimeFormat(locale, {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      }),
     }),
     [locale]
   )
@@ -106,7 +91,7 @@ export const CalendarAntlia = ({
   const visibleMonthLabel = formatter.monthYear.format(currentDate)
 
   const daysOfWeek = useMemo(() => {
-    const base = new Date(2024, 0, 1) // lunes 1 de enero de 2024
+    const base = new Date(2024, 0, 1)
     return Array.from({ length: 7 }, (_, index) => {
       const offset = (weekStartsOn + index) % 7
       const day = new Date(base)
@@ -146,23 +131,10 @@ export const CalendarAntlia = ({
     return map
   }, [events])
 
-  const selectedDayEvents = useMemo(() => {
-    if (!selectedDate) return []
-    return eventsByDay.get(toLocalDateKey(selectedDate)) ?? []
-  }, [eventsByDay, selectedDate])
-
-  const closeModal = () => setSelectedDate(null)
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        closeModal()
-      }
-    }
-
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
+  const handleDayClick = (date: Date) => {
+    setSelectedDate(date)
+    onDateClick?.(date, eventsByDay.get(toLocalDateKey(date)) ?? [])
+  }
 
   const goToPreviousMonth = () => {
     setCurrentDate(
@@ -180,11 +152,6 @@ export const CalendarAntlia = ({
     const today = new Date()
     setCurrentDate(today)
     setSelectedDate(today)
-  }
-
-  const handleDayClick = (date: Date) => {
-    setSelectedDate(date)
-    onDateClick?.(date, eventsByDay.get(toLocalDateKey(date)) ?? [])
   }
 
   return (
@@ -298,90 +265,16 @@ export const CalendarAntlia = ({
       </div>
 
       {selectedDate && (
-        <div
-          className={styles.modalOverlay}
-          onClick={closeModal}
-          role="presentation"
-        >
-          <div
-            className={styles.modal}
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-          >
-            <div className={styles.modalHeader}>
-              <div>
-                <h3 className={styles.modalTitle}>
-                  {formatter.modalDate.format(selectedDate)}
-                </h3>
-                <p className={styles.modalSubtitle}>
-                  {selectedDayEvents.length > 0
-                    ? `${selectedDayEvents.length} evento(s)`
-                    : 'Sin eventos programados'}
-                </p>
-              </div>
-
-              <button
-                type="button"
-                className={styles.closeButton}
-                onClick={closeModal}
-                aria-label="Cerrar modal"
-              >
-                <FiX />
-              </button>
-            </div>
-
-            <div className={styles.modalBody}>
-              {selectedDayEvents.length === 0 ? (
-                <div className={styles.emptyState}>
-                  <FiCalendar className={styles.emptyIcon} />
-                  <p>No hay eventos para esta fecha.</p>
-                </div>
-              ) : (
-                <div className={styles.eventList}>
-                  {selectedDayEvents.map((event) => (
-                    <article key={event.id} className={styles.eventCard}>
-                      <div
-                        className={styles.eventCardBar}
-                        style={{ backgroundColor: event.color ?? undefined }}
-                      />
-                      <div className={styles.eventCardContent}>
-                        <h4 className={styles.eventCardTitle}>{event.title}</h4>
-
-                        <div className={styles.meta}>
-                          {(event.startTime || event.endTime) && (
-                            <div className={styles.metaItem}>
-                              <FiClock />
-                              <span>
-                                {formatTime(event.startTime)}
-                                {event.endTime
-                                  ? ` - ${formatTime(event.endTime)}`
-                                  : ''}
-                              </span>
-                            </div>
-                          )}
-
-                          {event.location && (
-                            <div className={styles.metaItem}>
-                              <FiMapPin />
-                              <span>{event.location}</span>
-                            </div>
-                          )}
-                        </div>
-
-                        {event.description && (
-                          <p className={styles.description}>
-                            {event.description}
-                          </p>
-                        )}
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+        <EventModal
+          open={Boolean(selectedDate)}
+          date={selectedDate}
+          events={eventsByDay.get(toLocalDateKey(selectedDate)) ?? []}
+          locale={locale}
+          onClose={() => setSelectedDate(null)}
+          onEventClick={onEventClick}
+          onSaveEvent={onSaveEvent}
+          onDeleteEvent={onDeleteEvent}
+        />
       )}
     </section>
   )
