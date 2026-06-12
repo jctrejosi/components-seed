@@ -2,7 +2,6 @@
 import storybook from 'eslint-plugin-storybook'
 
 import js from '@eslint/js'
-import eslintPluginImport from 'eslint-plugin-import'
 import prettier from 'eslint-plugin-prettier'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
@@ -16,7 +15,6 @@ export default tseslint.config(
     {
       files: ['**/*.{ts,tsx}'],
       plugins: {
-        import: eslintPluginImport,
         prettier: prettier,
       },
       settings: {
@@ -36,6 +34,7 @@ export default tseslint.config(
         reactRefresh.configs.vite,
       ],
       rules: {
+        'simple-import-sort/imports': 'warn',
         'import/no-unresolved': 'error',
         'import/order': [
           'warn',
