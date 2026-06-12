@@ -26,7 +26,8 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'components-seed',
-      fileName: (format) => `index.${format}.js`,
+      formats: ['es'],
+      fileName: () => `index.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

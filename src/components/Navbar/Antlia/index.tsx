@@ -5,10 +5,11 @@ import styles from './styles.module.css'
 import type { NavbarAntliaProps } from './types'
 import { returnTranslation } from '@/utils'
 import { translationsSources } from './translations'
+import { linksExample } from './examples'
 
 export const NavbarAntlia = ({
-  logo,
-  links,
+  logo = '',
+  links = linksExample,
   translations = translationsSources,
   onAction = () => {},
   className = 'navbar-antlia',
@@ -40,7 +41,7 @@ export const NavbarAntlia = ({
             <FiX size={22} />
           </button>
 
-          {links.map((link) => (
+          {links?.map((link) => (
             <div
               key={link.label}
               className={styles.dropdown}
@@ -59,7 +60,7 @@ export const NavbarAntlia = ({
                   openDropdown === link.label ? styles.show : ''
                 }`}
               >
-                {link.items.map((item) => (
+                {link.items?.map((item) => (
                   <a key={item.href} href={item.href}>
                     {item.label}
                   </a>

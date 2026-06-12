@@ -5,12 +5,12 @@ import { FaFacebookF, FaInstagram } from 'react-icons/fa'
 import { SiTiktok } from 'react-icons/si'
 
 export const NavbarAndromeda = ({
-  email,
-  phone,
-  address,
-  facebook,
-  instagram,
-  tiktok,
+  email = 'contacto@empresa.com',
+  phone = '+57 300 000 0000',
+  address = 'Medellín, Colombia',
+  facebook = '',
+  instagram = '',
+  tiktok = '',
   style,
 }: NavbarAndromedaProps) => {
   const hasEmail = Boolean(email?.trim())

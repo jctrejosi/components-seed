@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background-color: var(--bg, #fff);
+  background-color: var(--bg, #7c7878);
   color: var(--navbar-color, #000);
   flex-wrap: wrap;
   gap: 1rem;
