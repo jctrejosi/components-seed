@@ -1,6 +1,7 @@
 export * from '../components/Alert/Andromeda/types'
 export * from '../components/AppointmentForm/Andromeda/types'
 export * from '../components/Calendar/Andromeda/types'
+export * from '../components/Calendar/Antlia/types'
 export * from '../components/ContactForm/Andromeda/types'
 export * from '../components/ContactForm/Antlia/types'
 export * from '../components/FileDownloader/Andromeda/types'
