@@ -1,11 +1,11 @@
 {
   "name": "seed-components",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "type": "module",
   "author": "Juan Carlos Trejos Iglesias",
-  "main": "./bundle/index.cjs.js",
-  "module": "./bundle/index.es.js",
+  "main": "./bundle/index.js",
+  "module": "./bundle/index.js",
   "types": "./bundle/index.d.ts",
   "files": [
     "bundle",
