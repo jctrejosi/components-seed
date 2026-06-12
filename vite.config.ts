@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react-swc'
+import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
@@ -6,6 +7,7 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   plugins: [
     react(),
+    libInjectCss(),
     dts({
       tsconfigPath: './tsconfig.app.json',
       include: ['src'],
@@ -20,7 +22,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'bundle',
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'components-seed',
