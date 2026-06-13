@@ -4,6 +4,7 @@ import { translationsSources } from './translations'
 import { returnTranslation } from '@/utils'
 import { CarouselAndromeda } from '@/components/ui/Carousel/Andromeda'
 import { exampleItems } from './examples'
+import { FiClock, FiSend } from 'react-icons/fi'
 
 export const ItemAndromeda = (props: InfoItemAndromedaProps) => {
   const { items = exampleItems, style } = props
@@ -30,8 +31,11 @@ export const ItemAndromeda = (props: InfoItemAndromedaProps) => {
                   className={styles.quoteButton}
                   onClick={item.onButtonClick}
                 >
-                  {item.buttonText ||
-                    returnTranslation(translationsSources.quote_button)}
+                  <FiClock className={styles.buttonIcon} />
+                  <span className={styles.buttonText}>
+                    {item.buttonText ||
+                      returnTranslation(translationsSources.quote_button)}
+                  </span>
                 </button>
               </div>
 
