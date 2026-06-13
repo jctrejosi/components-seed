@@ -3,7 +3,9 @@
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: 48px;
-  padding: 60px 48px;
+  padding: 60px 0;
+  max-width: 1000px;
+  margin: 0 auto;
   box-sizing: border-box;
   align-items: stretch;
   background: var(--bg);
@@ -18,10 +20,24 @@
 }
 
 .title {
-  font-size: 28px;
+  font-size: var(--title-size, 28px);
   color: var(--color-primary);
   line-height: 1.1;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2.5rem;
 }
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background-color: var(--color-primary, #d4af37);
+}
+
 
 .item {
   display: flex;
@@ -39,19 +55,25 @@
 
 .mapsButton,
 .secondaryButton {
-  margin-top: 12px;
+  margin-top: 2rem;
   width: fit-content;
-  background: var(--cta-bg, red);
+  background: var(--cta-bg, rgb(200, 221, 122));
   color: var(--color-bg);
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: var(--font-size-btn, 14px);
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
 }
 
 .secondaryButton {

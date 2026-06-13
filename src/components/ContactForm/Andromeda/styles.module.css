@@ -26,8 +26,8 @@
 .innerContainer {
   margin: 0 auto;
   width: 100%;
-  max-width: 800px;
-  padding: 4rem 2rem;
+  max-width: 1000px;
+  padding: 4rem 0;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -36,14 +36,27 @@
 
 .title {
   color: var(--title-color);
-  font-size: 2rem;
+  font-size: var(--title-size, 28px);
   font-weight: bold;
-  margin: 0;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0; /* <- clave */
+  width: 80px;
+  height: 2px;
+  background-color: var(--title-color);
 }
 
 .subtitle {
   color: var(--subtitle-color);
-  margin: 1rem 0 2rem;
+  margin-bottom: 4rem;
+  font-size: var(--subtitle-size, 22px);
 }
 
 .form {
@@ -72,7 +85,7 @@
 }
 
 .field label {
-  font-size: 0.9rem;
+  font-size: var(--font-size-label, 18px);
 }
 
 .field input,
@@ -81,7 +94,7 @@
   border: none;
   border-bottom: 1px solid var(--field-color, var(--border-color));
   color: var(--input-color-text, var(--text-color));
-  font-size: 1rem;
+  font-size: var(--font-size-input, 18px);
   outline: none;
   padding: 0.5rem;
   resize: vertical;
@@ -105,12 +118,13 @@
   cursor: pointer;
   font-weight: bold;
   letter-spacing: 1px;
-  padding: 0.85rem 2rem;
+  padding: 1rem 2rem;
   text-transform: uppercase;
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
   border-radius: var(--border-radius-small, 4px);
+  font-size: var(--font-size-btn, 18px);
 }
 
 .button:hover {

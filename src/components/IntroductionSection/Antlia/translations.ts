@@ -7,30 +7,35 @@ export const translationsSources = {
   specialist_name: {
     es: 'Camila Cardona',
   },
+  specialist_subtitle: {
+    es: 'Especialista en rehabilitación estética',
+    en: 'Aesthetic rehabilitation specialist',
+    pt: 'Especialista em reabilitação estética',
+  },
   specialist_description: {
-    es: 'Especialista en diseño de sonrisa y rehabilitación oral con más de 10 años de experiencia.',
-    en: 'Smile design and oral rehabilitation specialist with over 10 years of experience.',
-    pt: 'Especialista em design de sorriso e reabilitação oral com mais de 10 anos de experiência.',
+    es: 'Tu sonrisa es una de las primeras cosas que las personas recuerdan de ti. Por eso trabajamos con tratamientos estéticos y restaurativos que combinan salud, funcionalidad y naturalidad para ayudarte a sonreír con confianza.',
+    en: 'Your smile is one of the first things people remember about you. That is why we provide aesthetic and restorative treatments that combine health, functionality, and natural beauty to help you smile with confidence.',
+    pt: 'Seu sorriso é uma das primeiras coisas que as pessoas lembram em você. Por isso trabalhamos com tratamentos estéticos e restauradores que combinam saúde, funcionalidade e naturalidade para ajudar você a sorrir com confiança.',
   },
   smiles_designed_value: {
     es: '+ 2000',
   },
   smiles_designed: {
-    es: 'Diseños de sonrisa realizados',
-    en: 'Smile designs completed',
-    pt: 'Designs de sorriso realizados',
+    es: 'Procedimientos realizados',
+    en: 'Procedures completed',
+    pt: 'Procedimentos realizados',
   },
   satisfied_clients_value: {
     es: '+ 500',
   },
   satisfied_clients: {
-    es: 'Clientes satisfechos',
-    en: 'Satisfied clients',
-    pt: 'Clientes satisfeitos',
+    es: 'Pacientes felices',
+    en: 'Happy patients',
+    pt: 'Pacientes satisfeitos',
   },
   cta_button: {
-    es: 'Agendar cita',
-    en: 'Schedule appointment',
-    pt: 'Agendar consulta',
+    es: 'Solicita una valoración',
+    en: 'Request an evaluation',
+    pt: 'Solicite uma avaliação',
   },
 }

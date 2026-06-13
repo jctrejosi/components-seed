@@ -24,7 +24,9 @@
 }
 
 .statistics {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  gap: 3rem;
+  display: flex;
 }
 
 .specialistName {
@@ -47,15 +49,50 @@
   background-color: var(--color-accent, #d4af37);
 }
 
+.specialistSubtitle {
+  font-size: var(--font-size-specialist-subtitle, 20px);
+  color: var(--color-subtitle, #ffffff);
+  margin-top: 2rem;
+}
+
 .specialistDescription {
-  font-size: var(--font-size-specialist-description, 16px);
+  font-size: var(--font-size-specialist-description, 18px);
   color: var(--color-specialist-text, #cccccc);
   max-width: 500px;
-  margin-top: 2rem;
+  margin-top: 3rem;
+}
+
+.ctaButton {
+  padding: var(--padding-v, 12px) var(--padding-h, 30px);
+  background: var(--cta-bg, #d4af37);
+  color: var(--color-cta-text, #1a1a1a);
+  border: none;
+  border-radius: var(--border-radius-small, 4px);
+  font-size: var(--font-size-cta-button, 18px);
+  font-weight: var(--font-weight-bold, 700);
+  cursor: pointer;
+  margin-top: 4rem;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 25px rgba(212, 175, 55, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.ctaButton:active {
+  transform: translateY(-1px);
 }
 
 .imageContainer {
   max-width: 400px;
+  margin-top: 4rem;
 }
 
 .specialistImage {
@@ -66,27 +103,11 @@
   mask-image: linear-gradient(to top, transparent 0%, black 40%);
 }
 
-.ctaButton {
-  padding: var(--spacing-small, 12px) var(--spacing-medium, 24px);
-  background: var(--cta-bg, #d4af37);
-  color: var(--color-cta-text, #1a1a1a);
-  border: none;
-  border-radius: var(--border-radius-small, 4px);
-  font-size: var(--font-size-cta-button, 16px);
-  font-weight: var(--font-weight-bold, 700);
-  cursor: pointer;
-  margin-top: var(--spacing-medium, 16px);
-}
-
-.ctaButton:hover {
-  opacity: 0.9;
-}
-
 /* responsive */
 
 @media (max-width: 900px) {
   .container {
-    padding: 6rem 0;
+    padding: 6rem 3rem;
   }
 
   .specialistImage {
@@ -97,7 +118,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 3rem;
   }
 
   .specialistName::after {

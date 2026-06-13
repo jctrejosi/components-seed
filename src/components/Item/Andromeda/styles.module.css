@@ -37,6 +37,18 @@
   font-weight: var(--font-weight-bold, 700);
   color: var(--color-title, #333);
   margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0; /* <- clave */
+  width: 80px;
+  height: 2px;
+  background-color: var(--color-title, #333);
 }
 
 .subtitle {
@@ -69,6 +81,67 @@
   font-size: var(--font-size-button, 16px);
   font-weight: 700;
   cursor: pointer;
+
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* glow base (siempre existe pero suave) */
+.quoteButton::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.35),
+    transparent 65%
+  );
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.25s ease;
+}
+
+/* hover principal */
+.quoteButton:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(212, 175, 55, 0.25),
+    0 10px 25px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.05);
+}
+
+/* activar glow */
+.quoteButton:hover::before {
+  opacity: 1;
+  animation: glowPulse 1.6s ease-in-out infinite;
+}
+
+/* click */
+.quoteButton:active {
+  transform: translateY(-1px);
+}
+
+/* animación premium */
+@keyframes glowPulse {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(0.98);
+    opacity: 0.35;
+  }
 }
 
 .carouselContainer {

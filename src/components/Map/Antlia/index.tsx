@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 import type { MapAntliaProps } from './types'
 import { translationsSources } from './translations'
 import { returnTranslation } from '@/utils'
+import { FiMap } from 'react-icons/fi'
 
 const mapContainerStyle = {
   width: '100%',
@@ -117,16 +118,15 @@ export const MapAntlia = ({
             <span>{email}</span>
           </div>
         )}
-
         <a
           className={styles.mapsButton}
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
+          <FiMap style={{ marginRight: 8 }} />
           {returnTranslation(translationsSources.map_open_in_google_maps)}
         </a>
-
         {onOpenMaps && (
           <button className={styles.secondaryButton} onClick={onOpenMaps}>
             {returnTranslation(translationsSources.map_open_in_google_maps)}

@@ -4,8 +4,8 @@ export const translationsSources = {
     en: 'Send me a message!',
   },
   subtitle: {
-    es: '¿Tienes una pregunta o propuesta, o simplemente quieres saludar? Adelante.',
-    en: 'Got a question or proposal, or just want to say hello? Go ahead.',
+    es: 'Resuelve tus dudas, solicita una valoración o agenda tu cita fácilmente. Tu sonrisa empieza aquí.',
+    en: 'Get your questions answered, request an evaluation, or book your appointment easily. Your smile starts here.',
   },
   label_name: {
     es: 'Tu nombre',
@@ -36,8 +36,8 @@ export const translationsSources = {
     en: 'Enter your phone number',
   },
   placeholder_message: {
-    es: 'Hola, creo que necesitamos un sistema de diseño para nuestros productos en la empresa X...',
-    en: 'Hi, I think we need a design system for our products at Company X...',
+    es: 'Hola, me gustaría agendar una valoración o tengo una duda sobre un tratamiento...',
+    en: 'Hi, I would like to schedule an evaluation or have a question about a treatment...',
   },
   button: {
     es: 'ENVIAR →',

@@ -15,6 +15,11 @@ export const IntroductionSectionAntlia = ({
           <h2 className={styles.specialistName}>
             {returnTranslation(translationsSources.specialist_name)}
           </h2>
+          {translationsSources.specialist_subtitle && (
+            <h3 className={styles.specialistSubtitle}>
+              {returnTranslation(translationsSources.specialist_subtitle)}
+            </h3>
+          )}
           <p className={styles.specialistDescription}>
             {returnTranslation(translationsSources.specialist_description)}
           </p>
