@@ -6,22 +6,28 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-// carpeta base (ajustada a tu estructura real)
 const baseDir = resolve(__dirname, '../src/components')
 
-// buscar todos los index.tsx dentro de /components
-const files = glob.sync('**/index.tsx', { cwd: baseDir })
-
-// generar exports incluyendo toda la ruta relativa (sin /index.tsx)
-const exports = files.map((file) => {
-  // elimina tanto \index.tsx como /index.tsx del final
-  const pathWithoutIndex = file.replace(/[\\/]index\.tsx$/, '')
-  // convierte todos los separadores a /
-  const normalized = pathWithoutIndex.replace(/\\/g, '/')
-  return `export * from './${normalized}'`
+const files = glob.sync('**/index.tsx', {
+  cwd: baseDir,
+  ignore: [
+    '**/component-example/**',
+    '**/component-example/components/**',
+    '**/Map/**',
+    '**/*.stories.tsx',
+    '**/*.test.tsx',
+    '**/*.spec.tsx',
+  ],
 })
 
-// escribir el archivo index.ts dentro de /components
+const exports = files
+  .map((file) => {
+    const pathWithoutIndex = file.replace(/[\\/]index\.tsx$/, '')
+    const normalized = pathWithoutIndex.replace(/\\/g, '/')
+    return `export * from './${normalized}'`
+  })
+  .sort()
+
 writeFileSync(resolve(baseDir, 'index.ts'), exports.join('\n') + '\n')
 
 console.log(

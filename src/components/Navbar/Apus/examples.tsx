@@ -1,4 +1,10 @@
-import { FiBarChart2, FiCalendar, FiDollarSign, FiUsers } from 'react-icons/fi'
+import {
+  FiBarChart2,
+  FiCalendar,
+  FiDollarSign,
+  FiUsers,
+  FiFileText,
+} from 'react-icons/fi'
 import type { NavbarApusModule } from './types'
 
 export const modulesExamples: NavbarApusModule[] = [
@@ -21,5 +27,10 @@ export const modulesExamples: NavbarApusModule[] = [
     key: 'finance',
     label: 'finanzas',
     icon: <FiDollarSign />,
+  },
+  {
+    key: 'documents',
+    label: 'documentos',
+    icon: <FiFileText />,
   },
 ]

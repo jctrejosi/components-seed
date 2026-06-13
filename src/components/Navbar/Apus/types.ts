@@ -1,9 +1,7 @@
-import type { ReactNode } from 'react'
-
-export type NavbarApusModuleKey = string
+import type { CSSProperties, ReactNode } from 'react'
 
 export type NavbarApusModule = {
-  key: NavbarApusModuleKey
+  key: string
   label: string
   icon?: ReactNode
 }
@@ -15,10 +13,14 @@ export type NavbarApusUser = {
 
 export type NavbarApusProps = {
   brand?: string
-  modules: NavbarApusModule[]
-  activeModule?: NavbarApusModuleKey
-  onNavigate?: (moduleKey: NavbarApusModuleKey) => void
+  modules?: NavbarApusModule[]
+  activeModule?: string
+  onNavigate?: (moduleKey: string) => void
   user?: NavbarApusUser
+  notificationsCount?: number
+  onNotificationsClick?: () => void
   onUserClick?: () => void
   onSettingsClick?: () => void
+  className?: string
+  style?: CSSProperties
 }

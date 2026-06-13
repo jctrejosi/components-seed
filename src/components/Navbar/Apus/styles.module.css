@@ -9,13 +9,15 @@
   background: var(--bg, #ffffff);
   color: var(--text, #111111);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
 }
 
 .left {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .brand {
@@ -31,8 +33,17 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1 1 auto;
+  padding-bottom: 0.15rem;
+}
+
+.modules::-webkit-scrollbar {
+  display: none;
 }
 
 .moduleButton {
@@ -51,6 +62,7 @@
     border-color 0.2s ease,
     transform 0.1s ease;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .moduleButton:hover {
@@ -82,17 +94,17 @@
   display: flex;
   align-items: center;
   margin-left: auto;
+  flex: 0 0 auto;
 }
 
-.configGroup {
+.actionsGroup {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.45rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.configButton,
-.settingsButton {
+.iconButton,
+.userButton {
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: transparent;
   color: inherit;
@@ -103,18 +115,51 @@
     border-color 0.2s ease;
 }
 
-.configButton {
+.iconButton:hover,
+.userButton:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.iconButton {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.actionIcon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.userButton {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 0.55rem 0.8rem;
   min-width: 180px;
-}
-
-.configButton:hover,
-.settingsButton:hover {
-  background: rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .userAvatar {
@@ -131,7 +176,13 @@
   font-size: 0.9rem;
 }
 
-.configText {
+.avatarIcon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.userText {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -139,21 +190,15 @@
   min-width: 0;
 }
 
-.configTitle {
+.userTitle {
   font-size: 0.86rem;
   font-weight: 600;
   text-transform: lowercase;
 }
 
-.configSubtitle {
+.userSubtitle {
   font-size: 0.74rem;
   opacity: 0.65;
-  text-transform: lowercase;
-}
-
-.settingsButton {
-  padding: 0.48rem 0.8rem;
-  font-size: 0.82rem;
   text-transform: lowercase;
 }
 
@@ -161,34 +206,66 @@
   .navbar {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
   }
 
   .left {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.85rem;
+    align-items: stretch;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  .brand {
+    width: 100%;
+  }
+
+  .modules {
+    width: 100%;
+    gap: 0.45rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .moduleButton {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.88rem;
   }
 
   .right {
-    margin-left: 0;
-    align-self: flex-start;
-  }
-
-  .configGroup {
     width: 100%;
-    flex-direction: row;
-    align-items: stretch;
+    margin-left: 0;
+    justify-content: flex-end;
   }
 
-  .configButton {
+  .actionsGroup {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .userButton {
+    flex: 1 1 auto;
     min-width: 0;
-    flex: 1;
+    justify-content: flex-start;
   }
 
-  .settingsButton {
+  .userText {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .userTitle,
+  .userSubtitle {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  }
+
+  .iconButton {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
   }
 }
