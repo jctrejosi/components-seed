@@ -17,6 +17,11 @@ const meta: Meta<any> = {
       name: '--font-size-specialist-name',
     },
     '--font-weight-bold': { control: 'text', name: '--font-weight-bold' },
+    '--font-size-specialist-subtitle': {
+      control: 'text',
+      name: '--font-size-specialist-subtitle',
+    },
+    '--color-subtitle': { control: 'text', name: '--color-subtitle' },
     '--font-size-specialist-description': {
       control: 'text',
       name: '--font-size-specialist-description',
@@ -25,10 +30,7 @@ const meta: Meta<any> = {
       control: 'text',
       name: '--color-specialist-text',
     },
-    '--border-radius-medium': {
-      control: 'text',
-      name: '--border-radius-medium',
-    },
+    '--padding-v': { control: 'text', name: '--padding-v' },
     '--cta-bg': { control: 'text', name: '--cta-bg' },
     '--color-cta-text': { control: 'text', name: '--color-cta-text' },
     '--border-radius-small': { control: 'text', name: '--border-radius-small' },
@@ -36,7 +38,10 @@ const meta: Meta<any> = {
       control: 'text',
       name: '--font-size-cta-button',
     },
-    '--spacing-medium': { control: 'text', name: '--spacing-medium' },
+    '--border-radius-medium': {
+      control: 'text',
+      name: '--border-radius-medium',
+    },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -74,13 +79,15 @@ export const Default: Story = {
     '--spacing-small': '',
     '--font-size-specialist-name': '',
     '--font-weight-bold': '',
+    '--font-size-specialist-subtitle': '',
+    '--color-subtitle': '',
     '--font-size-specialist-description': '',
     '--color-specialist-text': '',
-    '--border-radius-medium': '',
+    '--padding-v': '',
     '--cta-bg': '',
     '--color-cta-text': '',
     '--border-radius-small': '',
     '--font-size-cta-button': '',
-    '--spacing-medium': '',
+    '--border-radius-medium': '',
   },
 }

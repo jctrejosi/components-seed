@@ -5,10 +5,12 @@ const meta: Meta<any> = {
   component: MapAntlia,
   argTypes: {
     '--bg': { control: 'text', name: '--bg' },
+    '--title-size': { control: 'text', name: '--title-size' },
     '--color-primary': { control: 'text', name: '--color-primary' },
     '--color-text': { control: 'text', name: '--color-text' },
     '--cta-bg': { control: 'text', name: '--cta-bg' },
     '--color-bg': { control: 'text', name: '--color-bg' },
+    '--font-size-btn': { control: 'text', name: '--font-size-btn' },
     '--map-bg': { control: 'text', name: '--map-bg' },
   },
   render: (args) => {
@@ -41,10 +43,12 @@ type Story = StoryObj<any>
 export const Default: Story = {
   args: {
     '--bg': '',
+    '--title-size': '',
     '--color-primary': '',
     '--color-text': '',
     '--cta-bg': '',
     '--color-bg': '',
+    '--font-size-btn': '',
     '--map-bg': '',
   },
 }
