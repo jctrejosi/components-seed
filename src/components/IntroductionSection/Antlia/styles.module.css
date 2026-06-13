@@ -63,7 +63,7 @@
 }
 
 .ctaButton {
-  padding: var(--padding-v, 12px) var(--padding-h, 30px);
+  padding: var(--padding-v, 15px) var(--padding-h, 20px);
   background: var(--cta-bg, #d4af37);
   color: var(--color-cta-text, #1a1a1a);
   border: none;
@@ -73,10 +73,20 @@
   cursor: pointer;
   margin-top: 4rem;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
     background-color 0.3s ease;
+}
+
+.ctaButton svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .ctaButton:hover {

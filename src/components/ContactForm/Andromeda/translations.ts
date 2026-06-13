@@ -40,7 +40,7 @@ export const translationsSources = {
     en: 'Hi, I would like to schedule an evaluation or have a question about a treatment...',
   },
   button: {
-    es: 'ENVIAR →',
-    en: 'SHOOT →',
+    es: 'Enviar mensaje →',
+    en: 'Send message →',
   },
 }

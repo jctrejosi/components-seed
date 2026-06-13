@@ -2,6 +2,7 @@ import styles from './styles.module.css'
 import { translationsSources } from './translations'
 import { returnTranslation } from '@/utils'
 import type { IntroductionSectionAntliaProps } from './types'
+import { FiClipboard } from 'react-icons/fi'
 
 export const IntroductionSectionAntlia = ({
   image,
@@ -46,6 +47,7 @@ export const IntroductionSectionAntlia = ({
             onClick={onCtaClick}
             aria-label={returnTranslation(translationsSources.cta_button)}
           >
+            <FiClipboard style={{ marginRight: 8 }} />
             {returnTranslation(translationsSources.cta_button)}
           </button>
         </div>
