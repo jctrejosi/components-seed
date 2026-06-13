@@ -168,6 +168,12 @@
 }
 
 @media (max-width: 768px) {
+  .title::after {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
   .innerContainer {
     padding: 3rem 1.25rem;
   }
