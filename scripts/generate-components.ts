@@ -13,7 +13,6 @@ const files = glob.sync('**/index.tsx', {
   ignore: [
     '**/component-example/**',
     '**/component-example/components/**',
-    '**/Map/**',
     '**/*.stories.tsx',
     '**/*.test.tsx',
     '**/*.spec.tsx',
