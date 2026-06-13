@@ -23,9 +23,8 @@ export const NavbarApus = ({
       className={[styles.navbar, className].filter(Boolean).join(' ')}
       style={style}
     >
+      <div className={styles.brand}>{brand}</div>
       <div className={styles.left}>
-        <div className={styles.brand}>{brand}</div>
-
         <nav className={styles.modules} aria-label="navegación principal">
           {modules.map((module) => {
             const isActive = activeModule === module.key

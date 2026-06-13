@@ -215,6 +215,7 @@
     align-items: stretch;
     gap: 0.65rem;
     width: 100%;
+    order: 1;
   }
 
   .brand {

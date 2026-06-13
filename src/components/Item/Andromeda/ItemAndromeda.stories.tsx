@@ -11,12 +11,16 @@ const meta: Meta<any> = {
     '--font-size-large': { control: 'text', name: '--font-size-large' },
     '--font-weight-medium': { control: 'text', name: '--font-weight-medium' },
     '--color-accent': { control: 'text', name: '--color-accent' },
-    '--font-size-medium': { control: 'text', name: '--font-size-medium' },
+    '--font-size-description': {
+      control: 'text',
+      name: '--font-size-description',
+    },
     '--color-text-secondary': {
       control: 'text',
       name: '--color-text-secondary',
     },
     '--quote-bg': { control: 'text', name: '--quote-bg' },
+    '--font-size-medium': { control: 'text', name: '--font-size-medium' },
   },
   render: (args) => {
     const cssVars: Record<string, string> = {}
@@ -54,8 +58,9 @@ export const Default: Story = {
     '--font-size-large': '',
     '--font-weight-medium': '',
     '--color-accent': '',
-    '--font-size-medium': '',
+    '--font-size-description': '',
     '--color-text-secondary': '',
     '--quote-bg': '',
+    '--font-size-medium': '',
   },
 }
